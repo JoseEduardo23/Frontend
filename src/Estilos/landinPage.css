@@ -1,73 +1,108 @@
-/* Estilo para el main */
-main {
-  background-color: white;
-  padding-left: 2.5rem; /* 10px */
-  padding-right: 2.5rem; /* 10px */
-}
-.logo1{
-  width: 70px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Estilos para el modo normal */
+main{
+  width: 100%;
+  background-color: #6DA5C0;
+}
+
+.barra1 {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  background-color: #1f2937;
+  margin-left: -160px;
+  width: 1707px;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li{
+  color: black;
+  margin-right:80px;
+}
+
+a{
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  margin-left: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.barra1 ul li {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+img {
+  cursor: pointer;
+  width: 70px;
+  height: 50px;
+}
+
+p{
+  color: black;
+}
+
+
+
+/* Estilos para el modo oscuro */
+.dark h1{
+  color: white;
+}
+.dark li{
+  color: white;
+}
+.dark a{
+  color: white;
+}
+.dark main{
+  background-color: #1f2937;
+}
+.dark p{
+  color: white;
+}
+
+.dark .barra1{
+  background-color: #6DA5C0;
+}
+
+.dark {
+  background-color: #1f2937;
+}
+
+
+/* Ajustes de padding */
 @media (min-width: 768px) {
   main {
-      padding-left: 5rem; /* 20px */
-      padding-right: 5rem; /* 20px */
+    padding-left: 5rem; /* 20px */
+    padding-right: 5rem; /* 20px */
   }
 }
 
 @media (min-width: 1024px) {
   main {
-      padding-left: 10rem; /* 40px */
-      padding-right: 10rem; /* 40px */
+    padding-left: 10rem; /* 40px */
+    padding-right: 10rem; /* 40px */
   }
 }
 
-.dark main {
-  background-color: #2d3748; /* gray-800 */
-}
-
-/* Estilo para el nav */
-nav {
-  padding: 2.5rem; /* 10px */
-  margin-bottom: 3rem; /* 12px */
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Estilo para el h1 */
-h1 {
-  font-size: 1.5rem; /* 2xl */
-  font-weight: bold;
-}
-
-.dark h1 {
-  color: white;
-}
-
-/* Estilo para el ul */
-ul {
-  display: flex;
-  align-items: center;
-}
-
-/* Estilo para el img */
-img {
-  cursor: pointer;
-}
-
-/* Estilo para el link */
-a {
-  background-color: #4b5563; /* gray-600 */
-  color: #cbd5e0; /* slate-400 */
-  padding-left: 1.5rem; /* 6px */
-  padding-right: 1.5rem; /* 6px */
-  padding-top: 0.5rem; /* 2px */
-  padding-bottom: 0.5rem; /* 2px */
-  border-radius: 9999px; /* rounded-full */
-  margin-left: 2rem; /* 8px */
-}
-
-a:hover {
-  background-color: #1f2937; /* gray-900 */
-  color: white;
-}
