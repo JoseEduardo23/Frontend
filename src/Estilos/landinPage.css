@@ -7,9 +7,9 @@
 /* Estilos generales */
 main {
   width: 100%;
-  background-color: #5483B3;
+  background-color: white;
   padding: 1rem;
-  min-height: 150vh;
+  min-height: 100%;
 }
 
 .barra1 {
@@ -107,6 +107,146 @@ ul {
   box-shadow: 4px 3px 10px 4px #021024;
 }
 
+.section3{
+  margin-top: 170px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+p{
+  text-align: justify;
+}
+.texto2{
+  padding: 8px;
+  text-align: justify;
+  width: 455px;
+  text-align: justify;
+}
+.texto3{
+  padding: 8px;
+  text-align: justify;
+  width: 455px;
+  text-align: justify;
+}
+.texto4{
+  padding: 8px;
+  text-align: justify;
+  width: 455px;
+  text-align: justify;
+}
+
+.texto2, .texto3, .texto4{
+  box-shadow: 1px 1px 5px 2px black;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.title3{
+  font-size: 20px;
+  padding-bottom: 7px;
+}
+
+.img3, .img4, .img5{
+  width: 50px;
+  height: 50px;
+}
+
+/*Footer*/
+
+.footer{
+  border: 2px solid;
+  margin-top: 100px;
+  background-color: #021024;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 80px;
+  padding-left: 80px;
+  align-items: center;
+}
+
+.parr3{
+  color: white;
+}
+
+.img6, .img7, .img8{
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+  box-shadow: 1px 1px 8px 2px purple;
+  background-color: white;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact{
+  display: flex;
+  width: 300px;
+  align-content: center;
+}
+
+spam{
+  color: white;
+  font-size: 10px;
+}
+
+.contact spam{
+  margin-left: 10px;
+}
+
+.img9{
+  width: 80px;
+  height: 80px;
+  margin-left: 150px;
+}
+
+.img10, .img11, .img12{
+  width: 20px;
+  height: 20px;
+  display:block;
+  margin-top: 2px;
+  background-color: white;
+  object-fit: cover;
+  border-radius: 40%;
+  margin-left: 5px;
+}
+
+.enlaces{
+  width: 150px; 
+  align-content: center;
+}
+.dat{
+  display: block;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.d1{
+  margin-top: 10px;
+}
+
+.paginas{
+  align-content: center;
+}
+
+.comments{
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+input, button{
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  width: 170px;
+  height: 25px;
+  border: 2px solid black;
+}
+
 /* Estilos para el modo oscuro */
 
 .dark h2{
@@ -146,21 +286,48 @@ ul {
   border: 2px solid #5483B3;
   box-shadow: 1px 1px 5px 2px #5483B3;
 }
+.dark .parr2{
+  color: black;
+}
+
+.dark .title3{
+  color: black;
+}
+
+.dark .footer{
+  background-color: #5483B3;
+}
+
+.dark .parr3{
+  color: black;
+}
+
+.dark spam{
+  color: black;
+}
+
 
 
 /* Media Queries para dispositivos pequeños */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.2rem;
+
+  /* Barra superior */
+  .barra1 {
+    flex-direction: column;
+    padding: 1rem 0;
   }
 
   .barra1 ul {
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
   }
 
   li {
-    margin-right: 10px;
+    margin-right: 0;
     font-size: 0.9rem;
   }
 
@@ -169,39 +336,153 @@ ul {
     height: 25px;
   }
 
+  /* Ajustes en imágenes */
   img {
-    width: 100%;  /* Evita distorsión, se adapta al contenedor */
+    width: 100%;
     height: auto;
   }
 
+  .img6, .img7, .img8 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .img10, .img11, .img12 {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 5px;
+  }
+
+  /* Sección de texto */
   p {
     font-size: 0.9rem;
   }
 
+  .texto1 p {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  .texto2, .texto3, .texto4 {
+    width: 100%; /* Asegurarse de que los bloques de texto ocupen el ancho completo */
+    margin-top: 10px;
+    padding: 10px;
+  }
+
   .divContainer {
-    grid-template-columns: 1fr;  /* Una columna en pantallas pequeñas */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%; /* Hacer los contenedores más pequeños para pantallas móviles */
+  }
+
+  /* Ajustes en secciones */
+  .section2 {
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
   }
 
-  .section2 {
-    flex-direction: column; /* En pantallas pequeñas, los elementos se colocan en columna */
-    align-items: center;    /* Centra los elementos */
+  .section3 {
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
-  .divContainer {
-    flex-direction: column;  /* Cambiar a columna */
-    align-items: center;     /* Centrar los elementos */
+  /* Footer */
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  
+  /* Footer */
+  .footer {
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    justify-content: center; /* Centrar el contenido */
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 50px; /* Reduce el margen superior para que no se vea tan alejado */
+    height: auto; /* Ajustar la altura del footer */
   }
 
-  .texto1 p {
-    font-size: 1rem;  /* Reducir el tamaño del texto */
-    line-height: 1.4; /* Ajustar el espaciado entre líneas */
-    padding: 0 10px;  /* Agregar un pequeño relleno para no tocar los bordes */
+  .parr3 {
+    color: white;
+    font-size: 1rem; /* Aumentar el tamaño de fuente para dispositivos pequeños */
+    text-align: center;
+    margin-top: 10px;
   }
 
-  .img2 img {
-    width: 100%; /* Ajusta la imagen al 100% del ancho disponible */
-    height: auto;
+  /* Iconos en el footer */
+  .img6, .img7, .img8 {
+    width: 40px; /* Reducir tamaño para pantallas pequeñas */
+    height: 40px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 5px 1px purple; /* Reduce el tamaño de la sombra */
   }
 
+  .contact {
+    flex-direction: column; /* Apilar las imágenes y el texto */
+    width: 100%; /* Hacer el contenedor del contacto más pequeño */
+    align-items: center; /* Centrar los elementos */
+    margin-top: 10px;
+  }
+
+  .contact spam {
+    font-size: 12px; /* Aumentar el tamaño de la fuente para que sea legible */
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .img9 {
+    width: 60px; 
+    height: 60px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+
+  /* Iconos pequeños (img10, img11, img12) */
+  .img10, .img11, .img12 {
+    width: 15px; /* Reducir el tamaño de los iconos */
+    height: 15px;
+    margin-left: 2px;
+  }
+
+  /* Enlaces */
+  .enlaces {
+    width: 100%; /* Hacer el contenedor de enlaces más pequeño */
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* Datos */
+  .dat {
+    display: block;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .d1 {
+    margin-top: 5px;
+  }
+
+  /* Ajustes en formularios (input y button) */
+  input, button {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 100%; /* Hacer los inputs y botones más grandes */
+    height: 35px;
+    border-radius: 5px;
+  }
+
+  /* Comentarios */
+  .comments {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+}
 }
