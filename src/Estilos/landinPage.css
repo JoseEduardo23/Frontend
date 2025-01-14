@@ -4,105 +4,204 @@
   box-sizing: border-box;
 }
 
-/* Estilos para el modo normal */
-main{
+/* Estilos generales */
+main {
   width: 100%;
-  background-color: #6DA5C0;
+  background-color: #5483B3;
+  padding: 1rem;
+  min-height: 150vh;
 }
 
 .barra1 {
-  padding: 1.5rem;
   display: flex;
+  box-shadow: 4px 4px 10px 2px #1f2937;
   align-items: center;
-  background-color: #1f2937;
-  margin-left: -160px;
-  width: 1707px;
-  justify-content: center;
+  background-color: #021024;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 1rem;
 }
 
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
+  color: white;
+  margin-left: 50px;
+}
+h2{
   color: black;
+}
+
+li {
+  color: white;
+  margin-right: 20px;
+  font-size: 1rem;
 }
 
 li a {
   text-decoration: none;
-}
-
-li{
-  color: black;
-  margin-right:80px;
-}
-
-a{
-  color: black;
+  color: inherit;
 }
 
 ul {
   list-style-type: none;
-  align-items: center;
   display: flex;
-  margin-left: 200px;
-  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; 
   align-items: center;
+  margin: 0;
 }
 
-.barra1 ul li {
-  margin-left: 20px;
+.img1 {
   cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-top: 4px;
 }
 
-img {
-  cursor: pointer;
-  width: 70px;
-  height: 50px;
+.inf{
+  margin-top: 150px;
+  font-size: 1.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
 }
 
-p{
+.section2{
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.divContainer {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  width: 70%;
+}
+.texto1{
+  flex:1;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.img2{
+  flex:1;
+  max-width: 100%;
+}
+.img2-1{
+  width: 100%;
+  height:auto;
+  border-radius: 8px;
+  border: 2px solid;
+  box-shadow: 4px 3px 10px 4px #021024;
+}
+
+/* Estilos para el modo oscuro */
+
+.dark h2{
+  color: white;
+}
+
+.dark h1 {
   color: black;
 }
 
+.dark li {
+  color: black;
+}
 
+.dark a {
+  color: black;
+}
 
-/* Estilos para el modo oscuro */
-.dark h1{
-  color: white;
+.dark main {
+  background-color: #021024;
 }
-.dark li{
-  color: white;
-}
-.dark a{
-  color: white;
-}
-.dark main{
-  background-color: #1f2937;
-}
-.dark p{
+
+.dark p {
   color: white;
 }
 
-.dark .barra1{
-  background-color: #6DA5C0;
+.dark .barra1 {
+  background-color: #5483B3;
+  box-shadow: 1px 1px 3px 2px #5483B3;
 }
 
 .dark {
-  background-color: #1f2937;
+  background-color: #021024;
+}
+
+.dark .img2-1{
+  border: 2px solid #5483B3;
+  box-shadow: 1px 1px 5px 2px #5483B3;
 }
 
 
-/* Ajustes de padding */
-@media (min-width: 768px) {
-  main {
-    padding-left: 5rem; /* 20px */
-    padding-right: 5rem; /* 20px */
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem;
   }
-}
 
-@media (min-width: 1024px) {
-  main {
-    padding-left: 10rem; /* 40px */
-    padding-right: 10rem; /* 40px */
+  .barra1 ul {
+    justify-content: center;
+    gap: 0.5rem;
   }
-}
 
+  li {
+    margin-right: 10px;
+    font-size: 0.9rem;
+  }
+
+  .img1 {
+    width: 25px;
+    height: 25px;
+  }
+
+  img {
+    width: 100%;  /* Evita distorsión, se adapta al contenedor */
+    height: auto;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .divContainer {
+    grid-template-columns: 1fr;  /* Una columna en pantallas pequeñas */
+    gap: 20px;
+  }
+
+  .section2 {
+    flex-direction: column; /* En pantallas pequeñas, los elementos se colocan en columna */
+    align-items: center;    /* Centra los elementos */
+  }
+
+  .divContainer {
+    flex-direction: column;  /* Cambiar a columna */
+    align-items: center;     /* Centrar los elementos */
+  }
+
+  .texto1 p {
+    font-size: 1rem;  /* Reducir el tamaño del texto */
+    line-height: 1.4; /* Ajustar el espaciado entre líneas */
+    padding: 0 10px;  /* Agregar un pequeño relleno para no tocar los bordes */
+  }
+
+  .img2 img {
+    width: 100%; /* Ajusta la imagen al 100% del ancho disponible */
+    height: auto;
+  }
+
+}
