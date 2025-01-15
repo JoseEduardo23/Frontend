@@ -35,7 +35,7 @@ h1 {
   margin-left: 50px;
 }
 h2{
-  color: black;
+  color: #021024;
 }
 
 li {
@@ -108,7 +108,7 @@ ul {
 }
 
 .section3{
-  margin-top: 170px;
+  margin-top: 130px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -147,6 +147,8 @@ p{
 .title3{
   font-size: 20px;
   padding-bottom: 7px;
+  color: #021024;
+  font-weight: bold;
 }
 
 .img3, .img4, .img5{
@@ -158,7 +160,7 @@ p{
 
 .footer{
   border: 2px solid;
-  margin-top: 100px;
+  margin-top: 30px;
   background-color: #021024;
   height: 150px;
   display: flex;
@@ -246,6 +248,64 @@ input, button{
   height: 25px;
   border: 2px solid black;
 }
+
+.section4{
+  display: flex;
+  justify-self: center;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.img13{
+  width: 50%;
+  height: 550px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 2px black;
+}
+.texto5{
+  margin-left: 20px;
+  align-content: center;
+}
+h2{
+  font-size: 30px;
+}
+.inf3{
+  font-size: 25px;
+  text-align: justify;
+}
+
+.section5{
+  display: flex;
+  justify-self: center;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.img14{
+  width: 50%;
+  height: 400px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 2px black;
+  margin-left: 20px;
+}
+.texto6{
+  align-content: center;
+}
+.inf4{
+  font-size: 25px;
+  text-align: justify;
+}
+
+.img15-1{
+  justify-self: center;
+}
+.img15{
+  width: 150px;
+  height: 150px;
+}
+
+
+
 
 /* Estilos para el modo oscuro */
 
@@ -391,6 +451,20 @@ input, button{
     padding-left: 20px;
   }
 
+  .section4{
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    justify-self: center;
+  }
+  .img13{
+    width: 260px;
+    height: 150px;
+    margin-bottom: 30px;
+  }
+  .inf3{
+  text-align: justify;
+  }
   /* Footer */
 /* Media Queries para dispositivos pequeños */
 @media (max-width: 768px) {
@@ -485,4 +559,7 @@ input, button{
   }
 
 }
+
+
+
 }
