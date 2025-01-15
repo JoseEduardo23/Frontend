@@ -370,6 +370,7 @@ h2{
 
 /* Media Queries para dispositivos pequeños */
 @media (max-width: 768px) {
+  
 
   /* Barra superior */
   .barra1 {
@@ -384,6 +385,7 @@ h2{
 
   h1 {
     font-size: 1.2rem;
+    margin-left: -8px;
   }
 
   li {
@@ -464,6 +466,22 @@ h2{
   }
   .inf3{
   text-align: justify;
+  }
+
+  .section5{
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    justify-self: center;
+  }
+  .img14{
+    width: 260px;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: -2px;
+  }
+  .inf4{
+    text-align: justify;
   }
   /* Footer */
 /* Media Queries para dispositivos pequeños */
