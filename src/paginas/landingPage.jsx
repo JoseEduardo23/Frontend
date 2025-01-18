@@ -117,7 +117,7 @@ export const LandingPage = () => {
           <img src={img13} alt="" className='img13' />
           <div className='texto5'>
             <h2>Vacunación:</h2>
-            <p className='inf3'>Las vacunas son fundamentales para proteger su salud y prevenir enfermedades graves, una de las
+            <p className='inf7'>Las vacunas son fundamentales para proteger su salud y prevenir enfermedades graves, una de las
               más importantes es la vacuna contra el parvovirus, que combate una enfermedad viral severa y deshidratación
               y puede ser fatal si no se trata a tiempo. Otra vacuna esencial es la del moquillo canino, una enfermedad
               viral que ataca los sistemas respiratorio. La vacuna contra la rabia es también crucial, no solo porque protege
@@ -129,7 +129,7 @@ export const LandingPage = () => {
         <section className='section5'>
 
           <div className='texto6'>
-            <p className='inf4'>
+            <p className='inf8'>
               La alimentación de las mascotas es un pilar fundamental para
               su bienestar y longevidad. Los alimentos que consumen deben
               satisfacer sus necesidades nutricionales especificas según su 
@@ -141,8 +141,8 @@ export const LandingPage = () => {
           <img src={img14} alt="" className='img14' />
         </section>
 
-        <section className='section5'>
-          <div className='texto6'>
+        <section className='section6'>
+          <div className='texto7'>
             <p className='inf4'>
               <h2>Proteinas:</h2>
               Las proteinas son esenciales para la construcción y reparación de tejidos, así como para la producción de enzimas y hormonas. En perros y gatos
@@ -194,7 +194,7 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        <footer className='footer' style={{ overflowY: 'auto', maxHeight: '400px' }}>
+        <footer className='footer'>
   <div>
     <p className='parr3'>Contactos:</p>
     <img src={img9} alt="robot" className='img9' />
