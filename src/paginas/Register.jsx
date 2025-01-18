@@ -46,12 +46,12 @@ export const Register = () => {
                         {mensaje.respuesta}
                     </div>
                 )}
-                <div className="form-container">
+                <div className="formcontainer">
 
                     <h1 className="title">Welcome</h1>
                     <small className="subtitle">Please enter your details</small>
 
-                    <form onSubmit={handleSubmit}>
+                    <form className='register-form' onSubmit={handleSubmit}>
 
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold" htmlFor="nombre">Nombre:</label>

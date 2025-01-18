@@ -1,6 +1,4 @@
-#root {
-    height: 100%; /* Asegura que el contenedor de React cubre todo */
-}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,15 +16,13 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: -16px;
-    margin-top: -35px;
-    height: 713px;
-    width: 100vw;
+    height: 731px;
+    width: 1537px;
+    margin-top: -16px;
     background-color: #111827;
-    height: 791px;
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: fixed;
 }
 
 .login-form-container {
@@ -96,13 +92,10 @@ body, html {
 .btn-primary {
     width: 100%;
     padding: 0.75rem;
-    background-color: #6b7280;
-    color: #d1d5db;
     border-radius: 0.5rem;
-    text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    height: 35px;
+    height: 45px;
 }
 
 .btn-primary:hover {
