@@ -25,7 +25,7 @@ export const LandingPage = () => {
   return (
     <div className={darkMode ? "dark" : ""}>
 
-      <main>
+      <main className='main-container'>
         <section>
           <nav className="barra1">
             <h1 className="title1">TiendAnimal</h1>
