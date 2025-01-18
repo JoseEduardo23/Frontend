@@ -194,46 +194,45 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        <footer className='footer'>
+        <footer className='footer' style={{ overflowY: 'auto', maxHeight: '400px' }}>
+  <div>
+    <p className='parr3'>Contactos:</p>
+    <img src={img9} alt="robot" className='img9' />
+    <div className='contact'>
+      <img src={img10} alt="" className='img10' />
+      <spam>09837991163</spam>
 
-          <div>
-            <p className='parr3'>Contactos:</p>
-            <img src={img9} alt="robot" className='img9' />
-            <div className='contact'>
-              <img src={img10} alt="" className='img10' />
-              <spam>09837991163</spam>
+      <img src={img11} alt="" className='img11' />
+      <spam>je20042316@gmail.com</spam>
 
-              <img src={img11} alt="" className='img11' />
-              <spam>je20042316@gmail.com</spam>
+      <img src={img12} alt="" className='img12' />
+      <spam>Av-lorem</spam>
+    </div>
+  </div>
 
-              <img src={img12} alt="" className='img12' />
-              <spam>Av-lorem</spam>
-            </div>
-          </div>
+  <div className='enlaces'>
+    <p className='parr3'>Enlaces:</p>
+    <ul className='dat'>
+      <li className='d1'>Conocenos</li>
+      <li className='d1'>Planes alimenticios</li>
+      <li className='d1'>Contactos</li>
+    </ul>
+  </div>
 
-          <div className='enlaces'>
-            <p className='parr3'>Enlaces:</p>
-            <ul className='dat'>
-              <li className='d1'>Conocenos</li>
-              <li className='d1'>Planes alimenticios</li>
-              <li className='d1'>Contactos</li>
-            </ul>
-          </div>
+  <div className='paginas'>
+    <p className='parr3'>Visitanos en:</p><br />
+    <img src={img6} alt="github" className='img6' />
+    <img src={img8} alt="facebook" className='img8' />
+    <img src={img7} alt="twitter" className='img7' />
+  </div>
 
-          <div className='paginas'>
-            <p className='parr3'>Visitanos en:</p><br />
-            <img src={img6} alt="github" className='img6' />
-            <img src={img8} alt="facebook" className='img8' />
-            <img src={img7} alt="twitter" className='img7' />
-          </div>
-
-          <div className='comments'>
-            <p className='parr3'>Suscribete:</p>
-            <input type="text" /><br />
-            <input type="email" /><br />
-            <button>Submit</button>
-          </div>
-        </footer>
+  <div className='comments'>
+    <p className='parr3'>Suscribete:</p>
+    <input type="text" /><br />
+    <input type="email" /><br />
+    <button>Submit</button>
+  </div>
+</footer>
       </main>
     </div>
   )
