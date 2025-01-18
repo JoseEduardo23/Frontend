@@ -30,7 +30,7 @@ export const LandingPage = () => {
           <nav className="barra1">
             <h1 className="title1">TiendAnimal</h1>
             <ul>
-              <li className='C'>Conocenos</li>
+              <li className='C'>Conocenos.</li>
               <li className='C'>Planes alimenticos</li>
               <li className='C'>Contactanos</li>
               <li>
