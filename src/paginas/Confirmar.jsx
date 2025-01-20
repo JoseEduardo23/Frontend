@@ -13,11 +13,10 @@ export const Confirmar = () => {
     // Verificar el token cuando se monte el componente
     const verifyToken = async () => {
         try {
-            const url = `http://localhost:3000/api/confirmar-token/${token}`;
+            const url = `http://localhost:3000/api/confirmar/${token}`;
             const respuesta = await axios.get(url);
             // Si la verificación fue exitosa, mostramos el mensaje de éxito
             setMensaje({ respuesta: respuesta.data.msg, tipo: false });
-            navigate('restablecer')
         }
         catch (error) {
             console.log(error);
@@ -28,7 +27,7 @@ export const Confirmar = () => {
 
     useEffect(() => {
         verifyToken();
-    }, [token, navigate]);
+    }, [token]);
 
     return (
         <div className="confirm-container">
