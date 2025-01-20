@@ -142,7 +142,6 @@ ul {
 .section3 {
   margin-top: 130px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   padding-right: 40px;
   padding-left: 40px;
@@ -342,7 +341,7 @@ h2 {
   margin-top: 40px;
 }
 
-.section6{
+.section6 {
   width: 90%;
   margin-top: 40px;
 }
@@ -360,11 +359,12 @@ h2 {
   margin-left: 150px;
   width: 50%;
 }
-.texto7{
+
+.texto7 {
   width: 100%;
 }
 
-.inf7{
+.inf7 {
   font-size: 25px;
   text-align: justify;
 }
@@ -374,8 +374,9 @@ h2 {
   text-align: justify;
   margin-left: 200px;
 }
-.inf8{
-  font-size: 25px;
+
+.inf8 {
+  font-size: 20px;
   text-align: justify;
 }
 
@@ -384,13 +385,10 @@ h2 {
 }
 
 .img15 {
-  margin-left: 50%;  
+  margin-left: 50%;
   width: 150px;
   height: 150px;
 }
-
-
-
 
 /* Estilos para el modo oscuro */
 
@@ -452,13 +450,8 @@ h2 {
   color: black;
 }
 
-
-
-/* Media Queries para dispositivos pequeños */
 @media (max-width: 768px) {
 
-
-  /* Barra superior */
   .barra1 {
     flex-direction: column;
     padding: 1rem 0;
@@ -484,7 +477,6 @@ h2 {
     height: 25px;
   }
 
-  /* Ajustes en imágenes */
   img {
     width: 100%;
     height: auto;
@@ -506,7 +498,6 @@ h2 {
     margin-left: 5px;
   }
 
-  /* Sección de texto */
   p {
     font-size: 0.9rem;
   }
@@ -521,7 +512,6 @@ h2 {
   .texto3,
   .texto4 {
     width: 100%;
-    /* Asegurarse de que los bloques de texto ocupen el ancho completo */
     margin-top: 10px;
     padding: 10px;
   }
@@ -533,7 +523,6 @@ h2 {
     width: 90%;
   }
 
-  /* Ajustes en secciones */
   .section2 {
     flex-direction: column;
     align-items: center;
@@ -545,24 +534,44 @@ h2 {
     padding-right: 20px;
     padding-left: 20px;
   }
-  
-  .img13 {
-    width: 260px;      
-    height: 150px;       
-    margin-bottom: 0;        
+
+  .section4 {
+    flex-direction: column;
+    margin-top: 950px;
+    margin-left: 35px;
   }
-  
+
+  .section6{
+    width: 150%;
+    margin-left:-180px;
+  }
+
+  .ti{
+    margin-left: 70px;
+  }
+
+  .img13 {
+    width: 260px;
+    height: 150px;
+    margin-bottom: 0;
+  }
+
+  .img15{
+    margin-left: 270px;
+  }
+
   .inf7 {
-    text-align: justify;      
+    text-align: justify;
+    width: 230%;
+    margin-left: -40px;
     font-size: 1.2rem;
     line-height: 1.6;
   }
 
   .section5 {
     flex-direction: column;
-    padding-right: 20px;
-    padding-left: 20px;
-    justify-self: center;
+    width: 180%;
+    margin-left: -135px;
     display: flex;
   }
 
@@ -570,127 +579,98 @@ h2 {
     width: 260px;
     height: 150px;
     margin-top: 20px;
-    margin-left: -2px;
+    margin-left: 170px;
   }
 
   .inf4 {
     text-align: justify;
   }
 
-  /* Footer */
-  /* Media Queries para dispositivos pequeños */
-  @media (max-width: 768px) {
-
-    /* Footer */
-    .footer {
-      flex-direction: column;
-      /* Los elementos se apilan verticalmente */
-      justify-content: center;
-      /* Centrar el contenido */
-      align-items: center;
-      padding-right: 20px;
-      padding-left: 20px;
-      margin-top: 50px;
-      /* Reduce el margen superior para que no se vea tan alejado */
-      height: auto;
-      /* Ajustar la altura del footer */
-    }
-
-    .parr3 {
-      color: white;
-      font-size: 1rem;
-      /* Aumentar el tamaño de fuente para dispositivos pequeños */
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    /* Iconos en el footer */
-    .img6,
-    .img7,
-    .img8 {
-      width: 40px;
-      /* Reducir tamaño para pantallas pequeñas */
-      height: 40px;
-      margin-left: 5px;
-      box-shadow: 1px 1px 5px 1px purple;
-      /* Reduce el tamaño de la sombra */
-    }
-
-    .contact {
-      flex-direction: column;
-      /* Apilar las imágenes y el texto */
-      width: 100%;
-      /* Hacer el contenedor del contacto más pequeño */
-      align-items: center;
-      /* Centrar los elementos */
-      margin-top: 10px;
-    }
-
-    .contact spam {
-      font-size: 12px;
-      /* Aumentar el tamaño de la fuente para que sea legible */
-      margin-left: 0;
-      margin-top: 5px;
-    }
-
-    .img9 {
-      width: 60px;
-      height: 60px;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-
-    /* Iconos pequeños (img10, img11, img12) */
-    .img10,
-    .img11,
-    .img12 {
-      width: 15px;
-      /* Reducir el tamaño de los iconos */
-      height: 15px;
-      margin-left: 2px;
-    }
-
-    /* Enlaces */
-    .enlaces {
-      width: 100%;
-      /* Hacer el contenedor de enlaces más pequeño */
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    /* Datos */
-    .dat {
-      display: block;
-      margin-top: 15px;
-      cursor: pointer;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .d1 {
-      margin-top: 5px;
-    }
-
-    /* Ajustes en formularios (input y button) */
-    input,
-    button {
-      margin-left: 5px;
-      margin-top: 10px;
-      margin-right: 5px;
-      width: 100%;
-      /* Hacer los inputs y botones más grandes */
-      height: 35px;
-      border-radius: 5px;
-    }
-
-    /* Comentarios */
-    .comments {
-      text-align: center;
-      margin-top: 20px;
-    }
-
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 50px;
+    height: auto;
   }
 
+  .parr3 {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+  }
 
+  .img6,
+  .img7,
+  .img8 {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 5px 1px purple;
+  }
+
+  .contact {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .contact spam {
+    font-size: 12px;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .img9 {
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+
+  .img10,
+  .img11,
+  .img12 {
+    width: 15px;
+    height: 15px;
+    margin-left: 2px;
+  }
+
+  .enlaces {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .dat {
+    display: block;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .d1 {
+    margin-top: 5px;
+  }
+
+  input,
+  button {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+  }
+
+  .comments {
+    text-align: center;
+    margin-top: 20px;
+  }
 
 }

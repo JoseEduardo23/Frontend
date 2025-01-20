@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    position: relative;
+    background-color: #1f2937;
 }
 
 .forgot-form-container {
@@ -41,14 +43,17 @@
 
 .forgot-button {
     background-color: #4b5563;
-    color: #e5e7eb;
     border: 1px solid #d1d5db;
     padding: 0.5rem;
     width: 100%;
     height: 40px;
     border-radius: 0.75rem;
+    border: 2px solid black;
     margin-top: 1.25rem;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.msg{
+    color: white;
 }
 
 .forgot-button:hover {
@@ -78,14 +83,14 @@
 
 .forgot-login-link:hover {
     transform: scale(1.1);
-    background-color: #1f2937;
-    color: #ffffff;
+    background-color: white;
+    color: black;
 }
 
 .forgot-image-container {
     width: 50%;
-    height: 100vh;
-    background-image: url('/public/images/catforgot.jpg');
+    height: 96.4vh;
+    background-image: url('../assets/fondos/fondoT.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

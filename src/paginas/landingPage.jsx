@@ -116,7 +116,7 @@ export const LandingPage = () => {
         <section className='section4'>
           <img src={img13} alt="" className='img13' />
           <div className='texto5'>
-            <h2>Vacunación:</h2>
+            <h2 className='ti'>Vacunación:</h2>
             <p className='inf7'>Las vacunas son fundamentales para proteger su salud y prevenir enfermedades graves, una de las
               más importantes es la vacuna contra el parvovirus, que combate una enfermedad viral severa y deshidratación
               y puede ser fatal si no se trata a tiempo. Otra vacuna esencial es la del moquillo canino, una enfermedad
@@ -237,3 +237,5 @@ export const LandingPage = () => {
     </div>
   )
 }
+
+

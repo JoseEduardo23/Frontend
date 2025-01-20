@@ -1,4 +1,4 @@
-
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -17,17 +17,17 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 731px;
-    width: 1537px;
-    margin-top: -16px;
+    width: 100%; /* Ajustado para que ocupe el ancho completo */
     background-color: #111827;
     background-size: cover;
     background-position: center;
     position: fixed;
+    top: 0; /* Asegura que cubra toda la pantalla */
 }
 
 .login-form-container {
-    background: rgba(255, 255, 255, 0.8); 
-    backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
@@ -35,7 +35,7 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 400px; 
+    max-width: 400px; /* Asegura que no se estire demasiado en pantallas grandes */
 }
 
 .login-form {
@@ -188,4 +188,73 @@ body, html {
     background-color: #111827;
     color: white;
     transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Para pantallas de tabletas y más pequeñas */
+    .login-container {
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        height: auto; /* Ajusta la altura */
+        padding: 1rem;
+    }
+
+    .login-form-container {
+        max-width: 90%; /* Reduce el ancho del formulario */
+        padding: 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    .input-label, .input-field {
+        font-size: 0.875rem; /* Ajusta el tamaño de fuente */
+    }
+
+    .btn-primary {
+        padding: 0.75rem; /* Ajusta el tamaño de los botones */
+    }
+
+    .divider-text {
+        font-size: 0.75rem; /* Reduce el tamaño de texto en el divisor */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Para pantallas más pequeñas como teléfonos */
+    .login-container {
+        height: auto; /* Ajusta la altura */
+        padding: 1rem;
+        height: 100%;
+    }
+
+    .login-form-container {
+        width: 100%; /* Asegura que el formulario ocupe todo el ancho */
+        padding: 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.2rem; /* Ajusta aún más el tamaño del título */
+    }
+
+    .input-label, .input-field {
+        font-size: 0.875rem; /* Ajusta el tamaño de los campos de entrada */
+    }
+
+    .btn-primary {
+        padding: 0.75rem; /* Ajusta el tamaño del botón */
+    }
+
+    .divider-text {
+        font-size: 0.75rem; /* Ajusta el tamaño de los textos en el divisor */
+    }
+
+    .btn-google, .btn-facebook {
+        padding: 0.75rem; 
+    }
+
+    .forgot-link, .register-link {
+        font-size: 0.75rem; 
+    }
 }

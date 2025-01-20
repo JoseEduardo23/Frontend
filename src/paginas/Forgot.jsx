@@ -54,7 +54,7 @@ export const Forgot = () => {
                     <div className="mt-5 text-xs border-b-2 py-4 "></div>
 
                     <div className="forgot-footer">
-                        <p>You already remembered</p>
+                        <p className='msg'>You already remembered</p>
                         <Link to="/login" className="forgot-login-link">Login</Link>
                     </div>
                 </div>
