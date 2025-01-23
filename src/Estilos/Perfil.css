@@ -1,0 +1,74 @@
+/* General Perfil Container */
+.perfil-container {
+    padding: 20px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.perfil-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.perfil-title {
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #4A5568; /* Dark gray */
+}
+
+.perfil-divider {
+    margin: 16px auto;
+    border: 0;
+    border-top: 2px solid #E2E8F0; /* Light gray border */
+    width: 80px;
+}
+
+.perfil-description {
+    font-size: 1.125rem;
+    color: #718096; /* Light gray */
+    margin-bottom: 40px;
+}
+
+/* Content Layout */
+.perfil-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Form Section */
+.perfil-form {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Section */
+.perfil-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .perfil-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .perfil-form, .perfil-card {
+        max-width: 100%;
+    }
+}

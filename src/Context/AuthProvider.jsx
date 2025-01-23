@@ -10,11 +10,11 @@ const AuthProvider = ({ children }) => {
     // Función para obtener el perfil del usuario
     const perfil = async (token) => {
         try {
-            const url = `http://localhost:3000/api/perfil`;
+            const url = `http://localhost:3000/api/perfil`
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`, // Asegurarse de que haya un espacio después de "Bearer"
+                    Authorization: `Bearer ${token}` // Asegurarse de que haya un espacio después de "Bearer"
                 },
             };
 
@@ -33,31 +33,12 @@ const AuthProvider = ({ children }) => {
             perfil(token);
         }
     }, []);
-    const actualizarPerfil = async(datos) => {
-        const token = localStorage.getItem('token')
-        try {
-            const url = `http://localhost:3000/api/veterinario/datos.id`
-            const options = {
-                headers: {
-                    method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            }
-            const respuesta = await axios.put(url, datos, options)
-            perfil(token)
-            return {respuesta:respuesta.data.msg,tipo:true}
-        } catch (error) {
-            return {respuesta:error.response.data.msg,tipo:false}
-        }
-}
 
     return (
         <AuthContext.Provider
             value={{
                 auth, // Información del usuario autenticado
                 setAuth, // Permite actualizar el estado desde otros componentes
-                actualizarPerfil
             }}
         >
             {children} {/* Renderiza los componentes hijos */}

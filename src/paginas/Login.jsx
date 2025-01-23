@@ -26,7 +26,7 @@ const Login = () => {
         try {
             const url = `http://localhost:3000/api/login`;
             const respuesta = await axios.post(url, form);
-            localStorage.setItem('token, respuesta.data.token');
+            localStorage.setItem('token', respuesta.data.token);
             setAuth(respuesta.data);
             toast.success('Inicio de sesión exitoso');
             navigate('/dashboard');

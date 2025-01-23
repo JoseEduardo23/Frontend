@@ -1,0 +1,60 @@
+/* General Container Styles */
+.card-container {
+    background-color: #fff;
+    border: 1px solid #e2e8f0; /* Light gray border */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Image Styling */
+.card-header {
+    margin-bottom: 20px;
+}
+
+.card-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Information Styling */
+.card-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.card-info-item {
+    font-size: 1rem;
+    color: #4a5568; /* Dark gray */
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Hover effect for card items */
+.card-info-item:hover {
+    color: #2d3748; /* Darker gray */
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Responsive Design (if needed) */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+}
