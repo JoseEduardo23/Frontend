@@ -1,7 +1,5 @@
 import { useContext, useState } from "react";
-import AuthContext from "../../Context/AuthProvider";
 import '../../Estilos/FormularioPerfil.css';
-import axios from "axios";
 
 const FormularioPerfil = () => {
     const [form, setForm] = useState({

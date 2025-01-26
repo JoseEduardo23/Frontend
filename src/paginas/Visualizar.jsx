@@ -1,122 +1,78 @@
 import { useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Mensaje from '../componets/Alertas/Mensaje';
-import ModalTratamiento from '../componets/Models/ModalTratamiento';
-import TratamientosContext from '../Context/TratamientosProvider';
-import TablaTratamientos from '../componets/TablaTratamientos';
+import Mensaje from '../components/Alertas/Mensaje';
+import '../Estilos/Visualizar.css'
 
 const Visualizar = () => {
+    const { id } = useParams(); // Obtenemos el id del producto desde la URL
+    const [producto, setProducto] = useState(null); // Inicializamos con `null` para verificar si cargamos los datos
+    const [mensaje, setMensaje] = useState({});
 
-
-    const { id } = useParams()
-    const [paciente, setPaciente] = useState({})
-    const [mensaje, setMensaje] = useState({})
-    const { modal, handleModal, tratamientos, setTratamientos } = useContext(TratamientosContext)
-
-
+    // Función para formatear la fecha (si es necesario)
     const formatearFecha = (fecha) => {
-        const nuevaFecha = new Date(fecha)
-        nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset())
-        return new Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(nuevaFecha)
-    }
+        const nuevaFecha = new Date(fecha);
+        nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset());
+        return new Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(nuevaFecha);
+    };
 
+    // Llamada a la API para obtener los datos del producto
     useEffect(() => {
-        const consultarPaciente = async () => {
+        const consultarProducto = async () => {
             try {
-                const token = localStorage.getItem('token')
-                const url = `http://localhost:3000/api/usuario/detalle/${id}`
+                const token = localStorage.getItem('token');
+                const url = `http://localhost:3000/api/detalle/producto/${id}`;
                 const options = {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-                const respuesta = await axios.get(url, options)
-                setPaciente(respuesta.data.paciente)
-                setTratamientos(respuesta.data.tratamientos)
+                        Authorization: `Bearer ${token}`,
+                    },
+                };
+                const respuesta = await axios.get(url, options);
+                setProducto(respuesta.data); 
             } catch (error) {
-                setMensaje({ respuesta: error.response.data.msg, tipo: false })
+                setMensaje({ respuesta: error.response?.data?.msg || 'Error inesperado', tipo: false });
             }
+        };
+        
+        if (id) {
+            consultarProducto(); // Solo consultamos el producto si el id está disponible
         }
-        consultarPaciente()
-    }, [])
+    }, [id]); // El useEffect se ejecuta cada vez que el id cambie
+
+
+    if (!producto) {
+        return <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>;
+    }
 
     return (
-        <>
+        <div className="container">
             <div>
-                <h1 className='font-black text-4xl text-gray-500'>Visualizar Paciente</h1>
+                <h1 className='font-black text-4xl text-gray-500'>Visualizar Producto</h1>
                 <hr className='my-4' />
-                <p className='mb-8'>Este submódulo te permite visualizar los datos del paciente</p>
+                <p className='mb-8'>Este apartado te permite ver los datos del producto</p>
             </div>
-            <div>
-                {
-                    Object.keys(paciente).length != 0 ?
-                        (
-                            <>
-                                <div className='m-5 flex justify-between'>
-                                    <div>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Nombre del paciente: </span>
-                                            {paciente.nombre}
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Nombre del propietario: </span>
-                                            {paciente.propietario}
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Email: </span>
-                                            {paciente.email}
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Fecha de atención: </span>
-                                            {formatearFecha(paciente.ingreso)}
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Fecha de salida: </span>
-                                            {formatearFecha(paciente.salida)}
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Estado: </span>
-                                            <span class="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{paciente.estado && "activo"}</span>
-                                        </p>
-                                        <p className="text-md text-gray-00 mt-4">
-                                            <span className="text-gray-600 uppercase font-bold">* Síntomas: </span>
-                                            {paciente.sintomas}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <img src="https://cdn-icons-png.flaticon.com/512/2138/2138440.png" alt="dogandcat" className='h-80 w-80' />
-                                    </div>
-                                </div>
-                                <hr className='my-4' />
-                                <div className='flex justify-between items-center'>
-                                    <p>Este submódulo te permite visualizar los tratamientos del paciente</p>
-                                    <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700" onClick={handleModal}>Registrar</button>
-                                </div>
 
-                                {modal && (<ModalTratamiento idPaciente={paciente._id} />)
-                                }
-                                {
-                                    tratamientos.length == 0
-                                    ?
-                                    <p>"NO existen registros"</p>
-                                    :
-                                    <TablaTratamientos tratamientos={tratamientos}/>
-                                }
-
-                            </>
-
-                        )
-                        :
-                        (
-                            Object.keys(mensaje).length > 0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>
-                        )
-                }
+            <div className="card-container">
+                <div className="card">
+                    <div className="card-image">
+                        <img
+                            src={producto.imagen || "https://cdn-icons-png.flaticon.com/512/2138/2138440.png"}
+                            alt="Imagen del producto"
+                            className="h-80 w-80"
+                        />
+                    </div>
+                    <div className="card-details">
+                        <h2>{producto.nombre}</h2>
+                        <p><strong>Descripción:</strong> {producto.descripcion}</p>
+                        <p><strong>Precio:</strong> ${producto.precio}</p>
+                        <p><strong>Stock:</strong> {producto.stock}</p>
+                        <p><strong>Categoría:</strong> {producto.categoria}</p>
+                    </div>
+                </div>
             </div>
-        </>
+        </div>
+    );
+};
 
-    )
-}
-
-export default Visualizar
+export default Visualizar;

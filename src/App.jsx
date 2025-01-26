@@ -14,41 +14,48 @@ import Dashboard from './layout/Dashboard'
 import Perfil from './paginas/Perfil'
 import Listar from './paginas/Listar'
 
-
+import Visualizar from './paginas/Visualizar'
+import Crear from './paginas/Crear'
+import Actualizar from './paginas/Actualizar'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
+            <Routes>
 
-            <Route index element={<LandingPage />} />
+              <Route index element={<LandingPage />} />
 
-            <Route path='/' element={<Auth />}>
-              <Route path='login' element={<Login />} />
-              <Route path='register' element={<Register />} />
-              <Route path='forgot/:id' element={<Forgot />} />
-              <Route path='confirmar/:token' element={<Confirmar />} />
-              <Route path='recuperar-password/:token' element={<Restablecer />} />
-              <Route path='*' element={<NotFound />} />
-            </Route>
+              <Route path='/' element={<Auth />}>
+                <Route path='login' element={<Login />} />
+                <Route path='register' element={<Register />} />
+                <Route path='forgot/:id' element={<Forgot />} />
+                <Route path='confirmar/:token' element={<Confirmar />} />
+                <Route path='recuperar-password/:token' element={<Restablecer />} />
+                <Route path='*' element={<NotFound />} />
+              </Route>
 
 
                 /*Rutas privadas*/
-            <Route path='dashboard/*' element={
-              <PrivateRoute>
-                <Routes>
-                  <Route element={<Dashboard />} />
-                  <Route index element={<Perfil />} />
-                  <Route path='/listar' element={<Listar/>}/>
-                </Routes>
-              </PrivateRoute>
-            }>
-            </Route>
+              <Route path='dashboard/*' element={
+                <PrivateRoute>
+                  <Routes>
+                    <Route element={<Dashboard />}>
+                      <Route index element={<Perfil />} />
+                      <Route path='/listar' element={<Listar />} />
+                      <Route path='visualizar/:id' element={<Visualizar/>}/>
+                      <Route path='crear' element={<Crear/>}/>
+                      <Route path='actualizar/:id' element={<Actualizar/>}/>
+
+                    </Route>
+                  </Routes>
+                </PrivateRoute>
+              }>
+              </Route>
                 /*Rutas privadas*/
 
-          </Routes>
+            </Routes>
         </AuthProvider>
       </BrowserRouter>
     </>
