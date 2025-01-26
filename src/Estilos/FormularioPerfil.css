@@ -34,10 +34,9 @@
 
 /* Submit button styling */
 .submit-btn {
-    background-color: #2d3748;
+    height: 45px;
     width: 100%;
     padding: 0.75rem;
-    color: #e2e8f0;
     text-transform: uppercase;
     font-weight: bold;
     border-radius: 0.5rem;

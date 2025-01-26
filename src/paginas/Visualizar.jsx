@@ -1,22 +1,21 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import box from '../assets/producto.png'
 import Mensaje from '../components/Alertas/Mensaje';
 import '../Estilos/Visualizar.css'
 
 const Visualizar = () => {
-    const { id } = useParams(); // Obtenemos el id del producto desde la URL
-    const [producto, setProducto] = useState(null); // Inicializamos con `null` para verificar si cargamos los datos
+    const { id } = useParams(); 
+    const [producto, setProducto] = useState(null); 
     const [mensaje, setMensaje] = useState({});
 
-    // Función para formatear la fecha (si es necesario)
     const formatearFecha = (fecha) => {
         const nuevaFecha = new Date(fecha);
         nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset());
         return new Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(nuevaFecha);
     };
 
-    // Llamada a la API para obtener los datos del producto
     useEffect(() => {
         const consultarProducto = async () => {
             try {
@@ -36,28 +35,27 @@ const Visualizar = () => {
         };
         
         if (id) {
-            consultarProducto(); // Solo consultamos el producto si el id está disponible
+            consultarProducto(); 
         }
-    }, [id]); // El useEffect se ejecuta cada vez que el id cambie
-
+    }, [id]); 
 
     if (!producto) {
         return <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>;
     }
 
     return (
-        <div className="container">
+        <div className="container-visualizar">
             <div>
                 <h1 className='font-black text-4xl text-gray-500'>Visualizar Producto</h1>
                 <hr className='my-4' />
-                <p className='mb-8'>Este apartado te permite ver los datos del producto</p>
+                <p className='mb-8'>Datos del producto</p>
             </div>
 
             <div className="card-container">
                 <div className="card">
                     <div className="card-image">
                         <img
-                            src={producto.imagen || "https://cdn-icons-png.flaticon.com/512/2138/2138440.png"}
+                            src={box}
                             alt="Imagen del producto"
                             className="h-80 w-80"
                         />

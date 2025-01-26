@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../Estilos/CardPerfil.css';
+import user from '../../assets/UserA.png'
 
 export const CardPerfil = () => {
     return (
         <div className="card-container">
             <div className="card-header">
                 <img 
-                    src="https://cdn-icons-png.flaticon.com/512/4715/4715329.png" 
+                    src={user} 
                     alt="img-client" 
                     className="card-image" 
                 />
