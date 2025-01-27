@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever, MdNoteAdd, MdInfo } from "react-icons/md";
+import { MdDeleteForever, MdNoteAdd, MdInfo, MdUpdate, MdDelete } from "react-icons/md";
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom';
 import '../Estilos/Tabla.css';
+import nor from '../assets/nor.png'
 
 
 const Tabla = () => {
@@ -57,7 +58,7 @@ const Tabla = () => {
         <>
             {
                 productos.length === 0
-                    ? <Mensaje tipo={'active'}>{'No existen registros'}</Mensaje>
+                    ?<img src={nor} className="Inor"></img>
                     : <table className='tabla-productos'>
                         <thead>
                             <tr>
@@ -80,16 +81,16 @@ const Tabla = () => {
                                         <td className='tabla-celda'>{producto.precio}$</td>
                                         <td className='tabla-celda'>{producto.stock}</td>
                                         <td className='tabla-celda'>{producto.categoria}</td>
-                                        <td className='tabla-celda'>
+                                        <td className='tabla-celdaI'>
                                             <MdNoteAdd
                                                 className="tabla-icono"
                                                 onClick={() => navigate(`/dashboard/visualizar/${producto._id}`)}
                                             />
-                                            <MdInfo
+                                            <MdUpdate
                                                 className="tabla-iconoI"
                                                 onClick={() => navigate(`/dashboard/actualizar/${producto._id}`)}
                                             />
-                                            <MdDeleteForever
+                                            <MdDelete
                                                 className="tabla-icono-eliminar"
                                                 onClick={() => { handleDelete(producto._id) }}
                                             />

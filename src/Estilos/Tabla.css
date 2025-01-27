@@ -6,6 +6,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
+.Inor{
+    margin-left: 400px;
+    width: 400px;
+    height: 350px;
+}
 
 .tabla-celda {
     text-align: center;
@@ -23,23 +28,24 @@
 /* Estilos para los iconos y acciones */
 .tabla-icono {
     font-size: 1.5rem;
-    margin-left: 25px;
-    position: absolute;
     cursor: pointer;
+    margin-left: 50px;
     transition: color 0.3s;
 }
 .tabla-iconoI{
-    position: absolute;
     font-size: 1.5rem;
-    margin-left: 60px;
     cursor: pointer;
+    margin-top: -20px;
+    margin-left: 80px;
     transition: color 0.3s;
 }
 .tabla-icono-eliminar{
     cursor: pointer;
     font-size: 1.5rem;
     transition: color 0.3s;
-    margin-left: 95px;
+    margin-left: 110px;
+    margin-top: -24px;
+
 }
 
 .tabla-icono:hover {
@@ -106,4 +112,21 @@ thead th {
 /* Espaciado y márgenes */
 .table-wrapper {
     margin-top: 2rem;
+}
+@media (max-width: 768px) {
+    .tabla-celda {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    .tabla-icono{
+        margin-left: 10px;
+        margin-top: -4px;
+    }
+    .tabla-icono-eliminar{
+        margin-top: -25px;
+    }
+    .tabla-iconoI{
+        margin-top: -24px;
+        margin-left: 55px;
+    }
 }

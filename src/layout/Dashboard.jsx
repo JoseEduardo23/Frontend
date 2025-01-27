@@ -42,7 +42,7 @@ const Dashboard = () => {
               to='/dashboard/listar'
               className={`${urlActual === '/dashboard/listar' ? 'active' : ''}`}
             >
-              Listar
+              Productos
             </Link>
           </li>
           <li>
@@ -50,7 +50,7 @@ const Dashboard = () => {
               to='/dashboard/crear'
               className={`${urlActual === '/dashboard/crear' ? 'active' : ''}`}
             >
-              Crear
+              Ingresar
             </Link>
           </li>
         </ul>

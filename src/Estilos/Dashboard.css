@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 20%;
+  width: 10%;
   background-color: #2d2d2d;
   padding: 1rem 2rem;
   display: flex;
@@ -16,12 +16,12 @@
 }
 
 .sidebar h2 {
-  font-size: 1.5rem;  /* Reducido el tamaño de la fuente */
+  font-size: 1.5rem;  
   font-weight: bold;
   color: #e0e0e0;
   text-align: center;
   margin-bottom: 2rem;
-  white-space: nowrap;  /* Evita que el texto se desborde */
+  white-space: nowrap;  
 }
 
 .sidebar img {
@@ -79,11 +79,10 @@
 
 .content-area {
   flex-grow: 1;
-  background-color: #f3f4f6;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 20%; /* Esto se ajustará para pantallas pequeñas */
+  margin-left: 7.5%;
   padding: 0 2rem;
   overflow: hidden;
 }
