@@ -74,8 +74,8 @@ export default function Restablecer() {
                         className="form-input"
                         required
                     />
-                    <button type="submit" className="form-button">Restablecer</button>
                     <img src={key} className='key' alt="" />
+                    <input className='Res-button' type="submit" value="ENVIAR"/>
                 </form>
             ) : (
                 <p className="restablecer-message">Verificando token, por favor espera...</p>
