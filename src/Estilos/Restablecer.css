@@ -1,10 +1,3 @@
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1F2937;
@@ -14,22 +7,14 @@ body {
 /* Key Image Styles */
 .key {
     position: fixed;
-    width: 150px;
-    height: 120px;
-    margin-top: 70px;
+    width: 60px;
+    height: 70px;
+    margin-top: -20px;
     margin-left: 200px;
     z-index: 1000; 
     object-fit: cover; 
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
-    .key {
-        width: 120px; /* Reduce el tamaño de la imagen en pantallas medianas */
-        height: 90px;
-        margin-left: 150px;
-    }
-}
 
 @media (max-width: 768px) {
     .key {

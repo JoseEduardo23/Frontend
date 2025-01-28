@@ -5,9 +5,9 @@ import '../Estilos/Listar.css'
 const Listar = () => {
     return (
         <div className="listar-container">
-            <h1 className="font-black text-4xl text-gray-500">Lista de los productos ingresados en el sistema :)</h1>
+            <h1>Lista de los productos ingresados en el sistema :)</h1>
             <hr className="my-4" />
-            <p className="mb-8">Este módulo te permite listar los registros de productos y sus detalles. Puedes realizar varias acciones como actualizar o eliminar registros.</p>
+            <p className="">Este módulo te permite listar los registros de productos y sus detalles. Puedes realizar varias acciones como actualizar o eliminar registros.</p>
             <div className="table-container">
                 <Tabla />
             </div>
