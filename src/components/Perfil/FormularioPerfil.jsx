@@ -1,13 +1,31 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import '../../Estilos/FormularioPerfil.css';
+import AuthContext from '../../Context/AuthProvider';
 
 const FormularioPerfil = () => {
+    const { auth, actualizarPerfil } = useContext(AuthContext);
+
     const [form, setForm] = useState({
+        id: "",
         nombre: "",
         apellido: "",
         direccion: "",
-        telefono: ""
+        telefono: "",
+        detalles: ""
     });
+
+    useEffect(() => {
+        if (auth._id) {
+            setForm({
+                id: auth._id,
+                nombre: auth.nombre || "",
+                apellido: auth.apellido || "",
+                direccion: auth.direccion || "",
+                telefono: auth.telefono || "",
+                detalles: auth.detalles || ""
+            });
+        }
+    }, [auth]); 
 
     const handleChange = (e) => {
         setForm({
@@ -18,16 +36,21 @@ const FormularioPerfil = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(error);
+
+        console.log('ID del formulario:', form.id);
+
+        if (Object.values(form).includes("") || !form.id) {
+            return;
+        }
+
+        const resultado = await actualizarPerfil(form);
+        console.log(resultado)
     };
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
             <div>
-                <label
-                    htmlFor="nombre"
-                    className="form-label"
-                >
+                <label htmlFor="nombre" className="form-label">
                     Nombre:
                 </label>
                 <input
@@ -41,10 +64,7 @@ const FormularioPerfil = () => {
                 />
             </div>
             <div>
-                <label
-                    htmlFor="apellido"
-                    className="form-label"
-                >
+                <label htmlFor="apellido" className="form-label">
                     Apellido:
                 </label>
                 <input
@@ -58,10 +78,7 @@ const FormularioPerfil = () => {
                 />
             </div>
             <div>
-                <label
-                    htmlFor="direccion"
-                    className="form-label"
-                >
+                <label htmlFor="direccion" className="form-label">
                     Dirección:
                 </label>
                 <input
@@ -75,10 +92,7 @@ const FormularioPerfil = () => {
                 />
             </div>
             <div>
-                <label
-                    htmlFor="telefono"
-                    className="form-label"
-                >
+                <label htmlFor="telefono" className="form-label">
                     Teléfono:
                 </label>
                 <input
@@ -92,16 +106,15 @@ const FormularioPerfil = () => {
                 />
             </div>
             <div>
-                <label
-                    htmlFor="detalles"
-                    className="form-label"
-                >
+                <label htmlFor="detalles" className="form-label">
                     Detalles:
                 </label>
                 <textarea
                     id="detalles"
                     className="form-textarea placeholder-gray"
                     name="detalles"
+                    onChange={handleChange}
+                    value={form.detalles}
                 />
             </div>
 
