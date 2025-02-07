@@ -15,7 +15,7 @@ const Tabla = () => {
     const listarProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const url = `${URL_BACKEND}/listar/productos`;
+            const url = `${import.meta.env.VITE_URL_BACKEND}/listar/productos`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Tabla = () => {
             const confirmar = confirm("Vas a eliminar un producto, ¿Estás seguro de realizar esta acción?");
             if (confirmar) {
                 const token = localStorage.getItem('token');
-                const url = `${VITE_URL_BACKEND}/eliminar/producto/${id}`;
+                const url = `${import.meta.env.VITE_URL_BACKEND}/eliminar/producto/${id}`;
                 const headers = {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
