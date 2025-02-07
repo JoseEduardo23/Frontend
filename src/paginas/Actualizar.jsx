@@ -13,7 +13,7 @@ const Actualizar = () => {
         const consultarProducto = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/detalle/producto/${id}`;
+                const url = `${import.meta.env.VITE_URL_BACKEND}api/detalle/producto/${id}`;
                 const options = {
                     headers: {
                         'Content-Type': 'application/json',

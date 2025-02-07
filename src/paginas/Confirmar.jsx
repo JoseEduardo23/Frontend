@@ -13,14 +13,14 @@ export const Confirmar = () => {
     // Verificación del token
     const verifyToken = async () => {
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/confirmar/${token}`
-            const respuesta = await axios.get(url)
-            setMensaje({ respuesta: respuesta.data.msg, tipo: false })
-            console.log(respuesta)
-        }
-        catch (error) {
-            console.log(error)
-            setMensaje({ respuesta: error.response?.data?.msg || "Hubo un error al confirmar el token", tipo: true })
+            console.log("Token: ", token);
+            const url = `${import.meta.env.VITE_URL_BACKEND}api/confirmar/${token}`;
+            const respuesta = await axios.get(url);
+            setMensaje({ respuesta: respuesta.data.msg, tipo: false });
+            console.log(respuesta);
+        } catch (error) {
+            console.log("Error:", error);
+            setMensaje({ respuesta: error.response?.data?.msg || "Hubo un error al confirmar el token", tipo: true });
         }
     }
 

@@ -10,11 +10,11 @@ const AuthProvider = ({ children }) => {
     // Función para obtener el perfil del usuario
     const perfil = async (token) => {
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/perfil`
+            const url = `${import.meta.env.VITE_URL_BACKEND}api/perfil`
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}` // Asegurarse de que haya un espacio después de "Bearer"
+                    Authorization: `Bearer ${token}`
                 },
             };
 
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     const actualizarPerfil = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/perfil/${datos.id}`;
+            const url = `${import.meta.env.VITE_URL_BACKEND}api/perfil/${datos.id}`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
     const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token')
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/actualizar-password`
+            const url = `${import.meta.env.VITE_URL_BACKEND}api/actualizar-password`
             const options = {
                 headers: {
                     method: 'PUT',
