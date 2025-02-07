@@ -45,13 +45,13 @@ export const Formulario = ({ producto }) => {
 
             if (producto?._id) {
                 // Actualizar producto
-                const url = `https://tesis-agutierrez-jlincango-aviteri-1.onrender.com/api/actualizar/producto/${producto._id}`;
+                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com//api/actualizar/producto/${producto._id}`;
                 await axios.put(url, form, { headers });
                 console.log("Producto actualizado correctamente");
                 toast.success("Producto actualizado correctamente")
             } else {
                 // Crear producto
-                const url = `https://tesis-agutierrez-jlincango-aviteri-1.onrender.com/api/crear/producto`;
+                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com//api/crear/producto`;
                 await axios.post(url, form, { headers });
                 console.log("Producto creado correctamente");
                 toast.success("Producto creado correctamente")
