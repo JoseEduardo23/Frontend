@@ -21,8 +21,6 @@ import img15 from '../assets/cat.png'
 
 
 export const LandingPage = () => {
-  console.log("Backend URL:", import.meta.env.VITE_URL_BACKEND);
-
   const [darkMode, setdarkMode] = useState(false)
   return (
     <div className={darkMode ? "dark" : ""}>
