@@ -67,7 +67,7 @@ export const Forgot = () => {
                 <div className="modal-overlay">
                     <div className="modal-container">
                         <h2 className="modal-heading">Success!</h2>
-                        <p className="modal-message">El correo de ocnfirmación ha sido enviado a su correo electrónico.</p>
+                        <p className="modal-message">El correo de ocnfirmación ha sido enviado a su correo electrónico revise.</p>
                         <button onClick={closeModal} className="modal-close-button">Close</button>
                     </div>
                 </div>
