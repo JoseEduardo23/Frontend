@@ -23,7 +23,7 @@ export default function Restablecer() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com//api/nuevo-password/${token}`;
+            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/nuevo-password/${token}`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg);
         } catch (error) {
@@ -33,7 +33,7 @@ export default function Restablecer() {
 
     const verifyToken = async () => {
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com//api/recuperar-password/${token}`;
+            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/recuperar-password/${token}`;
             const respuesta = await axios.get(url);
             toast.success(respuesta.data.msg);
             setTokenback(true); 

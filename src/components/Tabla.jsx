@@ -15,7 +15,7 @@ const Tabla = () => {
     const listarProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const url = `${import.meta.env.VITE_URL_BACKEND}/api/listar/productos`;
+            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/listar/productos`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Tabla = () => {
             const confirmar = confirm("Vas a eliminar un producto, ¿Estás seguro de realizar esta acción?");
             if (confirmar) {
                 const token = localStorage.getItem('token');
-                const url = `${import.meta.env.VITE_URL_BACKEND}/api/eliminar/producto/${id}`;
+                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/eliminar/producto/${id}`;
                 const headers = {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

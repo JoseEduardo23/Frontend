@@ -13,7 +13,7 @@ export const Confirmar = () => {
     // Verificación del token
     const verifyToken = async () => {
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com//api/confirmar/${token}`
+            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/confirmar/${token}`
             const respuesta = await axios.get(url)
             setMensaje({ respuesta: respuesta.data.msg, tipo: false })
             console.log(respuesta)
