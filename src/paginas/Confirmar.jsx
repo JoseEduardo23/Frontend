@@ -13,7 +13,7 @@ export const Confirmar = () => {
     // Verificación del token
     const verifyToken = async () => {
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}/confirmar/${token}`
+            const url = `${import.meta.env.VITE_URL_BACKEND}/api/confirmar/${token}`
             const respuesta = await axios.get(url)
             setMensaje({ respuesta: respuesta.data.msg, tipo: false })
             console.log(respuesta)

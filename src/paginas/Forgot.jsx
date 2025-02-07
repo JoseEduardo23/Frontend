@@ -19,7 +19,7 @@ export const Forgot = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}/recuperar-password`
+            const url = `${import.meta.env.VITE_URL_BACKEND}/api/recuperar-password`
             const respuesta = await axios.post(url, mail)
             setIsModalVisible(true)
         } catch (error) {

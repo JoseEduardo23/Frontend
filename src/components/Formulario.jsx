@@ -45,13 +45,13 @@ export const Formulario = ({ producto }) => {
 
             if (producto?._id) {
                 // Actualizar producto
-                const url = `${import.meta.env.VITE_URL_BACKEND}/actualizar/producto/${producto._id}`;
+                const url = `${import.meta.env.VITE_URL_BACKEND}/api/actualizar/producto/${producto._id}`;
                 await axios.put(url, form, { headers });
                 console.log("Producto actualizado correctamente");
                 toast.success("Producto actualizado correctamente")
             } else {
                 // Crear producto
-                const url = `${import.meta.env.VITE_URL_BACKEND}/crear/producto`;
+                const url = `${import.meta.env.VITE_URL_BACKEND}/api/crear/producto`;
                 await axios.post(url, form, { headers });
                 console.log("Producto creado correctamente");
                 toast.success("Producto creado correctamente")
