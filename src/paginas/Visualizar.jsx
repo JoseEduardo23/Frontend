@@ -21,7 +21,7 @@ const Visualizar = () => {
         const consultarProducto = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const url = `${URL_BACKEND}/detalle/producto/${id}`;
+                const url = `${VITE_URL_BACKEND}/detalle/producto/${id}`;
                 const options = {
                     headers: {
                         'Content-Type': 'application/json',

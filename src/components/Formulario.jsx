@@ -47,13 +47,13 @@ export const Formulario = ({ producto }) => {
 
             if (producto?._id) {
                 // Actualizar producto
-                const url = `${URL_BACKEND}/actualizar/producto/${producto._id}`;
+                const url = `${VITE_URL_BACKEND}/actualizar/producto/${producto._id}`;
                 await axios.put(url, form, { headers });
                 console.log("Producto actualizado correctamente");
                 toast.success("Producto actualizado correctamente")
             } else {
                 // Crear producto
-                const url = `${URL_BACKEND}/crear/producto`;
+                const url = `${VITE_URL_BACKEND}/crear/producto`;
                 await axios.post(url, form, { headers });
                 console.log("Producto creado correctamente");
                 toast.success("Producto creado correctamente")

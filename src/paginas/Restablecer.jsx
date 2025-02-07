@@ -23,7 +23,7 @@ export default function Restablecer() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${URL_BACKEND}/nuevo-password/${token}`;
+            const url = `${VITE_URL_BACKEND}/nuevo-password/${token}`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg);
         } catch (error) {
