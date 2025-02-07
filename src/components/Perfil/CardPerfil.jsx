@@ -4,7 +4,7 @@ import user from '../../assets/UserA.png';
 import AuthContext from '../../Context/AuthProvider';
 
 export const CardPerfil = () => {
-    const { auth } = useContext(AuthContext); // Accedemos al estado 'auth' desde el contexto
+    const { auth } = useContext(AuthContext);
 
     return (
         <div className="card-container">

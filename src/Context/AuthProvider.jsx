@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     // Función para obtener el perfil del usuario
     const perfil = async (token) => {
         try {
-            const url = `http://localhost:3000/api/perfil`
+            const url = `${URL_BACKEND}/perfil`
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,15 +30,15 @@ const AuthProvider = ({ children }) => {
     const actualizarPerfil = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            const url = `http://localhost:3000/api/perfil/${datos.id}`;
+            const url = `${URL_BACKEND}/perfil/${datos.id}`;
             const options = {
                 headers: {
-                    'Content-Type': 'application/json', // Fixed typo: 'applicatio/json' -> 'application/json'
+                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 }
             };
             const respuesta = await axios.put(url, datos, options);
-            perfil(token); // Update the profile after updating
+            perfil(token);
             return { respuesta: respuesta.data.msg, tipo: true };
         } catch (error) {
             return { respuesta: error.response?.data?.msg || error.message, tipo: false };
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
     const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token')
         try {
-            const url = `http://localhost:3000/api/actualizar-password`
+            const url = `${URL_BACKEND}/actualizar-password`
             const options = {
                 headers: {
                     method: 'PUT',

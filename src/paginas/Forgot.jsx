@@ -19,7 +19,7 @@ export const Forgot = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-            const url = "http://localhost:3000/api/recuperar-password"
+            const url = `${URL_BACKEND}/recuperar-password`
             const respuesta = await axios.post(url, mail)
             setIsModalVisible(true)
         } catch (error) {

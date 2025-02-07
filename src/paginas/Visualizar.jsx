@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import box from '../assets/producto.png'
@@ -6,8 +6,9 @@ import Mensaje from '../components/Alertas/Mensaje';
 import '../Estilos/Visualizar.css'
 
 const Visualizar = () => {
-    const { id } = useParams(); 
-    const [producto, setProducto] = useState(null); 
+    const navigate = useNavigate()
+    const { id } = useParams();
+    const [producto, setProducto] = useState(null);
     const [mensaje, setMensaje] = useState({});
 
     const formatearFecha = (fecha) => {
@@ -20,7 +21,7 @@ const Visualizar = () => {
         const consultarProducto = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const url = `http://localhost:3000/api/detalle/producto/${id}`;
+                const url = `${URL_BACKEND}/detalle/producto/${id}`;
                 const options = {
                     headers: {
                         'Content-Type': 'application/json',
@@ -28,16 +29,16 @@ const Visualizar = () => {
                     },
                 };
                 const respuesta = await axios.get(url, options);
-                setProducto(respuesta.data); 
+                setProducto(respuesta.data);
             } catch (error) {
                 setMensaje({ respuesta: error.response?.data?.msg || 'Error inesperado', tipo: false });
             }
         };
-        
+
         if (id) {
-            consultarProducto(); 
+            consultarProducto();
         }
-    }, [id]); 
+    }, [id]);
 
     if (!producto) {
         return <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>;
@@ -69,6 +70,9 @@ const Visualizar = () => {
                     </div>
                 </div>
             </div>
+            <Link to="/Listar">
+                <button>Regresar</button>
+            </Link>
         </div>
     );
 };

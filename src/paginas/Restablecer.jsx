@@ -23,7 +23,7 @@ export default function Restablecer() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `http://localhost:3000/api/nuevo-password/${token}`;
+            const url = `${URL_BACKEND}/nuevo-password/${token}`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg);
         } catch (error) {
@@ -33,7 +33,7 @@ export default function Restablecer() {
 
     const verifyToken = async () => {
         try {
-            const url = `http://localhost:3000/api/recuperar-password/${token}`;
+            const url = `${URL_BACKEND}/recuperar-password/${token}`;
             const respuesta = await axios.get(url);
             toast.success(respuesta.data.msg);
             setTokenback(true); 

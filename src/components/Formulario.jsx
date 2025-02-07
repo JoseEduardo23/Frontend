@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../Estilos/Formulario.css'
 import { ToastContainer, toast } from 'react-toastify';
-
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const Formulario = ({ producto }) => {
     const navigate = useNavigate();
@@ -46,13 +47,13 @@ export const Formulario = ({ producto }) => {
 
             if (producto?._id) {
                 // Actualizar producto
-                const url = `http://localhost:3000/api/actualizar/producto/${producto._id}`;
+                const url = `${URL_BACKEND}/actualizar/producto/${producto._id}`;
                 await axios.put(url, form, { headers });
                 console.log("Producto actualizado correctamente");
                 toast.success("Producto actualizado correctamente")
             } else {
                 // Crear producto
-                const url = `http://localhost:3000/api/crear/producto`;
+                const url = `${URL_BACKEND}/crear/producto`;
                 await axios.post(url, form, { headers });
                 console.log("Producto creado correctamente");
                 toast.success("Producto creado correctamente")
@@ -73,6 +74,7 @@ export const Formulario = ({ producto }) => {
 
     return (
         <form onSubmit={handleSubmit} className="formulario">
+            <ToastContainer/>
             {error && <div className="error-message">{error}</div>}
             <div className="form-group">
                 <label className="form-label">Nombre del producto:</label>
@@ -135,6 +137,8 @@ export const Formulario = ({ producto }) => {
                     value={form.categoria || ""}
                 />
             </div>
+
+            
 
             <input
                 className="form-submit"

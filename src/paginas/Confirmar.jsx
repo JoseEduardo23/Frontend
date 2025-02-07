@@ -13,7 +13,7 @@ export const Confirmar = () => {
     // Verificación del token
     const verifyToken = async () => {
         try {
-            const url = `http://localhost:3000/api/confirmar/${token}`
+            const url = `${URL_BACKEND}/confirmar/${token}`
             const respuesta = await axios.get(url)
             setMensaje({ respuesta: respuesta.data.msg, tipo: false })
             console.log(respuesta)

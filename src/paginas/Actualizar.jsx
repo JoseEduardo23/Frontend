@@ -13,7 +13,7 @@ const Actualizar = () => {
         const consultarProducto = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const url = `http://localhost:3000/api/detalle/producto/${id}`;
+                const url = `${URL_BACKEND}/detalle/producto/${id}`;
                 const options = {
                     headers: {
                         'Content-Type': 'application/json',

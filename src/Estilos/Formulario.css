@@ -33,6 +33,14 @@
     font-size: 1rem;
     width: 100%;
 }
+.form-group1{
+    padding: 0.8rem;
+    border: 1px solid #dddddd5f;
+    border-radius: 10px;
+    border: 2px solid;
+    font-size: 1rem;
+    width: 100%;
+}
 
 /* Estilo de los campos de texto (textarea) */
 .form-textarea {

@@ -15,7 +15,7 @@ const Tabla = () => {
     const listarProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const url = `http://localhost:3000/api/listar/productos`;
+            const url = `${URL_BACKEND}/listar/productos`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Tabla = () => {
             const confirmar = confirm("Vas a eliminar un producto, ¿Estás seguro de realizar esta acción?");
             if (confirmar) {
                 const token = localStorage.getItem('token');
-                const url = `http://localhost:3000/api/eliminar/producto/${id}`;
+                const url = `${URL_BACKEND}/eliminar/producto/${id}`;
                 const headers = {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
