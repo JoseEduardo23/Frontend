@@ -28,7 +28,7 @@ export const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}api/register`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/register`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg)
             console.log(respuesta);

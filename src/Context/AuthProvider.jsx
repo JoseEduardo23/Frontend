@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     // Función para obtener el perfil del usuario
     const perfil = async (token) => {
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}api/perfil`
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/perfil`
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     const actualizarPerfil = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}api/perfil/${datos.id}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/perfil/${datos.id}`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
     const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token')
         try {
-            const url = `${import.meta.env.VITE_URL_BACKEND}api/actualizar-password`
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar-password`
             const options = {
                 headers: {
                     method: 'PUT',
