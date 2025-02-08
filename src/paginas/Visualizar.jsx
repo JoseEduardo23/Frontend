@@ -2,7 +2,6 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import box from '../assets/producto.png'
-import Mensaje from '../components/Alertas/Mensaje';
 import '../Estilos/Visualizar.css'
 
 const Visualizar = () => {
@@ -41,15 +40,14 @@ const Visualizar = () => {
     }, [id]);
 
     if (!producto) {
-        return <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>;
+        return ;
     }
 
     return (
         <div className="container-visualizar">
             <div>
-                <h1 className='font-black text-4xl text-gray-500'>Visualizar Producto</h1>
+                <h1 className='font-black text-4xl text-gray-500'>DATOS DEL PRODUCTO</h1>
                 <hr className='my-4' />
-                <p className='mb-8'>Datos del producto</p>
             </div>
 
             <div className="card-container">
@@ -70,9 +68,6 @@ const Visualizar = () => {
                     </div>
                 </div>
             </div>
-            <Link to="/Listar">
-                <button>Regresar</button>
-            </Link>
         </div>
     );
 };

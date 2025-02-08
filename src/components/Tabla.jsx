@@ -23,7 +23,11 @@ const Tabla = () => {
                 }
             };
             const respuesta = await axios.get(url, options);
-            setProductos(respuesta.data);
+            if (Array.isArray(respuesta.data)) {
+                setProductos(respuesta.data);
+            } else {
+                console.error("La respuesta no es un array:", respuesta.data);
+            }
         } catch (error) {
             console.log(error);
         }

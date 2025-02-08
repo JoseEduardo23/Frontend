@@ -1,20 +1,41 @@
-/* Tabla y diseño general */
-.tabla-productos {
-    width: 100%;
+/* Contenedor de la tabla */
+.table-wrapper {
     margin-top: 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-.Inor{
-    margin-left: 400px;
-    width: 400px;
-    height: 350px;
+    padding: 1rem;
+    background-color: #eaf0f4;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
 }
 
-.tabla-celda {
+/* Estilos para la tabla */
+.tabla-productos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #6c5ce7;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+thead th {
+    padding: 1rem 1.5rem;
     text-align: center;
-    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+/* Estilo para las filas */
+.tabla-fila {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 12px;
 }
 
 .tabla-fila:nth-child(even) {
@@ -23,47 +44,68 @@
 
 .tabla-fila:hover {
     background-color: #f1f1f1;
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
-/* Estilos para los iconos y acciones */
+.tabla-celda {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.tabla-celda:last-child {
+    text-align: center;
+    padding: 0.8rem;
+}
+
+/* Iconos de acciones */
+.tabla-icono,
+.tabla-iconoI,
+.tabla-icono-eliminar {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
 .tabla-icono {
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-left: 50px;
-    transition: color 0.3s;
+    color: #00b894; /* Verde claro para agregar */
 }
-.tabla-iconoI{
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-top: -20px;
-    margin-left: 80px;
-    transition: color 0.3s;
-}
-.tabla-icono-eliminar{
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-    margin-left: 110px;
-    margin-top: -24px;
 
+.tabla-iconoI {
+    color: #fdcb6e; /* Amarillo para actualizar */
+}
+
+.tabla-icono-eliminar {
+    color: #d63031; /* Rojo para eliminar */
 }
 
 .tabla-icono:hover {
-    color: yellow;
+    transform: scale(1.2); /* Aumento de tamaño al pasar el mouse */
+    color: #00b894;
 }
+
 .tabla-iconoI:hover {
-    color: green;
+    transform: scale(1.2); /* Aumento de tamaño al pasar el mouse */
+    color: #fdcb6e;
 }
+
 .tabla-icono-eliminar:hover {
-    color: red;
+    transform: scale(1.2); /* Aumento de tamaño al pasar el mouse */
+    color: #d63031;
 }
 
-/* Icono de eliminar */
-.tabla-icono.eliminar:hover {
-    color: #e74c3c;
+/* Mensaje cuando no hay productos */
+.Inor {
+    display: block;
+    margin: 50px auto;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
 }
 
-/* Estilos para los badges de estado */
+/* Estilo para los badges de estado */
 .estado-badge {
     display: inline-block;
     padding: 0.4rem 0.8rem;
@@ -82,51 +124,31 @@
     color: white;
 }
 
-/* Estilo para la fila de encabezado */
-thead {
-    background-color: #021024;  /* Color de fondo especificado */
-    color: white;
-    text-transform: uppercase;
-}
-
-thead th {
-    font-size: 1rem;
-    text-align: center;
-    padding: 1rem;
-    border: 1px solid #021024;  /* Bordes del encabezado */
-}
-
-/* Mensaje cuando no hay productos */
-.mensaje-no-registros {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #777;
-}
-
-/* Efectos de hover para las filas */
-.tabla-fila:hover {
-    background-color: #e1e1e1;
-    cursor: pointer;
-}
-
-/* Espaciado y márgenes */
-.table-wrapper {
-    margin-top: 2rem;
-}
+/* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
-    .tabla-celda {
-        padding: 0.5rem;
+    .tabla-productos {
         font-size: 0.875rem;
     }
-    .tabla-icono{
+
+    .tabla-celda {
+        padding: 0.8rem;
+    }
+
+    .tabla-icono,
+    .tabla-iconoI,
+    .tabla-icono-eliminar {
+        font-size: 1.2rem;
+    }
+
+    .tabla-icono {
         margin-left: 10px;
-        margin-top: -4px;
     }
-    .tabla-icono-eliminar{
-        margin-top: -25px;
+
+    .tabla-iconoI {
+        margin-left: 20px;
     }
-    .tabla-iconoI{
-        margin-top: -24px;
-        margin-left: 55px;
+
+    .tabla-icono-eliminar {
+        margin-left: 30px;
     }
 }
