@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever, MdNoteAdd, MdInfo, MdUpdate, MdDelete } from "react-icons/md";
+import { MdDeleteForever, MdNoteAdd, MdInfo, MdUpdate, MdDelete, MdUpload, MdElectricBike } from "react-icons/md";
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom';
@@ -86,7 +86,7 @@ const Tabla = () => {
                                         <td className='tabla-celda'>{producto.stock}</td>
                                         <td className='tabla-celda'>{producto.categoria}</td>
                                         <td className='tabla-celdaI'>
-                                            <MdNoteAdd
+                                            <MdInfo
                                                 className="tabla-icono"
                                                 onClick={() => navigate(`/dashboard/visualizar/${producto._id}`)}
                                             />

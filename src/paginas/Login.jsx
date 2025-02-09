@@ -1,18 +1,26 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../Context/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Estilos/Login.css';
+import React from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
     const { setAuth } = useContext(AuthContext);
-
     const [form, setForm] = useState({
         email: '',
         password: '',
     });
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        // Redirigir si ya está autenticado
+        if (localStorage.getItem('token')) {
+            navigate('/dashboard');
+        }
+    }, [navigate]);
 
     const handleChange = (e) => {
         setForm({
@@ -23,17 +31,30 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Validación de los campos
+        if (!form.email || !form.password) {
+            toast.error('Por favor completa todos los campos');
+            return;
+        }
+
+        setLoading(true);
         try {
             const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/login`;
             const respuesta = await axios.post(url, form);
-            localStorage.setItem('token', respuesta.data.token);
-            setAuth(respuesta.data);
-            toast.success('Inicio de sesión exitoso');
-            navigate('/dashboard');
+
+            if (respuesta.data.token) {
+                localStorage.setItem('token', respuesta.data.token);
+                setAuth(respuesta.data);
+                toast.success('Inicio de sesión exitoso');
+                navigate('/dashboard');
+            }
         } catch (error) {
             const errorMessage =
                 error.response?.data?.msg || 'Ha ocurrido un error. Inténtalo de nuevo';
             toast.error(errorMessage);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -51,9 +72,10 @@ const Login = () => {
 
                         <form onSubmit={handleSubmit}>
                             <div className="input-group">
-                                <label className="input-label">Email</label>
+                                <label htmlFor="email" className="input-label">Email</label>
                                 <input
                                     type="email"
+                                    id="email"
                                     name="email"
                                     value={form.email}
                                     onChange={handleChange}
@@ -63,9 +85,10 @@ const Login = () => {
                             </div>
 
                             <div className="input-group">
-                                <label className="input-label">Password</label>
+                                <label htmlFor="password" className="input-label">Password</label>
                                 <input
                                     type="password"
+                                    id="password"
                                     name="password"
                                     value={form.password}
                                     onChange={handleChange}
@@ -75,8 +98,8 @@ const Login = () => {
                             </div>
 
                             <div className="button-group">
-                                <button type="submit" className="btn-primary">
-                                    Login
+                                <button type="submit" className="btn-primary" disabled={loading}>
+                                    {loading ? 'Cargando...' : 'Login'}
                                 </button>
                             </div>
                         </form>

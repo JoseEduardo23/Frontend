@@ -2,7 +2,6 @@ import React from 'react';
 import { CardPerfil } from '../components/Perfil/CardPerfil';
 import FormularioPerfil from '../components/Perfil/FormularioPerfil';
 import '../Estilos/Perfil.css'
-import Password from '../components/Perfil/Password';
 
 const Perfil = () => {
     return (
@@ -19,7 +18,6 @@ const Perfil = () => {
                 </div>
                 <div className="perfil-card">
                     <CardPerfil />
-                    <Password/>
                 </div>
             </div>
         </div>

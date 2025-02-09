@@ -123,6 +123,11 @@ thead th {
     background-color: #e74c3c;
     color: white;
 }
+.tabla-celdaI{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
