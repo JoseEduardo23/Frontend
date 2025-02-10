@@ -102,7 +102,7 @@ const Dashboard = () => {
         </div>
 
         <div className="footer-dashboard">
-          <p>Todos los derechos reservados</p>
+          <p>TiendAnimal © </p>
         </div>
       </div>
     </div>
