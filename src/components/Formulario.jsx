@@ -51,7 +51,7 @@ export const Formulario = ({ producto }) => {
                 toast.success("Producto actualizado correctamente")
             } else {
                 // Crear producto
-                const url = `${import.meta.env.VITE_BACKEND_URL}/crear/producto`;
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/crear/producto`;
                 await axios.post(url, form, { headers });
                 console.log("Producto creado correctamente");
                 toast.success("Producto creado correctamente")
