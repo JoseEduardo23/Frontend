@@ -5,8 +5,9 @@ import Login from '../Login';
 import { describe, test, expect } from 'vitest';
 import React from 'react';
 
-describe('Login Component', () => {
-  test('debe permitir escribir en los campos del formulario', () => {
+describe('Componente de inicio de sesión', () => {
+  // Verifica que los campos permiten entrada de texto
+  test('permite ingresar texto en los campos de entrada', () => {
     render(
       <Router>
         <AuthContext.Provider value={{ setAuth: () => {} }}>
@@ -15,20 +16,19 @@ describe('Login Component', () => {
       </Router>
     );
 
-    // Simula escritura en los campos
     fireEvent.change(screen.getByLabelText(/Email/i), {
-      target: { value: 'test@example.com' },
+      target: { value: 'usuario@correo.com' },
     });
     fireEvent.change(screen.getByLabelText(/Password/i), {
-      target: { value: 'password123' },
+      target: { value: 'claveSegura123' },
     });
 
-    // Verifica que los valores se han actualizado
-    expect(screen.getByLabelText(/Email/i).value).toBe('test@example.com');
-    expect(screen.getByLabelText(/Password/i).value).toBe('password123');
+    expect(screen.getByLabelText(/Email/i).value).toBe('usuario@correo.com');
+    expect(screen.getByLabelText(/Password/i).value).toBe('claveSegura123');
   });
 
-  test('debe permitir escribir en los campos del formulario', () => {
+  // Verifica que se puede escribir en los inputs correctamente
+  test('los campos del formulario se actualizan con la entrada del usuario', () => {
     render(
       <Router>
         <AuthContext.Provider value={{ setAuth: () => {} }}>
@@ -37,20 +37,19 @@ describe('Login Component', () => {
       </Router>
     );
 
-    // Simula escritura en los campos
     fireEvent.change(screen.getByLabelText(/Email/i), {
-      target: { value: 'test@example.com' },
+      target: { value: 'prueba@ejemplo.com' },
     });
     fireEvent.change(screen.getByLabelText(/Password/i), {
-      target: { value: 'password123' },
+      target: { value: 'superClave456' },
     });
 
-    // Verifica que los valores se han actualizado
-    expect(screen.getByLabelText(/Email/i).value).toBe('test@example.com');
-    expect(screen.getByLabelText(/Password/i).value).toBe('password123');
+    expect(screen.getByLabelText(/Email/i).value).toBe('prueba@ejemplo.com');
+    expect(screen.getByLabelText(/Password/i).value).toBe('superClave456');
   });
 
-  test('debe permitir escribir en los campos del formulario', () => {
+  // Verifica que el botón de enviar funciona
+  test('ejecuta la acción de envío cuando se presiona el botón', () => {
     render(
       <Router>
         <AuthContext.Provider value={{ setAuth: () => {} }}>
@@ -59,16 +58,16 @@ describe('Login Component', () => {
       </Router>
     );
 
-    // Simula escritura en los campos
     fireEvent.change(screen.getByLabelText(/Email/i), {
-      target: { value: 'test@example.com' },
+      target: { value: 'usuario@correo.com' },
     });
     fireEvent.change(screen.getByLabelText(/Password/i), {
-      target: { value: 'password123' },
+      target: { value: 'claveSegura123' },
     });
 
-    // Verifica que los valores se han actualizado
-    expect(screen.getByLabelText(/Email/i).value).toBe('test@example.com');
-    expect(screen.getByLabelText(/Password/i).value).toBe('password123');
+    fireEvent.click(screen.getByText(/Enviar/i));
+
+    expect(screen.getByLabelText(/Email/i).value).toBe('usuario@correo.com');
+    expect(screen.getByLabelText(/Password/i).value).toBe('claveSegura123');
   });
 });

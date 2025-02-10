@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Mensaje from '../components/Alertas/Mensaje'
+import React from 'react'
 import logoDog from '../assets/confirm.png'
 import '../Estilos/Confirmar.css'
 

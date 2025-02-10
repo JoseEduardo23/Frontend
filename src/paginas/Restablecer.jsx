@@ -4,7 +4,6 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Estilos/Restablecer.css';
 import key from '../assets/key.png'
-
 export default function Restablecer() {
     const { token } = useParams();
     const [tokenback, setTokenback] = useState(false); 

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import '../Estilos/Forgot.css'
+import React from 'react'
 
 export const Forgot = () => {
     

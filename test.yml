@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:3000/api'  # Cambia esta URL según la configuración de tu backend
+  phases:
+    - duration: 1
+      arrivalRate: 1  # Número de solicitudes por segundo
+
+scenarios:
+  - flow:
+      - get:
+          url: '/recuperar-password/4b571qm9nlr'  # Reemplaza {token} con un token válido para simular la verificación
+      - post:
+          url: '/nuevo-password/4b571qm9nlr'  # Reemplaza {token} con un token válido para el cambio de contraseña
+          json:
+            password: 'Sistemas32'
+            confirmpassword: 'Sistemas32'

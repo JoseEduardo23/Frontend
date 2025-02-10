@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mensaje from '../components/Alertas/Mensaje';
 import '../Estilos/Register.css'
+import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 export const Register = () => {
