@@ -411,7 +411,7 @@ h2 {
 }
 
 .dark .barra1 {
-  background-color: #5483B3;
+  background: linear-gradient(135deg, #006a55, #0d745fb1); 
   box-shadow: 1px 1px 3px 2px #5483B3;
 }
 
@@ -433,7 +433,8 @@ h2 {
 }
 
 .dark .footer {
-  background-color: #5483B3;
+  background: linear-gradient(135deg, #006a55, #0d745f93); 
+
 }
 
 .dark .parr3 {
