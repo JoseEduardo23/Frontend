@@ -111,21 +111,7 @@ const Login = () => {
                         </div>
 
                         <button className="btn-google">
-                            <img
-                                className="btn-icon"
-                                src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
-                                alt="Google Icon"
-                            />
-                            Sign in with Google
-                        </button>
-
-                        <button className="btn-facebook">
-                            <img
-                                className="btn-icon"
-                                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                                alt="Facebook Icon"
-                            />
-                            Sign in with Facebook
+                            
                         </button>
 
                         <div className="forgot-password">
