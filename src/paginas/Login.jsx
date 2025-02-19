@@ -72,27 +72,27 @@ const Login = () => {
 
                         <form onSubmit={handleSubmit}>
                             <div className="input-group">
-                                <label htmlFor="email" className="input-label">Email</label>
+                                <label htmlFor="email" className="input-label">Correo electrónico</label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     value={form.email}
                                     onChange={handleChange}
-                                    placeholder="Enter your email"
+                                    placeholder="Ingresa tu correo electrónico."
                                     className="input-field"
                                 />
                             </div>
 
                             <div className="input-group">
-                                <label htmlFor="password" className="input-label">Password</label>
+                                <label htmlFor="password" className="input-label">Contraseña</label>
                                 <input
                                     type="password"
                                     id="password"
                                     name="password"
                                     value={form.password}
                                     onChange={handleChange}
-                                    placeholder="Tu contraseña"
+                                    placeholder="Ingresa tu contraseña."
                                     className="input-field"
                                 />
                             </div>
@@ -106,7 +106,7 @@ const Login = () => {
 
                         <div className="divider">
                             <hr />
-                            <p className="divider-text">OR</p>
+                            <p className="divider-text">O</p>
                             <hr />
                         </div>
 
@@ -116,14 +116,14 @@ const Login = () => {
 
                         <div className="forgot-password">
                             <Link to="/forgot/id" className="forgot-link">
-                                Forgot your password?
+                                ¿Olvidaste tu contraseña?
                             </Link>
                         </div>
 
                         <div className="register-link">
-                            <p>Don't have an account?</p>
+                            <p>¿No tienes una cuenta?</p>
                             <Link to="/register" className="btn-secondary">
-                                Register
+                                Registro
                             </Link>
                         </div>
                     </div>

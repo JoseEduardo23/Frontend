@@ -49,8 +49,8 @@ export const Register = () => {
                 )}
                 <div className="formcontainer">
 
-                    <h1 className="title">Welcome</h1>
-                    <small className="subtitle">Please enter your details</small>
+                    <h1 className="title">BIENVENIDO</h1>
+                    <small className="subtitle">Ingresa tus datos</small>
 
                     <form className='register-form' onSubmit={handleSubmit}>
 
@@ -138,14 +138,14 @@ export const Register = () => {
                         </div>
 
                         <div className="mb-3">
-                            <button className="button">Register</button>
+                            <button className="button">Registrar</button>
                         </div>
 
                     </form>
 
                     <div className="link-container">
-                        <p>You've already an account?</p>
-                        <Link to="/login" className="link">Login</Link>
+                        <p>¿Ya tienes una cuenta?</p>
+                        <Link to="/login" className="link">Iniciar sesión</Link>
                     </div>
 
                 </div>
