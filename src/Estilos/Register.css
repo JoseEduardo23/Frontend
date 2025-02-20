@@ -16,28 +16,7 @@ form {
     margin-top: -16px;
 }
 
-.message {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    z-index: 1000;
-    max-width: 300px;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-}
 
-.message.success {
-    background-color: #10B981;
-}
-
-.message.error {
-    background-color: #EF4444;
-}
 
 .formcontainer {
     width: 100%;

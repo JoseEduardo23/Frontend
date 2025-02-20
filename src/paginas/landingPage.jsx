@@ -27,7 +27,7 @@ export const LandingPage = () => {
       <main className="main-container">
 
         <div className="navbar">
-        <h1>TIENDANIMAL</h1>
+          <h1>TIENDANIMAL</h1>
           <ul>
             <li>Inicio</li>
             <li>Acerca</li>
@@ -179,7 +179,7 @@ export const LandingPage = () => {
             <div class="newsletter">
               <p class="footer-title">Envíanos un comentario:</p>
               <textarea name="" id="" className='footer-input' placeholder='Comentario'></textarea>
-              <input type="email" class="footer-input" placeholder="Correo electrónico" />
+              <input type="email" required class="footer-input" placeholder="Correo electrónico" />
               <button class="footer-btn">Enviar</button>
             </div>
           </div>
