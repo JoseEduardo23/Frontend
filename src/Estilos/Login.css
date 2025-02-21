@@ -3,26 +3,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 731px;
-    width: 100%; /* Ajustado para que ocupe el ancho completo */
-    background-color: #111827;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #021024, #1B1B2F, #16213E);
     background-size: cover;
     background-position: center;
     position: fixed;
-    top: 0; /* Asegura que cubra toda la pantalla */
+    top: 0;
 }
 
 .login-form-container {
-    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px 1px white;
     padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 400px; /* Asegura que no se estire demasiado en pantallas grandes */
+    max-width: 400px;
 }
 
 .login-form {
@@ -30,7 +29,7 @@
 }
 
 .login-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -46,30 +45,41 @@
 }
 
 .input-group {
-    margin-bottom: 1rem;
+    padding: 1.5rem 0;
 }
 
 .input-label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.875rem;
-    color: #374151;
+    color: white;
+}
+
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus,
+.input-field:-webkit-autofill:active {
+    background: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .input-field {
     width: 100%;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
     padding: 0.5rem;
-    color: #6b7280;
+    color: white;
+    border-radius: 4px;
+    background-color: transparent;
+    border-bottom: 1px solid white;
     outline: none;
     transition: border-color 0.2s ease;
 }
 
 .input-field:focus {
-    border-color: #6d28d9;
-    box-shadow: 0 0 0 1px #6d28d9;
+    border-color: #111827;
+    box-shadow: 0 0 0 1px #111827;
 }
 
 .button-group {
@@ -79,9 +89,10 @@
 .btn-primary {
     width: 100%;
     padding: 0.75rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: 0.3s ease, transform 0.3s ease;
+    border-bottom: 1px solid white;
     cursor: pointer;
+    color: white;
     height: 45px;
 }
 
@@ -109,7 +120,7 @@
     font-size: 0.875rem;
 }
 
-.btn-google,
+/*.btn-google,
 .btn-facebook {
     display: flex;
     align-items: center;
@@ -129,12 +140,12 @@
     color: white;
     transform: scale(1.05);
 }
-
 .btn-facebook:hover {
     background-color: #2563eb;
     color: white;
     transform: scale(1.05);
-}
+}*/
+
 
 .btn-icon {
     width: 1.25rem;
@@ -147,25 +158,28 @@
 }
 
 .forgot-link {
-    text-decoration: underline;
     font-size: 0.875rem;
     color: #9ca3af;
+    text-decoration: none;
 }
 
 .forgot-link:hover {
-    color: #111827;
+    color: wheat;
+    text-decoration: none;
 }
 
 .register-link {
     margin-top: 1.5rem;
     display: flex;
+    color: white;
     justify-content: space-between;
     align-items: center;
 }
 
 .btn-secondary {
     padding: 0.5rem 1rem;
-    background-color: #6b7280;
+    background-color: transparent;
+    border-bottom: 1px solid white ;
     color: #d1d5db;
     border-radius: 0.5rem;
     transition: background-color 0.3s ease, transform 0.3s ease;

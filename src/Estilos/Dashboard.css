@@ -1,12 +1,15 @@
+:root{
+  overflow-x: hidden;
+}
 .dashboard-container {
   display: flex;
   min-height: 100vh;
+  width: 100vw;
   background-image: url("../assets/fondos/Fondotienda.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  overflow: hidden;
 }
 
 .sidebar {
@@ -188,81 +191,127 @@
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    transform: translateX(-100%);
+    width: 200px;
   }
 
-  .content-area {
-    margin-left: 0;
-    padding: 1rem;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 0;
-  }
-
-  .footer-dashboard {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  .content-area.retraido {
+    margin-left: 200px;
+    width: calc(100% - 200px);
   }
 
   .hamburguesa {
-    top: 10px;
-    left: 10px;
-    z-index: 20;
+    left: 15px;
   }
 
-  .user-avatar {
-    width: 40px;
-    height: 40px;
+  .header {
+    padding: 0.8rem;
   }
 
-  .user-info {
-    font-size: 0.875rem;
+  .footer-dashboard {
+    height: 2.5rem;
   }
 
-  .logout-button {
-    margin-left: auto;
-    margin-right: 20px;
-  }
-
-  .nav-list {
-    margin-top: 1rem;
-    width: 100%;
-  }
-  .nav-list a {
-    font-size: 1rem;
-    padding: 0.75rem;
+  .footer-dashboard p {
+    font-size: 0.9rem;
+    line-height: 2.5rem;
   }
 }
-@media (max-width: 768px) {
+
+@media (max-width: 576px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    transform: translateX(-100%);
+    width: 180px;
+  }
+
+  .content-area {
+    padding: 0 1rem;
+  }
+
+  .content-area.retraido {
+    margin-left: 180px;
+    width: calc(100% - 180px);
   }
 
   .sidebar-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
-  .user-img {
-    width: 100px;
-    height: 100px;
+  .user-info {
+    font-size: 0.9rem;
+  }
+
+  .logout-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 
   .nav-list a {
     font-size: 1rem;
-    padding: 0.75rem;
   }
 
-  .nav-list {
-    margin-top: 1rem;
+  .header {
+    padding: 0.6rem;
+  }
+
+  .welcome-message {
+    font-size: 1rem;
+  }
+
+  .footer-dashboard {
+    height: 2.3rem;
+  }
+
+  .footer-dashboard p {
+    font-size: 0.85rem;
+    line-height: 2.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 160px;
+  }
+
+  .content-area {
+    padding: 0 0.5rem;
+  }
+
+  .content-area.retraido {
+    margin-left: 160px;
+    width: calc(100% - 160px);
+  }
+
+  .sidebar-title {
+    font-size: 1rem;
+  }
+
+  .user-info {
+    font-size: 0.85rem;
+  }
+
+  .logout-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .header {
+    padding: 0.5rem;
+  }
+
+  .welcome-message {
+    font-size: 0.9rem;
+  }
+
+  .footer-dashboard {
+    height: 2rem;
+  }
+
+  .footer-dashboard p {
+    font-size: 0.8rem;
+    line-height: 2rem;
   }
 }

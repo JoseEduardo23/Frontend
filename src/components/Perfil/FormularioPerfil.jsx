@@ -63,13 +63,13 @@ const FormularioPerfil = () => {
         <div>
             <form onSubmit={handleSubmit} className="form-container">
                 <div>
-                    <label htmlFor="nombre" className="form-label">
+                    <label htmlFor="nombre" className="label-form">
                         Nombre:
                     </label>
                     <input
                         id="nombre"
                         type="text"
-                        className="form-input placeholder-gray"
+                        className="input-form"
                         placeholder="nombre"
                         name="nombre"
                         onChange={handleChange}
@@ -77,13 +77,13 @@ const FormularioPerfil = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="apellido" className="form-label">
+                    <label htmlFor="apellido" className="label-form">
                         Apellido:
                     </label>
                     <input
                         id="apellido"
                         type="text"
-                        className="form-input placeholder-gray"
+                        className="input-form"
                         placeholder="apellido"
                         name="apellido"
                         onChange={handleChange}
@@ -91,13 +91,13 @@ const FormularioPerfil = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="direccion" className="form-label">
+                    <label htmlFor="direccion" className="label-form">
                         Dirección:
                     </label>
                     <input
                         id="direccion"
                         type="text"
-                        className="form-input placeholder-gray"
+                        className="input-form"
                         placeholder="direccion"
                         name="direccion"
                         onChange={handleChange}
@@ -105,13 +105,13 @@ const FormularioPerfil = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="telefono" className="form-label">
+                    <label htmlFor="telefono" className="label-form">
                         Teléfono:
                     </label>
                     <input
                         id="telefono"
                         type="text"
-                        className="form-input placeholder-gray"
+                        className="input-form"
                         placeholder="telefono"
                         name="telefono"
                         onChange={handleChange}
@@ -119,12 +119,12 @@ const FormularioPerfil = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="detalles" className="form-label">
+                    <label htmlFor="detalles" className="label-form">
                         Detalles:
                     </label>
                     <textarea
                         id="detalles"
-                        className="form-textarea placeholder-gray"
+                        className="textarea-form"
                         name="detalles"
                         onChange={handleChange}
                         value={form.detalles}
@@ -133,7 +133,7 @@ const FormularioPerfil = () => {
 
                 <input
                     type="submit"
-                    className="submit-btn"
+                    className="submit-b"
                     value="Actualizar"
                 />
             </form>
