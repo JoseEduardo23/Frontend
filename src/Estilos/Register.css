@@ -9,6 +9,10 @@
     overflow-x: hidden;
 }
 
+.error-message{
+    margin-left: 90px;
+}
+
 .engra {
     margin-left: 65rem;
     flex-direction: column;
