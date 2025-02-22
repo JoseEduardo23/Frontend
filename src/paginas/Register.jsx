@@ -18,6 +18,8 @@ export const Register = () => {
         password: ""
     });
 
+    const [loading, setLoading] = useState(false);
+
     /*Manejo de errores*/
 
     const [error, setError] = useState(null);
@@ -91,9 +93,9 @@ export const Register = () => {
         }
 
         if (name === "password") {
-         if (!/(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}/.test(value)) {
-                setPasswordError(<p>Debe contener una mayúscula, <br /> 
-                                  un número y un carácter especial</p>);
+            if (!/(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}/.test(value)) {
+                setPasswordError(<p>Debe contener una mayúscula, <br />
+                    un número y un carácter especial</p>);
             } else {
                 setPasswordError(null);
             }
@@ -117,6 +119,7 @@ export const Register = () => {
             return;
         }
 
+        setLoading(true);
 
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}api/register`;
@@ -126,6 +129,8 @@ export const Register = () => {
         } catch (error) {
             console.log(error);
             toast.error(error.response?.data?.msg || 'Ha ocurrido un error, intentelo de nuevo')
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -146,7 +151,7 @@ export const Register = () => {
                 <div className="formcontainer">
                     <h1 className="title">BIENVENIDO</h1>
 
-                    <form  className='register-form' onSubmit={handleSubmit}>
+                    <form className='register-form' onSubmit={handleSubmit}>
                         {error && <div className='error-message'>{error}</div>}
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold" htmlFor="nombre">Nombre:</label>
@@ -192,7 +197,7 @@ export const Register = () => {
 
                             />
                             {direccionError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{direccionError}</p>}
- 
+
                         </div>
 
                         <div className="inp">
@@ -245,7 +250,9 @@ export const Register = () => {
                         </div>
 
                         <div className="butt-cont">
-                            <button className="reg-button">Registrar</button>
+                            <button type="submit" className="btn-primary" disabled={loading}>
+                                {loading ? 'Cargando...' : 'Registrarse'}
+                            </button>
                         </div>
 
                     </form>

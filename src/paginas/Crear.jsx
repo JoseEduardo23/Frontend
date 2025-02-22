@@ -1,12 +1,12 @@
-import React from "react";
+ import React from "react";
 import { Formulario } from "../components/Formulario";
+import "../Estilos/Crear.css"
 
 const Crear = ()=>{
     return(
-        <div>
-            <h1>Modulo de productos</h1>
+        <div className="div-crear">
+            <h1 className="h1-crear" style={{fontSize:"1.5rem"}}>Modulo de productos</h1>
             <hr/>
-            <p>Este módulo permite registrar un nuevo producto</p>
             <Formulario/>
         </div>
     )

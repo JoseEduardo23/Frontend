@@ -62,7 +62,7 @@ const Tabla = () => {
         <>
             {
                 productos.length === 0
-                    ?<img src={nor} className="Inor"></img>
+                    ?<div className="loading"></div>
                     : <table className='tabla-productos'>
                         <thead>
                             <tr>

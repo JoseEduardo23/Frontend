@@ -5,6 +5,7 @@ import AuthContext from '../Context/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Estilos/Login.css';
 import React from 'react';
+import {FaEye, FaEyeSlash} from "react-icons/fa"
 
 const Login = () => {
     const navigate = useNavigate();
@@ -13,6 +14,12 @@ const Login = () => {
         email: '',
         password: '',
     });
+
+    const [showPassword, setShowPassword] = useState(null)
+    const togglePasswordVisibility = ()=>{
+        setShowPassword(!showPassword)
+    }
+
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -87,7 +94,7 @@ const Login = () => {
                             <div className="input-group">
                                 <label htmlFor="password" className="input-label">Contraseña</label>
                                 <input
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     id="password"
                                     name="password"
                                     value={form.password}
@@ -95,6 +102,9 @@ const Login = () => {
                                     placeholder="Ingresa tu contraseña."
                                     className="input-field"
                                 />
+                                <span className='toggle-password' onClick={togglePasswordVisibility}>
+                                    {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                                </span>
                             </div>
 
                             <div className="button-group">

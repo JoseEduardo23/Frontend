@@ -1,5 +1,5 @@
 .formulario {
-    background: #2d2d2d;
+    background-color: rgba(255, 255, 255, 0.838);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -11,8 +11,7 @@
   }
   
   .formulario:hover {
-    transform: translateY(-5px);
-    border: 2px cyan;
+
   }
   
   h1 {
@@ -31,7 +30,7 @@
   
   .form-label {
     font-size: 1rem;
-    color: #d1d5db;
+    color: black;
     margin-bottom: 0.5rem;
     display: block;
     font-weight: 600;
@@ -40,11 +39,11 @@
   .form-input,
   .form-textarea {
     width: 100%;
+    background-color: transparent;
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 8px;
     border: 2px solid #4b4b4b;
-    background-color: #1e1e1e;
     color: #e5e7eb;
     transition: border-color 0.3s ease;
   }
@@ -62,6 +61,7 @@
   
   .error-message {
     color: #f87171;
+    margin-left: -3px;
     font-size: 0.9rem;
     margin-bottom: 1rem;
     text-align: center;
@@ -73,15 +73,16 @@
   .form-submit {
     height: 45px;
     background-color: #10b981;
-    color: white;
+    color: black;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border-radius: 8px;
-    border: none;
+    border: 2px solid;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 100%;
+    width: 30%;
     font-weight: 600;
+    margin-left:250px ;
   }
   
   .form-submit:hover {

@@ -1,4 +1,3 @@
-/* Contenedor de la tabla */
 .table-wrapper {
     margin-top: 2rem;
     padding: 1rem;
@@ -119,6 +118,23 @@ thead th {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+}
+.loading {
+  margin-top: 150px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  margin-left: 500px;
+  animation: spin 1s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Responsividad para pantallas pequeñas */

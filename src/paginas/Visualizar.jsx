@@ -42,8 +42,8 @@ const Visualizar = () => {
     if (!producto) {
         return ;
     }
-
     return (
+
         <div className="container-visualizar">
             <div>
                 <h1 className='font-black text-4xl text-gray-500'>DATOS DEL PRODUCTO</h1>
