@@ -1,6 +1,7 @@
-:root{
-  overflow-x: hidden;
+::-webkit-scrollbar {
+  display: none;
 }
+
 .dashboard-container {
   display: flex;
   min-height: 100vh;
