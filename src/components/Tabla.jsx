@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { MdDeleteForever, MdNoteAdd, MdInfo, MdUpdate, MdDelete, MdUpload, MdElectricBike } from "react-icons/md";
 import axios from 'axios';
-import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom';
 import '../Estilos/Tabla.css';
-import nor from '../assets/nor.png'
 
 
 const Tabla = () => {
@@ -82,7 +80,7 @@ const Tabla = () => {
                                         <td className='tabla-celda'>{index + 1}</td>
                                         <td className='tabla-celda'>{producto.nombre}</td>
                                         <td className='tabla-celda'>{producto.descripcion}</td>
-                                        <td className='tabla-celda'>{producto.precio}$</td>
+                                        <td className='tabla-celda'>${producto.precio}</td>
                                         <td className='tabla-celda'>{producto.stock}</td>
                                         <td className='tabla-celda'>{producto.categoria}</td>
                                         <td className='tabla-celdaI'>

@@ -1,20 +1,14 @@
-.table-wrapper {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #eaf0f4;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
 /* Estilos para la tabla */
 .tabla-productos {
     width: 100%;
     border-spacing: 1px;
+    border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 thead {
-    background-color: #6c5ce7;
+    background: linear-gradient(135deg, #021024, #1B1B2F, #16213E);
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -24,7 +18,7 @@ thead th {
     padding: 1rem 1.5rem;
     text-align: center;
     font-size: 1rem;
-}
+ }
 
 /* Estilo para las filas */
 .tabla-fila {

@@ -8,7 +8,7 @@
     align-items: center;
     font-family: 'Roboto', sans-serif;
     background-image: url("../assets/fondos/Fondotienda.jpg");
-    background-size: 80% auto; /* Reducción del tamaño del fondo */
+    background-size: 90% auto; 
     background-position: center center;
     background-repeat: no-repeat;
   }
