@@ -11,7 +11,7 @@ export const NotFound = () => {
             <img src={VID} id="video-background" />
             <img className="notfound-logo" src={logoDog} alt="Página no encontrada" />
             <div className="notfound-text-container">
-                <p className="notfound-message">La página que buscas fue movida, aliminada, reacomodada o puede que nunca haya existido... ¿quién sabe?</p>
+                <p className="notfound-message">La página que buscas fue movida, eliminada, reacomodada o puede que nunca haya existido... ¿quién sabe?</p>
                 <Link to="/" className="notfound-button">Página principal</Link>
             </div>
         </div>
