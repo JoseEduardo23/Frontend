@@ -79,7 +79,7 @@
 
 /* Contenido de la pagina */
 
-section.landing-1 {
+.landing-1 {
   justify-self: center;
   width: 70%;
   margin-top: 100px;
@@ -363,92 +363,87 @@ section .info2 {
 }
 
 /* Media Querys*/
-
-@media only screen and (max-width:767px) {
-  .main-container {
-    width: 100%;
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
 
-  @media screen and (max-width: 767px) {
-    .navbar {
-      flex-direction: column;
-      height: auto;
-      text-align: center;
-      position: relative;
-    }
+  .navbar ul {
+    padding: 0;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .navbar ul {
-      align-items: center;
-      align-content: center;
-      flex-direction: column;
-      padding: 0;
-      width: 100%;
-      margin-top: 10px;
-    }
+  .navbar li {
+    margin: 0.5rem 0;
+  }
 
-    .navbar li {
-      margin: 10px 0;
-      text-align: center;
-    }
+  .btn-login {
+    margin-top: 1rem;
+  }
 
-    .btn-login {
-      width: 100%;
-      max-width: 200px;
-      height: 2.5rem;
-      margin-top: 10px;
-    }
+  section.landing-1 {
+    width: 100%;
+    margin-top: 50px;
+    flex-direction: column;
+    padding: 1rem;
   }
 
   .content1 {
     flex-direction: column;
-    margin: 0px -100px;
+    text-align: center;
   }
 
   .img2 {
-    margin: 40px 0;
+    margin: 1rem 0;
+    width: 100%;
+    height: auto;
   }
 
-  .info2 {
-    margin-top: -3rem;
-    margin-bottom: 2.5rem;
+  .landing-2,
+  .landing-3 {
+    padding: 1rem;
   }
 
-  .img13 {
-    width: 305px;
-    margin-left: -px;
-    margin-top: -50px;
+  section .info2,
+  .info3 {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .img13,
+  .img14 {
+    width: 100%;
+    height: auto;
   }
 
   .section3 {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .texto2,
-  .texto4,
-  .texto3 {
-    width: 350px;
+  .texto3,
+  .texto4 {
+    width: 100%;
+    padding: 1rem;
   }
 
   .footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 30px 15px;
+    padding: 1rem;
   }
 
   .footer-container {
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .footer-title {
-    font-size: 1.3rem;
+    gap: 20px;
   }
 
   .footer-img {
-    max-width: 30%;
-    height: auto;
+    max-width: 100%;
   }
 
   .contact-info,
@@ -456,21 +451,130 @@ section .info2 {
   .social-media,
   .newsletter {
     width: 100%;
-    flex: none;
-    margin-bottom: 20px;
-    justify-items: center;
+  }
+}
+
+/* Media Queries para tablets (769px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  section.landing-1 {
+    margin-top: 80px;
+    margin-left: 100px;
   }
 
-  .social-icons {
-    justify-content: center;
+  .content1 {
+    flex-direction: row;
+    align-items: center;
   }
 
-  .social-icon {
-    width: 40px;
-    height: 40px;
+  .img2 {
+    height: auto;
   }
 
-  .footer-btn {
-    font-size: 0.9rem;
+  .landing-2,
+  .landing-3 {
+    padding: 1rem 2rem;
+  }
+
+  section .info2,
+  .info3 {
+    width: 90%;
+  }
+
+  .img13,
+  .img14 {
+    width: 50%;
+    height: auto;
+  }
+
+  .section3 {
+    padding: 2rem;
+  }
+
+  .texto2,
+  .texto3,
+  .texto4 {
+    width: 30%;
+  }
+
+  .footer {
+    padding: 1rem 2rem;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .contact-info,
+  .footer-links,
+  .social-media,
+  .newsletter {
+    flex: 1 1 45%;
+  }
+}
+
+/* Media Queries para pantallas grandes (más de 1024px) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 0 2rem;
+  }
+
+  .navbar ul {
+    padding: 0 2rem;
+  }
+
+  section.landing-1 {
+    width: 40%;
+    margin-top: 100px;
+    margin-left: 0px;
+  }
+
+  .content1 {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .img2 {
+    height: auto;
+  }
+
+  .landing-2,
+  .landing-3 {
+    padding: 2rem 3rem;
+  }
+
+  section .info2,
+  .info3 {
+    width: 80%;
+  }
+
+  .img13,
+  .img14 {
+    height: auto;
+  }
+
+  .section3 {
+    padding: 3rem;
+  }
+
+  .texto2,
+  .texto3,
+  .texto4 {
+    width: 30%;
+  }
+
+  .footer {
+    padding: 2rem;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+  }
+
+  .contact-info,
+  .footer-links,
+  .social-media,
+  .newsletter {
+    flex: 1;
   }
 }

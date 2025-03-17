@@ -58,10 +58,6 @@ export const LandingPage = () => {
         <section className='landing-1'>
           <div className="content1">
             <p>
-              En la actualidad el bienestar animal de nuestras mascotas, se trata de una cuestión que ha adquirido una enorme importancia en nuestra sociedad, no se trata unicamente de
-              garantizar que un animal esté libre de sufrimiento, sino también de asegurar que viva en un entorno que favorezca su desarrollo saludable, mental y social. Esto no solo incluye
-              el cuidado físico, como la alimentación adecuada y la atención médica, sino también aspectos emocionales y psicológicas.
-              <br />
               Las mascotas al ser animales sociales y dependientes de los humanos, requieren de atencion especial para asegurarse de que su entorno, sus interacciones y su día a día favorezcan
               su bienestar general.
             </p>
