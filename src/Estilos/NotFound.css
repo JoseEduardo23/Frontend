@@ -1,61 +1,78 @@
 .notfound-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
-    min-height: 100vh;
-    background-color: #242d3a;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+#video-background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .notfound-logo {
-    object-fit: cover;
-    height: 12rem;
-    width: 12rem;
-    border-radius: 50%;
-    border: 4px solid #4B5563;
-    margin-bottom: 1.5rem;
+    width: 150px;
+    margin-bottom: 20px;
 }
 
 .notfound-text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.notfound-title {
-    font-size: 2.5rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-}
-
-.notfound-message {
-    font-size: 1.125rem;
-    color: #e0e7ff;
-    margin-bottom: 2rem;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .notfound-button {
-    padding: 1rem;
-    margin-top: 1.5rem;
-    width: 100%;
-    text-align: center;
-    background-color: #4B5563;
-    color: #E5E7EB;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #ff5a5f;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 .notfound-button:hover {
-    transform: scale(1.05);
-    background-color: #1F2937;
-    color: #FFFFFF;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    background-color: #ff787d;
+}
+
+.notfound-title{
+    font-size: 3.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media(max-width:600px){
+    .notfound-text-container{
+        padding: 1rem 1rem;
+        width: 80%;
+    }
+}
+
+@media(min-width:800px){
+    .notfound-text-container{
+        padding: 1rem 1rem;
+        width: 80%;
+        margin-top: -25px;
+    }
+}
+
+@media(min-width:1200px){
+    .notfound-text-container{
+        padding: 1rem 1rem;
+        width: 40%;
+    }
 }
