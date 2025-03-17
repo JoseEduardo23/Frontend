@@ -15,7 +15,6 @@ import img11 from '../assets/mail.png'
 import img12 from '../assets/ubi.png'
 import img13 from '../assets/fondo2.jpg'
 import img14 from '../assets/fondo3.jpg'
-import img15 from '../assets/cat.png'
 
 
 
@@ -35,16 +34,23 @@ export const LandingPage = () => {
             <li>Contactos</li>
             <li>
               <img
+              className='btn-dark'
                 onClick={() => setdarkMode(!darkMode)}
                 src={logoDarkMode}
                 alt="darkmode"
               />
             </li>
-            <li> <Link
-              to="/login"
-              className='btn-login'
-              href="#">Iniciar Sesión
-            </Link>
+            <li>
+              <Link
+                to="/login"
+                className='btn-login'
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('/login', '_blank');
+                }}
+              >
+                Iniciar Sesión
+              </Link>
             </li>
           </ul>
         </div>
