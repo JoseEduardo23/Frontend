@@ -15,6 +15,7 @@ import img11 from '../assets/mail.png'
 import img12 from '../assets/ubi.png'
 import img13 from '../assets/fondo2.jpg'
 import img14 from '../assets/fondo3.jpg'
+import img15 from '../assets/cat.png'
 
 
 
@@ -34,7 +35,7 @@ export const LandingPage = () => {
             <li>Contactos</li>
             <li>
               <img
-              className='btn-dark'
+                className='btn-dark'
                 onClick={() => setdarkMode(!darkMode)}
                 src={logoDarkMode}
                 alt="darkmode"
@@ -55,19 +56,28 @@ export const LandingPage = () => {
           </ul>
         </div>
 
-        <section className='landing-1'>
+        <h1 className='lan-title'>BIENESTAR ANIMAL</h1>
+
+        <section className="landing-1">
           <div className="content1">
+            <hr />
             <p>
-              Las mascotas al ser animales sociales y dependientes de los humanos, requieren de atencion especial para asegurarse de que su entorno, sus interacciones y su día a día favorezcan
-              su bienestar general.
+              En la actualidad, el bienestar animal de nuestras mascotas ha adquirido una enorme importancia en nuestra sociedad. No se trata únicamente de garantizar que un animal esté libre de sufrimiento, sino también de asegurar que viva en un entorno que favorezca su desarrollo saludable, mental y social.
+              <br />
+              Las mascotas, al ser animales sociales y dependientes de los humanos, requieren de atención especial para asegurarse de que su entorno, sus interacciones y su día a día favorezcan su bienestar general.
             </p>
-            <div>
-              <img src={img2} alt="" className='img2' />
-            </div>
+            <hr />
           </div>
+          <hr className="hre" />
+          <img src={img2} alt="" className="img2" />
         </section>
 
-        <section className='landing-2'>
+        <div className='navegar'>
+          <a href="#importancia">A cerca del bienestar animal</a>
+          <a href="#Partes">Importancia, nutricion e igiene</a>
+        </div>
+
+        <section id='importancia' className='landing-2'>
           <div className="info2">
             <p>
               El cuidado y bienestar de las mascotas proviene de un buen cuidado
@@ -95,7 +105,7 @@ export const LandingPage = () => {
           <img src={img14} alt="" className='img14' />
         </section>
 
-        <section className='section3'>
+        <section id='Partes' className='section3'>
           <div className='texto2'>
             <img src={img3} alt="" className='img3' />
             <p className='title3'>Importancia del cuidado de las mascotas domésticas</p>
@@ -179,7 +189,7 @@ export const LandingPage = () => {
             </div>
 
             <div class="newsletter">
-              <p class="footer-title">Envíanos un comentario:</p>
+              <p class="footer-titlef">Envíanos un comentario:</p>
               <textarea name="" id="" className='footer-input' placeholder='Comentario'></textarea>
               <input type="email" required class="footer-input" placeholder="Correo electrónico" />
               <button class="footer-btn">Enviar</button>
