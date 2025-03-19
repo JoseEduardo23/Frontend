@@ -15,10 +15,6 @@ import img11 from '../assets/mail.png'
 import img12 from '../assets/ubi.png'
 import img13 from '../assets/fondo2.jpg'
 import img14 from '../assets/fondo3.jpg'
-import img15 from '../assets/cat.png'
-
-
-
 
 export const LandingPage = () => {
   const [darkMode, setdarkMode] = useState(false)
@@ -29,10 +25,22 @@ export const LandingPage = () => {
         <div className="navbar">
           <h1>TIENDANIMAL</h1>
           <ul>
-            <li>Inicio</li>
-            <li>Acerca</li>
-            <li>Productos</li>
-            <li>Contactos</li>
+            <li>
+              <Link to="/">Inicio</Link>
+            </li>
+
+            <li>
+              <Link to="/sobre">Sobre Nosotros</Link>  
+            </li>
+
+            <li>
+              <Link to="/tienda">Productos</Link>
+            </li>
+
+            <li>
+              <Link to="/contactos">Contactos</Link>
+            </li>
+            
             <li>
               <img
                 className='btn-dark'
@@ -74,7 +82,7 @@ export const LandingPage = () => {
 
         <div className='navegar'>
           <a href="#importancia">A cerca del bienestar animal</a>
-          <a href="#Partes">Importancia, nutricion e igiene</a>
+          <a href="#Partes">Importancia, nutricion e higiene</a>
         </div>
 
         <section id='importancia' className='landing-2'>

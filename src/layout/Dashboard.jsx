@@ -9,12 +9,10 @@ const Dashboard = () => {
   const location = useLocation();
   const urlActual = location.pathname;
   const { auth } = useContext(AuthContext);
-  const Autenticado = localStorage.getItem('token');
+  const Autenticado = localStorage.getItem('token') !== null;
 
-  // Estado para controlar la visibilidad del menú
   const [menuAbierto, setMenuAbierto] = useState(false);
 
-  // Función para alternar el estado del menú
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
   };
@@ -32,7 +30,7 @@ const Dashboard = () => {
           height={120}
         />
         <p className="welcome-message">
-          <span className="status"></span> Bienvenido - {auth?.nombre}
+          <span className="status"></span> Bienvenido - {auth?.nombre || 'Usuario'}
         </p>
         <hr className="mt-5 border-slate-500" />
 
@@ -46,34 +44,24 @@ const Dashboard = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/dashboard/listar"
-              className={`${urlActual === '/dashboard/listar' ? 'active' : ''}`}
-            >
+            <Link to='/dashboard/productos' className={`${urlActual === '/dashboard/productos' ? 'active' : ''}`}>
               Productos
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/crear"
-              className={`${urlActual === '/dashboard/crear' ? 'active' : ''}`}
-            >
-              Ingresar
             </Link>
           </li>
         </ul>
       </div>
 
+      {/* Botón hamburguesa para abrir/cerrar menú */}
       <div className="hamburguesa" onClick={toggleMenu}>
         <span className="hamburguesa-bar"></span>
         <span className="hamburguesa-bar"></span>
         <span className="hamburguesa-bar"></span>
       </div>
 
-      <div className={`content-area ${menuAbierto ? 'retraido' : ''}`}>
+      <div className="content-area">
         <div className="header">
           <div className="user-info">
-            Usuario - {auth.nombre}
+            Usuario - {auth?.nombre || 'Usuario'}
           </div>
           <div>
             <img
@@ -97,8 +85,9 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* Redirigir a login si no está autenticado */}
         <div className="overflow-y-scroll p-8">
-          {Autenticado ? <Outlet /> : <Navigate to="/login" />}
+          {Autenticado ? <Outlet /> : urlActual !== '/login' && <Navigate to="/login" />}
         </div>
 
         <div className="footer-dashboard">

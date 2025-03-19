@@ -60,7 +60,8 @@ const Tabla = () => {
         <>
             {
                 productos.length === 0
-                    ?<div className="loading"></div>
+                    ?
+                    <div className="loading"></div>
                     : <table className='tabla-productos'>
                         <thead>
                             <tr>
@@ -86,11 +87,11 @@ const Tabla = () => {
                                         <td className='tabla-celdaI'>
                                             <MdInfo
                                                 className="tabla-icono"
-                                                onClick={() => navigate(`/dashboard/visualizar/${producto._id}`)}
+                                                onClick={() => navigate(`/dashboard/productos/visualizar/${producto._id}`)}
                                             />
                                             <MdUpdate
                                                 className="tabla-iconoI"
-                                                onClick={() => navigate(`/dashboard/actualizar/${producto._id}`)}
+                                                onClick={() => navigate(`/dashboard/productos/actualizar/${producto._id}`)}
                                             />
                                             <MdDelete
                                                 className="tabla-icono-eliminar"

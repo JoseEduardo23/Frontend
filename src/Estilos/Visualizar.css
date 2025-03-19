@@ -1,170 +1,155 @@
 .container-visualizar {
-    background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    color: #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    background-image: url("../assets/fondos/Fondotienda.jpg");
-    background-size: 90% auto; 
-    background-position: center center;
-    background-repeat: no-repeat;
+  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background-image: url("../assets/fondos/Fondotienda.jpg");
+  background-size: 90% auto; 
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-top: -250px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2rem; /* Reducción de tamaño */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+hr {
+  width: 80%;
+  border-top: 2px solid #3b3b3b;
+  margin: 1.5rem 0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 2rem; 
+  width: 300px; 
+  box-shadow: 0 6px 12px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 7px;
+  background: linear-gradient(135deg, #010101, #292929); 
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px; /* Reducción del tamaño */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-details {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card-details h2 {
+  color: #10b981;
+  font-size: 1.2rem; /* Reducción del tamaño */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-details p {
+  font-size: 0.95rem; /* Reducción del tamaño */
+  color: #e5e7eb;
+  margin-bottom: 0.5rem; /* Reducción del margen */
+  text-align: left;
+}
+
+.card-details strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+button {
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem; /* Reducción del padding */
+  border-radius: 0.375rem;
+  border: none;
+  font-size: 1rem; /* Reducción del tamaño */
+  cursor: pointer;
+  margin-top: 1.5rem; /* Reducción del margen */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .container-visualizar {
+    padding: 1rem;
+    background-size: 100% auto; /* Fondo más ajustado en móviles */
   }
-  .loading {
-    margin-top: 150px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    margin-left: 500px;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
+
   h1 {
-    color: #ffffff;
-    font-size: 2rem; /* Reducción de tamaño */
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.75rem; /* Reducción del tamaño en móvil */
+    letter-spacing: 1px;
   }
-  
-  hr {
-    width: 80%;
-    border-top: 2px solid #3b3b3b;
-    margin: 1.5rem 0;
-  }
-  
+
   .card-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-  }
-  
-  .card {
-    border-radius: 12px;
-    padding: 2rem; 
-    width: 300px; 
-    box-shadow: 0 6px 12px rgb(0, 0, 0);
-    display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin-top: 7px;
-    background: linear-gradient(135deg, #010101, #292929); 
   }
-  
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+
+  .card {
+    width: 90%; /* Más estrecho en móviles */
+    padding: 1rem;
   }
-  
-  .card-image {
-    width: 100%;
-    height: 180px; /* Reducción del tamaño */
-    overflow: hidden;
-    border-radius: 12px;
-  }
-  
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .card-details {
-    margin-top: 1rem;
-    position: relative;
-    z-index: 1;
-  }
-  
+
   .card-details h2 {
-    color: #10b981;
-    font-size: 1.2rem; /* Reducción del tamaño */
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
   }
-  
+
   .card-details p {
-    font-size: 0.95rem; /* Reducción del tamaño */
-    color: #e5e7eb;
-    margin-bottom: 0.5rem; /* Reducción del margen */
-    text-align: left;
+    font-size: 0.9rem;
   }
-  
-  .card-details strong {
-    font-weight: 700;
-    color: #ffffff;
-  }
-  
+
   button {
-    background-color: #10b981;
-    color: #ffffff;
-    padding: 0.75rem 1.25rem; /* Reducción del padding */
-    border-radius: 0.375rem;
-    border: none;
-    font-size: 1rem; /* Reducción del tamaño */
-    cursor: pointer;
-    margin-top: 1.5rem; /* Reducción del margen */
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    text-transform: uppercase;
-    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.1rem;
   }
-  
-  button:hover {
-    background-color: #1abc9c;
-    transform: scale(1.05);
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
-  @media (max-width: 768px) {
-    .container-visualizar {
-      padding: 1rem;
-      background-size: 100% auto; /* Fondo más ajustado en móviles */
-    }
-  
-    h1 {
-      font-size: 1.75rem; /* Reducción del tamaño en móvil */
-      letter-spacing: 1px;
-    }
-  
-    .card-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .card {
-      width: 90%; /* Más estrecho en móviles */
-      padding: 1rem;
-    }
-  
-    .card-details h2 {
-      font-size: 1.1rem;
-    }
-  
-    .card-details p {
-      font-size: 0.9rem;
-    }
-  
-    button {
-      font-size: 0.95rem;
-      padding: 0.6rem 1.1rem;
-    }
-  }
+}

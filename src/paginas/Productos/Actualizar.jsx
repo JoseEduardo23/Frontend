@@ -1,5 +1,5 @@
-import { Formulario } from "../components/Formulario";
-import Mensaje from "../components/Alertas/Mensaje";
+import { Formulario } from "../../components/Formulario";
+import Mensaje from "../../components/Alertas/Mensaje";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -39,13 +39,12 @@ const Actualizar = () => {
         consultarProducto();
     }, [id]);
 
-    // Ensure the "producto" and "mensaje" are always valid objects before using Object.keys
     const isProductoValid = producto && Object.keys(producto).length > 0;
     const isMensajeValid = mensaje && Object.keys(mensaje).length > 0;
 
     return (
-        <div>
-            <h1>Actualizar los datos del producto</h1>
+        <div className="act-form">
+            <h1 style={{marginTop:"-250px"}}>Actualizar los datos del producto</h1>
             <hr />
             <p>El módulo te permite actualizar los datos de un producto</p>
 

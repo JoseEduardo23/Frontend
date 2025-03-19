@@ -117,7 +117,7 @@ export const Formulario = ({ producto }) => {
                 toast.success("Producto creado correctamente");
             }
 
-            navigate("/dashboard/listar");
+            navigate("/dashboard/productos/listar");
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.msg);

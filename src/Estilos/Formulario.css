@@ -1,115 +1,125 @@
 .formulario {
-    background-color: rgba(255, 255, 255, 0.838);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 800px;
-    margin: 3rem auto;
-    top: 50px; 
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .formulario:hover {
+  background-color: rgba(255, 255, 255, 0.838);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 800px;
+  margin: 3rem auto;
+  transition: transform 0.3s ease-in-out;
+}
 
+h1 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 600;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: transparent;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #4b4b4b;
+  color: black;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #10b981; /* Color verde */
+}
+
+.form-textarea {
+  height: 150px;
+  resize: none;
+}
+
+.error-message {
+  color: #f87171;
+  margin-left: -3px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: rgba(248, 113, 113, 0.1);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.form-submit {
+  height: 45px;
+  background-color: #10b981;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 30%;
+  font-weight: 600;
+  margin-left:250px ;
+}
+
+.form-submit:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+
+.form-submit:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .formulario {
+    padding: 1.5rem;
+    width: 95%;
+    top: 0; 
   }
-  
   h1 {
-    color: #ffffff;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.8rem;
   }
-  
+
   .form-group {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.3rem;
   }
-  
-  .form-label {
-    font-size: 1rem;
-    color: black;
-    margin-bottom: 0.5rem;
-    display: block;
-    font-weight: 600;
-  }
-  
-  .form-input,
-  .form-textarea {
-    width: 100%;
-    background-color: transparent;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 2px solid #4b4b4b;
-    color: black;
-    transition: border-color 0.3s ease;
-  }
-  
-  .form-input:focus,
-  .form-textarea:focus {
-    outline: none;
-    border-color: #10b981; /* Color verde */
-  }
-  
-  .form-textarea {
-    height: 150px;
-    resize: none;
-  }
-  
-  .error-message {
-    color: #f87171;
-    margin-left: -3px;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    background-color: rgba(248, 113, 113, 0.1);
-    padding: 0.5rem;
-    border-radius: 5px;
-  }
-  
+
   .form-submit {
-    height: 45px;
-    background-color: #10b981;
-    color: black;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 2px solid;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 30%;
-    font-weight: 600;
-    margin-left:250px ;
+    font-size: 1.1rem;
+  }
+}
+
+
+@media (max-width: 400px) {  
+  .form-submit{
+    position: relative;
+    margin-left: -1px;
+    width: 100%;
   }
   
-  .form-submit:hover {
-    background-color: #1abc9c;
-    transform: scale(1.05);
+}
+@media(min-width:768px) and (max-width:1023px){
+  .form-submit{
+    width: 60%;
+    margin-left: 110px;
   }
-  
-  .form-submit:focus {
-    outline: none;
-  }
-  
-  @media (max-width: 768px) {
-    .formulario {
-      padding: 1.5rem;
-      width: 95%;
-      top: 0; /* Para hacer el formulario menos alto en pantallas pequeñas */
-    }
-  
-    h1 {
-      font-size: 1.8rem;
-    }
-  
-    .form-group {
-      margin-bottom: 1.3rem;
-    }
-  
-    .form-submit {
-      font-size: 1.1rem;
-    }
-  }
+}

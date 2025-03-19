@@ -1,8 +1,8 @@
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import box from '../assets/producto.png'
-import '../Estilos/Visualizar.css'
+import box from '../../assets/producto.png'
+import '../../Estilos/Visualizar.css'
 
 const Visualizar = () => {
     const navigate = useNavigate()

@@ -1,31 +1,44 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LandingPage } from './paginas/landingPage'
+import { AuthProvider } from './Context/AuthProvider'
+import { PrivateRoute } from './routes/privateRoutes'
 import Auth from './layout/Auth'
+
+
+import { LandingPage } from './paginas/landingPage'
+import { Sobre } from './paginas/Sobre'
+import { Contactos } from './paginas/Contactos'
+import { Tienda } from './paginas/Tienda'
+
 import Login from './paginas/Login'
 import { Register } from './paginas/Register'
-import { AuthProvider } from './Context/AuthProvider'
 import { Forgot } from './paginas/Forgot'
 import { Confirmar } from './paginas/Confirmar'
 import Restablecer from './paginas/Restablecer'
 import { NotFound } from './paginas/NotFound'
-import { PrivateRoute } from './routes/privateRoutes'
 import Dashboard from './layout/Dashboard'
 import Perfil from './paginas/Perfil'
-import Listar from './paginas/Listar'
-import Visualizar from './paginas/Visualizar'
-import Crear from './paginas/Crear'
-import Actualizar from './paginas/Actualizar'
+
+/*- Productos -*/
+import Productos from './paginas/Productos/Productos'
+import Listar from './paginas/Productos/Listar'
+import Visualizar from './paginas/Productos/Visualizar'
+import Crear from './paginas/Productos/Crear'
+import Actualizar from './paginas/Productos/Actualizar'
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-
+          {/* Ruta principal (LandingPage) */}
           <Route index element={<LandingPage />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/contactos" element={<Contactos />} />
+          <Route path="/tienda" element={<Tienda />} />
 
-          {/* Rutas públicas */}
+
+          {/* Rutas públicas dentro de "Auth" */}
           <Route path="/" element={<Auth />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
@@ -35,21 +48,19 @@ function App() {
           </Route>
 
           {/* Rutas privadas */}
-          <Route path="dashboard/*" element={ 
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }>
+          <Route path="dashboard/*" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
             <Route index element={<Perfil />} />
-            <Route path="listar" element={<Listar />} />
-            <Route path="visualizar/:id" element={<Visualizar />} />
-            <Route path="crear" element={<Crear />} />
-            <Route path="actualizar/:id" element={<Actualizar />} />
+            {/* Rutas de productos */}
+            <Route path="productos/*" element={<Productos />}>
+              <Route path="listar" element={<Listar />} />
+              <Route path="visualizar/:id" element={<Visualizar />} />
+              <Route path="crear" element={<Crear />} />
+              <Route path="actualizar/:id" element={<Actualizar />} />
+            </Route>
           </Route>
 
           {/* Ruta 404 */}
           <Route path="*" element={<NotFound />} />
-
         </Routes>
       </AuthProvider>
     </BrowserRouter>
