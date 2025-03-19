@@ -50,6 +50,10 @@
         text-align: center;
         width: 150px;
         height: 65px;
+        position: static;
+    }
+    .Pcon{
+        margin-left: -55px;
     }
 }
 

@@ -1,29 +1,19 @@
-.card-container {
-}
-
-.card-header {
-}
-
-.card-image {
-
-}
-
-.card-info {
-
-}
-
-.card-info-item {
-
-}
-
-.card-info-item:hover {
-
-}
-
 /* Responsive Design (if needed) */
 @media (max-width: 768px) {
     .card-container {
         padding: 15px;
         max-width: 90%;
+    }
+}
+
+@media (max-width: 400px) {  
+    .card-container{
+        padding: 0 1rem;
+    }
+    .card-header{
+        margin-left: 20px;
+    }
+    .card-info{
+        margin-left: 30px;
     }
 }
