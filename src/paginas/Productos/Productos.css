@@ -7,6 +7,10 @@
     margin-top: 20px;
 }
 
+.Prod-container h1{
+    font-size: 1.4rem;
+}
+
 .Pcon li {
     padding: 10px 20px;
     border-radius: 5px;

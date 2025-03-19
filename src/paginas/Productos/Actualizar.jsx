@@ -3,6 +3,7 @@ import Mensaje from "../../components/Alertas/Mensaje";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import '../../Estilos/Actualizar.css'
 import React from "react";
 const Actualizar = () => {
     const { id } = useParams();
@@ -44,10 +45,9 @@ const Actualizar = () => {
 
     return (
         <div className="act-form">
-            <h1 style={{marginTop:"-250px"}}>Actualizar los datos del producto</h1>
+            <h1 style={{marginTop:"-250px"}}>Actualizar datos del producto</h1>
             <hr />
-            <p>El módulo te permite actualizar los datos de un producto</p>
-
+            
             {
                 isProductoValid ?
                     (

@@ -46,8 +46,8 @@ const Visualizar = () => {
 
         <div className="container-visualizar">
             <div>
-                <h1 className='font-black text-4xl text-white-500'>DATOS DEL PRODUCTO</h1>
-                <hr className='my-4' />
+                <h1 className='title-v'>DATOS DEL PRODUCTO</h1>
+                <hr className='my-3' />
             </div>
 
             <div className="card-container">
