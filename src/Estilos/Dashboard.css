@@ -17,7 +17,7 @@
 
 /* Sidebar */
 .sidebar {
-  width: 200px; /* Reducir el ancho del sidebar */
+  width: 200px; 
   background: linear-gradient(135deg, #010101, #292929);
   height: 100vh;
   position: fixed;
@@ -25,7 +25,7 @@
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 10; /* Asegurar que esté por encima del contenido */
+  z-index: 10;
 }
 
 .sidebar.mostrar {
@@ -33,10 +33,10 @@
 }
 
 .sidebar-title {
-  font-size: 1.2rem; /* Reducir el tamaño del título */
+  font-size: 1.2rem; 
   font-weight: bold;
   color: #ffffff;
-  padding: 0.8rem 0; /* Reducir el padding */
+  padding: 0.8rem 0; 
   text-align: center;
 }
 
@@ -123,7 +123,7 @@
 }
 
 .welcome-message {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #e5e7eb;
   text-align: center;
 }
@@ -144,7 +144,7 @@
 
 .nav-list a {
   display: block;
-  font-size: 1rem; 
+  font-size: 1.3rem; 
   color: #e5e7eb;
   padding: 0.5rem; 
   text-decoration: none;

@@ -26,6 +26,10 @@ import Visualizar from './paginas/Productos/Visualizar'
 import Crear from './paginas/Productos/Crear'
 import Actualizar from './paginas/Productos/Actualizar'
 
+/*- Clientes -*/
+import Clientes from './paginas/Clientes/Clientes'
+import Cliente_listar from './paginas/Clientes/Cliente.listar'
+
 function App() {
   return (
     <BrowserRouter>
@@ -50,12 +54,17 @@ function App() {
           {/* Rutas privadas */}
           <Route path="dashboard/*" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
             <Route index element={<Perfil />} />
+
             {/* Rutas de productos */}
             <Route path="productos/*" element={<Productos />}>
               <Route path="listar" element={<Listar />} />
               <Route path="visualizar/:id" element={<Visualizar />} />
               <Route path="crear" element={<Crear />} />
               <Route path="actualizar/:id" element={<Actualizar />} />
+            </Route>
+
+            <Route path="clientes/*" element={<Clientes/>}> 
+              <Route path='clientes_listar' element={<Cliente_listar/>} />
             </Route>
           </Route>
 

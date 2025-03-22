@@ -48,6 +48,11 @@ const Dashboard = () => {
               Productos
             </Link>
           </li>
+          <li>
+            <Link to='/dashboard/clientes ' className={`${urlActual === '/dashboard/clientes' ? 'active' : ''}`}>
+              Clientes
+            </Link>
+          </li>
         </ul>
       </div>
 

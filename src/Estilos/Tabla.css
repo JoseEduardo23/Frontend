@@ -123,7 +123,7 @@ thead th {
   width: 100px;
   height: 100px;
   position: fixed;
-  margin-left: 550px;
+  margin-left: 600px;
   animation: spin 1s linear infinite;
   overflow: hidden;
 }
@@ -221,7 +221,7 @@ thead th {
     }
 
     .loading{
-      margin-left: 30%;
+      margin-left: 35%;
       transform: translateX(-50%); 
     }
   }
