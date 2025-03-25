@@ -22,7 +22,7 @@ export default function Restablecer() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/nuevo-password/${token}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/nuevo-password/${token}`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg);
         } catch (error) {
@@ -32,7 +32,7 @@ export default function Restablecer() {
 
     const verifyToken = async () => {
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/recuperar-password/${token}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/recuperar-password/${token}`;
             const respuesta = await axios.get(url);
             toast.success(respuesta.data.msg);
             setTokenback(true); 

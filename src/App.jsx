@@ -45,7 +45,7 @@ function App() {
           {/* Rutas públicas dentro de "Auth" */}
           <Route path="/" element={<Auth />}>
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="registro" element={<Register />} />
             <Route path="forgot/:id" element={<Forgot />} />
             <Route path="confirmar/:token" element={<Confirmar />} />
             <Route path="recuperar-password/:token" element={<Restablecer />} />

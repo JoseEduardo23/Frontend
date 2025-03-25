@@ -20,12 +20,12 @@ export const Forgot = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/recuperar-password`
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/recuperar-password`
             const respuesta = await axios.post(url, mail)
             setIsModalVisible(true)
         } catch (error) {
             console.log(error)
-            toast.error(error.data.msg)
+            toast.error(error.response.data.msg)
         }
     }
 

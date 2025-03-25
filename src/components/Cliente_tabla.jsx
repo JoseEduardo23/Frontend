@@ -34,7 +34,7 @@ const Cliente_tabla = () => {
             const confirmar = confirm("¿Vas a eliminar el registro de este usuario?");
             if (confirmar) {
                 const token = localStorage.getItem('token');
-                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/apiusuario/eliminar/${id}`;
+                const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/usuario/eliminar/${id}`;
                 const headers = {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

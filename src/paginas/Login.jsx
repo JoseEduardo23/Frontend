@@ -5,7 +5,7 @@ import AuthContext from '../Context/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Estilos/Login.css';
 import React from 'react';
-import {FaEye, FaEyeSlash} from "react-icons/fa"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Login = () => {
     });
 
     const [showPassword, setShowPassword] = useState(null)
-    const togglePasswordVisibility = ()=>{
+    const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
 
@@ -38,7 +38,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Validación de los campos
         if (!form.email || !form.password) {
             toast.error('Por favor completa todos los campos');
@@ -51,7 +51,7 @@ const Login = () => {
             const respuesta = await axios.post(url, form);
 
             if (respuesta.data.token) {
-                localStorage.setItem('token', respuesta.data.token);
+                localStorage.getItem('token', respuesta.data.token);
                 setAuth(respuesta.data);
                 toast.success('Inicio de sesión exitoso');
                 navigate('/dashboard');
@@ -64,7 +64,6 @@ const Login = () => {
             setLoading(false);
         }
     };
-
     return (
         <>
             <ToastContainer />
@@ -103,7 +102,7 @@ const Login = () => {
                                     className="input-field"
                                 />
                                 <span className='toggle-password' onClick={togglePasswordVisibility}>
-                                    {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </span>
                             </div>
 
@@ -121,7 +120,7 @@ const Login = () => {
                         </div>
 
                         <button className="btn-google">
-                            
+
                         </button>
 
                         <div className="forgot-password">
@@ -132,7 +131,7 @@ const Login = () => {
 
                         <div className="register-link">
                             <p>¿No tienes una cuenta?</p>
-                            <Link to="/register" className="btn-secondary">
+                            <Link to="/registro" className="btn-secondary">
                                 Registro
                             </Link>
                         </div>

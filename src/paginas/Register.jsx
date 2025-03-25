@@ -28,11 +28,8 @@ export const Register = () => {
     const [direccionError, setDireccionError] = useState(null);
     const [telefonoError, setTelefonoError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
-
-
-
-
     const [showPassword, setShowPassword] = useState(false)
+    
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
@@ -122,7 +119,7 @@ export const Register = () => {
         setLoading(true);
 
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/register`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/registro`;
             const respuesta = await axios.post(url, form);
             toast.success(respuesta.data.msg)
             console.log(respuesta);
