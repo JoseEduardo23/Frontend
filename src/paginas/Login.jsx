@@ -51,7 +51,7 @@ const Login = () => {
             const respuesta = await axios.post(url, form);
 
             if (respuesta.data.token) {
-                localStorage.getItem('token', respuesta.data.token);
+                localStorage.setItem('token', respuesta.data.token);
                 setAuth(respuesta.data);
                 toast.success('Inicio de sesión exitoso');
                 navigate('/dashboard');
