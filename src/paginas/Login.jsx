@@ -7,6 +7,7 @@ import '../Estilos/Login.css';
 import React from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 
+
 const Login = () => {
     const navigate = useNavigate();
     const { setAuth } = useContext(AuthContext);
@@ -15,15 +16,10 @@ const Login = () => {
         password: '',
     });
 
-    const [showPassword, setShowPassword] = useState(null)
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword)
-    }
-
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        // Redirigir si ya está autenticado
         if (localStorage.getItem('token')) {
             navigate('/dashboard');
         }
@@ -36,29 +32,65 @@ const Login = () => {
         });
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validación de los campos
         if (!form.email || !form.password) {
             toast.error('Por favor completa todos los campos');
             return;
         }
 
         setLoading(true);
+        
         try {
-            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/login`;
-            const respuesta = await axios.post(url, form);
+            // Primero intentamos como administrador
+            try {
+                const adminResponse = await axios.post(
+                    'https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/login', 
+                    form
+                );
 
-            if (respuesta.data.token) {
-                localStorage.setItem('token', respuesta.data.token);
-                setAuth(respuesta.data);
-                toast.success('Inicio de sesión exitoso');
-                navigate('/dashboard');
+                if (adminResponse.data.token) {
+                    localStorage.setItem('token', adminResponse.data.token);
+                    localStorage.setItem('rol', 'Administrador');
+                    setAuth({ 
+                        ...adminResponse.data,
+                        rol: 'Administrador' 
+                    });
+                    toast.success('Inicio de sesión exitoso como Administrador');
+                    navigate('/dashboard');
+                    return;
+                }
+            } catch (adminError) {
+                // Si falla como admin, intentamos como usuario normal
+                const userResponse = await axios.post(
+                    'https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/usuario/login', 
+                    form
+                );
+
+                if (userResponse.data.token) {
+                    localStorage.setItem('token', userResponse.data.token);
+                    localStorage.setItem('rol', 'Usuario');
+                    setAuth({ 
+                        ...userResponse.data,
+                        rol: 'Usuario' 
+                    });
+                    toast.success('Inicio de sesión exitoso como Usuario');
+                    navigate('/assets');
+                    return;
+                }
             }
+
+            // Si ninguna de las dos funciona
+            toast.error('Credenciales incorrectas o usuario no encontrado');
+            
         } catch (error) {
-            const errorMessage =
-                error.response?.data?.msg || 'Ha ocurrido un error. Inténtalo de nuevo';
+            const errorMessage = error.response?.data?.msg || 
+                'Ha ocurrido un error. Inténtalo de nuevo';
             toast.error(errorMessage);
         } finally {
             setLoading(false);

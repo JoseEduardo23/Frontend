@@ -44,7 +44,7 @@ export const Forgot = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-1">
                             <label className="mb-2 block text-sm font-semibold">Email</label>
-                            <input name="email" onChange={handleChange} type="email" placeholder="Enter your email" className="forgot-input" />
+                            <input name="email" onChange={handleChange} type="email" placeholder="Ingresa tu email" className="forgot-input" />
                         </div>
 
                         <div className="mb-3">

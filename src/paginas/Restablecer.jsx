@@ -53,7 +53,7 @@ export default function Restablecer() {
                 <form onSubmit={handleSubmit} className="restablecer-form">
                     <label htmlFor="password" className="form-label">Nueva Contraseña</label>
                     <input
-                        placeholder='Enter your new password'
+                        placeholder='Ingresa tu nueva contraseña'
                         type="password"
                         id="password"
                         name="password"
@@ -65,7 +65,7 @@ export default function Restablecer() {
                     <label htmlFor="confirmpassword" className="form-label">Confirmar Contraseña</label>
                     <input
                         type="password"
-                        placeholder='Confirm you password'
+                        placeholder='Confirma tu contraseña'
                         id="confirmpassword"
                         name="confirmpassword"
                         value={form.confirmpassword}
