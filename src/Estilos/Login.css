@@ -129,33 +129,6 @@
     font-size: 0.875rem;
 }
 
-/*.btn-google,
-.btn-facebook {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.5rem;
-    background-color: white;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.btn-google:hover {
-    background-color: black;
-    color: white;
-    transform: scale(1.05);
-}
-.btn-facebook:hover {
-    background-color: #2563eb;
-    color: white;
-    transform: scale(1.05);
-}*/
-
-
 .btn-icon {
     width: 1.25rem;
     margin-right: 0.5rem;
@@ -201,63 +174,61 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-    /* Para pantallas de tabletas y más pequeñas */
+@media (min-width: 768px) and (max-width: 1024px) { 
     .login-container {
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        height: auto; /* Ajusta la altura */
+        width: 100%;
         padding: 1rem;
     }
 
     .login-form-container {
-        max-width: 90%; /* Reduce el ancho del formulario */
+        max-width: 90%;
         padding: 1.5rem;
     }
 
     .login-title {
-        font-size: 1.5rem; /* Reduce el tamaño del título */
+        font-size: 1.5rem; 
     }
 
     .input-label, .input-field {
-        font-size: 0.875rem; /* Ajusta el tamaño de fuente */
+        font-size: 0.875rem;
     }
 
     .btn-primary {
-        padding: 0.75rem; /* Ajusta el tamaño de los botones */
+        padding: 0.75rem; 
     }
 
     .divider-text {
-        font-size: 0.75rem; /* Reduce el tamaño de texto en el divisor */
+        font-size: 0.75rem; 
     }
 }
 
 @media (max-width: 480px) {
-    /* Para pantallas más pequeñas como teléfonos */
+
     .login-container {
-        height: auto; /* Ajusta la altura */
+        height: auto;
         padding: 1rem;
         height: 100%;
     }
 
     .login-form-container {
-        width: 100%; /* Asegura que el formulario ocupe todo el ancho */
+        width: 100%; 
         padding: 1.5rem;
     }
 
     .login-title {
-        font-size: 1.2rem; /* Ajusta aún más el tamaño del título */
+        font-size: 1.2rem; 
     }
 
     .input-label, .input-field {
-        font-size: 0.875rem; /* Ajusta el tamaño de los campos de entrada */
+        font-size: 0.875rem; 
     }
 
     .btn-primary {
-        padding: 0.75rem; /* Ajusta el tamaño del botón */
+        padding: 0.75rem;
     }
 
     .divider-text {
-        font-size: 0.75rem; /* Ajusta el tamaño de los textos en el divisor */
+        font-size: 0.75rem; 
     }
 
     .btn-google, .btn-facebook {

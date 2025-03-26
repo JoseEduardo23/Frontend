@@ -1,14 +1,31 @@
+.Principal{
+    background-color: #021024;
+    width: 100vw;
+}
 .confirm-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-    background-color: #f9fafb;
-    border-radius: 1rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #021024, #1B1B2F, #16213E);
+    border-radius: 1.5rem;
     max-width: 500px;
-    margin: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 3.5rem auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.confirm-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #4F46E5, #10B981, #F59E0B);
 }
 
 .confirm-logo {
@@ -16,8 +33,14 @@
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
-    border: 4px solid #4B5563;
+    border: 4px solid white;
     margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.confirm-logo:hover {
+    transform: scale(1.05) rotate(5deg);
 }
 
 .confirm-text-container {
@@ -26,57 +49,145 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
+    width: 100%;
 }
 
 .confirm-thank-you {
-    font-size: 2rem;
-    color: #2D3748;
+    font-size: 2.25rem;
+    color: #1F2937;
     margin-bottom: 1rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #4F46E5, #10B981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
 }
 
 .confirm-message {
     font-size: 1.125rem;
-    color: #4A5568;
+    color: #4B5563;
     margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 90%;
 }
 
 .confirm-login-button {
-    padding: 1rem;
+    padding: 1rem 2rem;
     margin-top: 1.5rem;
     width: 100%;
     text-align: center;
-    background-color: #4B5563;
-    color: #E5E7EB;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
     border-radius: 0.75rem;
     font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.confirm-login-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .confirm-login-button:hover {
-    transform: scale(1.05);
-    background-color: #1F2937;
-    color: #FFFFFF;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(79, 70, 229, 0.3);
+}
+
+.confirm-login-button:hover::after {
+    opacity: 1;
+}
+
+.confirm-login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25);
 }
 
 .mensaje {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
     max-width: 400px;
     width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid;
 }
 
 .mensaje-exito {
-    background-color: #D1E7DD;
-    color: #155724;
+    background-color: #f0fdf4;
+    color: #166534;
+    border-left-color: #22c55e;
 }
 
 .mensaje-error {
-    background-color: #F8D7DA;
-    color: #721C24;
+    background-color: #fef2f2;
+    color: #991b1b;
+    border-left-color: #ef4444;
+}
+
+/* Efectos de animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.confirm-container {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .confirm-container {
+        width: 80%;
+        height: 60%;
+        margin: 10rem auto;
+    }
+    
+    .confirm-thank-you {
+        font-size: 1.75rem;
+    }
+    
+    .confirm-message {
+        font-size: 1rem;
+    }
+    
+    .confirm-logo {
+        height: 8rem;
+        width: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirm-container {
+        width: 80%;
+        height: 60%;
+        margin: 10rem auto;
+    }
+    
+    .confirm-thank-you {
+        font-size: 1.5rem;
+    }
+    
+    .confirm-login-button {
+        padding: 0.875rem;
+    }
 }

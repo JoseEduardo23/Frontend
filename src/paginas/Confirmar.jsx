@@ -25,20 +25,24 @@ export const Confirmar = () => {
     }
 
     useEffect(() => {
-        verifyToken() 
-    }, [token])  
+        verifyToken()
+    }, [token])
 
     return (
-        <div className="confirm-container">
+        <>
+            <div className='Principal'>
+                <div className="confirm-container">
 
-            <img className="confirm-logo" src={logoDog} alt="Logo de confirmación" />
+                    <img className="confirm-logo" src={logoDog} alt="Logo de confirmación" />
 
-            <div className="confirm-text-container">
+                    <div className="confirm-text-container">
 
-                <p className="confirm-thank-you">Muchas Gracias</p>
-                <p className="confirm-message">Tu cuenta ha sido confirmada. Ya puedes iniciar sesión.</p>
-                <Link to="/login" className="confirm-login-button">Ir al Login</Link>
+                        <p className="confirm-thank-you">Muchas Gracias</p>
+                        <p className="confirm-message">Tu cuenta ha sido confirmada. Ya puedes iniciar sesión.</p>
+                        <Link to="/login" className="confirm-login-button">Iniciar sesión</Link>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

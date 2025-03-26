@@ -37,7 +37,6 @@
   transition: 0.5s ease;
 }
 .navbar li:hover{
-
   color: #f39c12;
   padding-bottom: 8px;
   border-bottom: 4px solid #f39c12;
@@ -550,7 +549,31 @@
 }
 
 /* Tablets (de 577px a 1024px) */
-@media (min-width: 577px) and (max-width: 1024px) {  
+@media (min-width: 768px) and (max-width: 1024px) { 
+  
+  .navbar {
+    height: 45px; 
+    padding: 0 15px; 
+  }
+  
+  .navbar h1 {
+    font-size: 1.5rem;
+    margin-left: 5px;
+  }
+  
+  .navbar ul {
+    gap: 25px;
+    margin-right: 20px;
+  }
+  
+  .navbar li {
+    font-size: 0.9rem;
+  }
+  
+  .btn-dark {
+    width: 30px;
+    height: 30px;
+  }
   .main-container {
     max-width: 100%;
     overflow-x: hidden;
