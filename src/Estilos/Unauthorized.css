@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee");
+
+:root {
+    --primary-color: #2aa7cc;
+    --secondary-color: #6c757d;
+    --dark-bg: #1b1b1b;
+    --error-red: #e62326;
+}
+
+/* Estilos base */
+
+.unauthorized-container title{
+    font-family: "Bungee", sans-serif;
+}
+
+.unauthorized-container {
+    background: linear-gradient(135deg, #021024, #1B1B2F, #16213E);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Contenedor del robot */
+.robot-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-height: 40vh;
+    margin: 1rem 0;
+}
+
+#robot-error {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+/* Texto y mensaje */
+.error-message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.error-message h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--error-red);
+}
+
+.error-message p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Botones */
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: "Bungee", sans-serif;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #1e86a8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Estilos del robot */
+.lightblue {
+    fill: #444;
+}
+
+.eye {
+    cx: calc(115px + 30px * var(--mouse-x));
+    cy: calc(50px + 30px * var(--mouse-y));
+    transition: all 0.1s linear;
+}
+
+#eye-wrap {
+    overflow: hidden;
+}
+
+.error-text {
+    font-size: 120px;
+}
+
+.alarm {
+    animation: alarmOn 0.5s infinite;
+    fill: var(--error-red);
+}
+
+@keyframes alarmOn {
+    to {
+        opacity: 0.5;
+    }
+}
+
+/* Media Queries */
+/* Dispositivos pequeños (móviles, 576px y menos) */
+@media (max-width: 576px) {
+    .unauthorized-container {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    #robot-error {
+        max-width: 200px;
+    }
+
+    .error-message h1 {
+        font-size: 1.5rem;
+    }
+
+    .error-message p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        min-width: 120px;
+        font-size: 0.9rem;
+    }
+
+    .actions {
+        gap: 0.75rem;
+    }
+}
+
+/* Dispositivos medianos (tablets, 577px a 992px) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .unauthorized-container {
+        padding: 2rem 3rem;
+    }
+
+    #robot-error {
+        max-width: 250px;
+    }
+
+    .error-message h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Dispositivos grandes (desktops, 993px y más) */
+@media (min-width: 993px) {
+    .unauthorized-container {
+        padding: 3rem;
+    }
+
+    #robot-error {
+        max-width: 350px;
+    }
+
+    .error-message h1 {
+        font-size: 2.5rem;
+    }
+
+    .error-message p {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Modo landscape para móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .unauthorized-container {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .robot-wrapper {
+        max-height: 70vh;
+        max-width: 40%;
+    }
+
+    .error-message {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .actions {
+        justify-content: flex-start;
+    }
+}
