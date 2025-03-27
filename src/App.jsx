@@ -73,7 +73,7 @@ function App() {
               <Route path="crear" element={<Crear />} />
               <Route path="actualizar/:id" element={<Actualizar />} />
             </Route>
-
+ 
             {/* Rutas de clientes */}
             <Route path="clientes/*" element={<Clientes />}>
               <Route path="clientes_listar" element={<Cliente_listar />} />
@@ -89,6 +89,7 @@ function App() {
               </PrivateRoute>
             } 
           />
+
 
           {/* Ruta 404 */}
           <Route path="*" element={<NotFound />} />

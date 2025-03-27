@@ -66,7 +66,7 @@ const Login = () => {
                     return;
                 }
             } catch (adminError) {
-                // Si falla como admin, intentamos como usuario normal
+                
                 const userResponse = await axios.post(
                     'https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/usuario/login', 
                     form
