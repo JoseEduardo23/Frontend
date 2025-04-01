@@ -1,0 +1,43 @@
+.pet-formcontainer{
+    text-indent: 35px;
+    width: 400px;
+    margin-left: 24px;
+    border-radius: 10px;
+    border: 2px solid black;
+    backdrop-filter: blur(10px);
+}
+.pet-form{
+    border-radius: 10px;
+}
+
+.pet-input{
+    width: 90%;
+    margin-left: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+    height: 30px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+.pet-btn{
+    margin-left: 85px;
+    height: 35px;
+    border: 2px solid black;
+    width: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.5s ease-out;
+}
+.pet-btn:hover{
+    transform: scale(1.05);
+}
+.pet-input::placeholder{
+    color: black;
+}
+
+.pet-formcontainer h1{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+}

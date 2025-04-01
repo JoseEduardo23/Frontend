@@ -196,12 +196,12 @@ const Pet_register = () => {
 
                         <div className="pet-div">
                             <label htmlFor="peso">Peso (Kg):</label>
-                            <input type="number"
+                            <input type="number" 
                                 id="peso"
                                 name="peso"
                                 value={form.peso}
                                 onChange={handleChange}
-                                placeholder="Peso en Kg de la mascota"
+                                placeholder = "Peso en Kg de la mascota"
                                 className="pet-input"
                                 
                                 min="0"

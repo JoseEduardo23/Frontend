@@ -34,7 +34,7 @@
 .profile-data-card {
     flex: 1;
     margin-top: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     width: 300px;
     height: auto;
     padding: 25px;
