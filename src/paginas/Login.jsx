@@ -80,7 +80,7 @@ const Login = () => {
                         rol: 'Usuario' 
                     });
                     toast.success('Inicio de sesión exitoso como Usuario');
-                    navigate('/assets');
+                    navigate('/users/dashboard');
                     return;
                 }
             }

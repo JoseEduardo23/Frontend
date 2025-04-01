@@ -1,0 +1,133 @@
+/* Contenedor principal */
+.pet-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tarjeta individual */
+.pet-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+.pet-card-image {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 20px;
+    height: 120px;
+}
+
+.pet-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pet-card:hover .pet-card-image img {
+}
+
+/* Información principal */
+.pet-card-main-info {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 10px;
+}
+
+.pet-card-main-info h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.pet-card-main-info p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Información secundaria */
+.pet-card-secondary-info {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 10px;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 10px;
+}
+
+.pet-card-secondary-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Acciones */
+.pet-card-actions {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.pet-info, .pet-update, .pet-delete {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.pet-info {
+    color: #3498db;
+}
+
+.pet-info:hover {
+    background-color: #ebf5fb;
+    color: #2980b9;
+}
+
+.pet-update {
+    color: #f39c12;
+}
+
+.pet-update:hover {
+    background-color: #fef5e7;
+    color: #e67e22;
+}
+
+.pet-delete {
+    color: #e74c3c;
+}
+
+.pet-delete:hover {
+    background-color: #fdedec;
+    color: #c0392b;
+}
+
+/* Mensaje sin registros */
+.no-registros {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #777;
+}

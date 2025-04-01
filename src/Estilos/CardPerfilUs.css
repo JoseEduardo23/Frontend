@@ -1,0 +1,28 @@
+.card-cont{
+    justify-items: center;
+}
+.card-usimg{
+    width: 150px;
+    height: 150px;
+    background-color: #012041;
+    border-radius: 50%;
+}
+
+@media (max-width: 400px) {
+    .card-usimg{
+        margin-left: 50px;
+        margin-bottom: 20px;
+    }
+}
+@media(min-width:768px) and (max-width:1023px){
+    .card-cont{
+        padding: 2rem 1rem;
+    }
+    .card-usimg{
+        margin-left: 170px;
+        margin-bottom: 30px;
+    }
+    .card-info{
+        margin-left: 130px;
+    }
+}

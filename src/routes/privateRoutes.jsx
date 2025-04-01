@@ -1,23 +1,19 @@
-import { Navigate, Outlet } from "react-router-dom";
-
-export const PrivateRoute = ({ children, requiredRole }) => {
+export const PrivateRoute = ({ children, allowedRoles = [] }) => {
     const token = localStorage.getItem("token");
     const userRole = localStorage.getItem("rol");
     
-    // Si no está autenticado, redirige al login
+    console.log('Autenticación - Token:', !!token);
+    console.log('Rol del usuario:', userRole);
+    console.log('Roles permitidos:', allowedRoles);
+
     if (!token) {
         return <Navigate to="/login" replace />;
     }
-    
-    // Si se especificó un rol requerido y el usuario no lo tiene
-    if (requiredRole && userRole !== requiredRole) {
+
+    if (allowedRoles.length > 0 && !allowedRoles.includes(userRole)) {
+        console.log('Acceso denegado - Rol no permitido');
         return <Navigate to="/unauthorized" replace />;
     }
-    
-    // Si es una ruta anidada (usando Outlet)
-    if (children === undefined) {
-        return <Outlet />;
-    }
-    
-    return children;
+
+    return children || <Outlet />;
 };

@@ -31,8 +31,14 @@ import Crear from './paginas/Productos/Crear';
 import Actualizar from './paginas/Productos/Actualizar';
 
 // Clientes
+import Cliente_dashboard from './paginas/Clientes/Cliente_dashboard';
 import Clientes from './paginas/Clientes/Clientes';
 import Cliente_listar from './paginas/Clientes/Cliente.listar';
+import Cliente_perfil from './paginas/Clientes/perfil_cli';
+import Configuracion from './components/Configuracion';
+
+//Mascotas
+import Pet_register from './paginas/Mascotas/Pet_register';
 
 function App() {
   return (
@@ -59,37 +65,36 @@ function App() {
           <Route 
             path="dashboard/*" 
             element={
-              <PrivateRoute requiredRole="Administrador">
+              <PrivateRoute allowedRoles={["Administrador"]}>
                 <Dashboard />
               </PrivateRoute>
             }
           >
             <Route index element={<Perfil />} />
-
-            {/* Rutas de productos */}
             <Route path="productos/*" element={<Productos />}>
               <Route path="listar" element={<Listar />} />
               <Route path="visualizar/:id" element={<Visualizar />} />
               <Route path="crear" element={<Crear />} />
               <Route path="actualizar/:id" element={<Actualizar />} />
             </Route>
- 
-            {/* Rutas de clientes */}
             <Route path="clientes/*" element={<Clientes />}>
               <Route path="clientes_listar" element={<Cliente_listar />} />
             </Route>
           </Route>
 
-          {/* Ruta para usuarios normales */}
           <Route 
-            path="/assets" 
+            path="/users/dashboard" 
             element={
-              <PrivateRoute requiredRole="Usuario">
-                <div>Página de Assets para Usuarios</div>
+              <PrivateRoute allowedRoles={["Usuario"]}>
+                <Cliente_dashboard/>
               </PrivateRoute>
             } 
-          />
+          >
+            <Route index element={<Cliente_perfil/>} />
+            <Route path="registrar_mascota" element={<Pet_register />}/>
+            <Route path="configuracion" element={<Configuracion />}/>
 
+          </Route>
 
           {/* Ruta 404 */}
           <Route path="*" element={<NotFound />} />
