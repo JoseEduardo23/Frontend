@@ -1,10 +1,20 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../Estilos/Unauthorized.css';
 
 const Unauthorized = () => {
     const eyeRef = useRef(null);
     const containerRef = useRef(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleGoBack = () => {
+        if (location.state?.from === '/login' || location.state?.from === '/registro') {
+            localStorage.removeItem('token');
+            localStorage.removeItem('rol');
+        }
+        navigate(-1);
+    }
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -86,9 +96,12 @@ const Unauthorized = () => {
                 <Link to="/" className="btn btn-primary" style={{fontFamily: 'Arial, sans-serif'}}>
                     Ir al Inicio
                 </Link>
-                <Link to="/login" className="btn btn-secondary" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Iniciar Sesión
-                </Link>
+                <button 
+                onClick={handleGoBack}
+                className="btn btn-secondary" 
+                style={{fontFamily: 'Arial, sans-serif'}}>
+                    Regresar
+                </button>
             </div>
         </div>
     );

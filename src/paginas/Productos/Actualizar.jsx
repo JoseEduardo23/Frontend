@@ -23,12 +23,8 @@ const Actualizar = () => {
                 };
                 const respuesta = await axios.get(url, options);
     
-                console.log("Respuesta completa de la API:", respuesta);
-                console.log("Solo data:", respuesta.data);
-    
-                // Aquí asignamos directamente el objeto producto
                 if (respuesta.data) {
-                    setProducto(respuesta.data); // Asigna el objeto completo
+                    setProducto(respuesta.data);
                 } else {
                     setMensaje({ request: "Producto no encontrado o respuesta incorrecta", tipo: false });
                 }

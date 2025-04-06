@@ -1,54 +1,41 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState({});
     const [loading, setLoading] = useState(true);
+    const [authChecked, setAuthChecked] = useState(false);
+    const navigate = useNavigate()
 
     const perfil = async (token) => {
         try {
-            // Primero intentamos como administrador
-            try {
-                const urlAdmin = `${import.meta.env.VITE_BACKEND_URL}api/perfil`;
-                const options = {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`
-                    },
-                };
+            // Verificamos primero si el token es de admin o usuario
+            const isAdmin = localStorage.getItem('rol') === 'Administrador';
+            const url = isAdmin
+                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`
+                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/perfil`;
 
-                const respuestaAdmin = await axios.get(urlAdmin, options);
+            const options = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+            };
 
-                localStorage.setItem('rol', respuestaAdmin.data.rol || 'Administrador');
-                setAuth({
-                    ...respuestaAdmin.data,
-                    token,
-                    rol: respuestaAdmin.data.rol || 'Administrador'
-                });
+            const respuesta = await axios.get(url, options);
+            const rol = respuesta.data.rol || (isAdmin ? 'Administrador' : 'Usuario');
 
-                return respuestaAdmin.data;
-            } catch (adminError) {
-                const urlUsuario = `${import.meta.env.VITE_BACKEND_URL}api/usuario/perfil`;
-                const options = {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`
-                    },
-                };
+            localStorage.setItem('rol', rol);
+            setAuth({
+                ...respuesta.data,
+                token,
+                rol,
+            });
 
-                const respuestaUsuario = await axios.get(urlUsuario, options);
-
-                localStorage.setItem('rol', respuestaUsuario.data.rol || 'Usuario');
-                setAuth({
-                    ...respuestaUsuario.data,
-                    token,
-                    rol: respuestaUsuario.data.rol || 'Usuario'
-                });
-
-                return respuestaUsuario.data;
-            }
+            return respuesta.data;
         } catch (error) {
             console.error('Error al obtener el perfil:', error.response?.data?.msg || error.message);
             logout();
@@ -75,7 +62,7 @@ const AuthProvider = ({ children }) => {
             const { id, ...datosParaEnviar } = datos;
 
             const respuesta = await axios.put(url, datosParaEnviar, options);
-            await perfil(token); 
+            await perfil(token);
 
             return {
                 respuesta: respuesta.data.msg || "Perfil actualizado correctamente",
@@ -113,47 +100,75 @@ const AuthProvider = ({ children }) => {
     const login = async (credenciales) => {
         try {
             setLoading(true);
-            let url;
 
-            // Primero intentamos como administrador
+            // Intento como administrador
             try {
-                url = `${import.meta.env.VITE_BACKEND_URL}api/login`;
-                const respuestaAdmin = await axios.post(url, credenciales);
+                const urlAdmin = `${import.meta.env.VITE_BACKEND_URL}api/login`;
+                const respuestaAdmin = await axios.post(urlAdmin, credenciales);
 
-                if (respuestaAdmin.data.token) {
+                if (respuestaAdmin.data?.token) {
                     localStorage.setItem('token', respuestaAdmin.data.token);
-                    const perfilData = await perfil(respuestaAdmin.data.token);
-                    return {
-                        success: true,
-                        rol: perfilData.rol || 'Administrador',
-                        redirectTo: '/dashboard'
-                    };
+                    try {
+                        const perfilData = await perfil(respuestaAdmin.data.token);
+                        return {
+                            success: true,
+                            rol: 'Administrador',
+                            redirectTo: '/dashboard',
+                            userData: perfilData
+                        };
+                    } catch (perfilError) {
+                        console.error("Error obteniendo perfil admin:", perfilError);
+                        throw new Error('Error al cargar perfil de administrador');
+                    }
                 }
             } catch (adminError) {
-                // Si falla como admin, intentamos como usuario normal
-                url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/login`;
-                const respuestaUsuario = await axios.post(url, credenciales);
-
-                if (respuestaUsuario.data.token) {
-                    localStorage.setItem('token', respuestaUsuario.data.token);
-                    const perfilData = await perfil(respuestaUsuario.data.token);
-                    return {
-                        success: true,
-                        rol: perfilData.rol || 'Usuario',
-                        redirectTo: '/users/dashboard'
-                    };
-                }
+                console.log("Intento como admin falló, probando como usuario...");
             }
 
-            throw new Error('Credenciales incorrectas');
+            // Intento como usuario normal
+            try {
+                const urlUsuario = `${import.meta.env.VITE_BACKEND_URL}api/usuario/login`;
+                const respuestaUsuario = await axios.post(urlUsuario, credenciales);
+
+                if (respuestaUsuario.data?.token) {
+                    localStorage.setItem('token', respuestaUsuario.data.token);
+                    try {
+                        const perfilData = await perfil(respuestaUsuario.data.token);
+                        return {
+                            success: true,
+                            rol: 'Usuario',
+                            redirectTo: '/users/dashboard',
+                            userData: perfilData
+                        };
+                    } catch (perfilError) {
+                        console.error("Error obteniendo perfil usuario:", perfilError);
+                        throw new Error('Error al cargar perfil de usuario');
+                    }
+                }
+            } catch (userError) {
+                console.error("Error en login usuario:", userError);
+            }
+
+            // Si llegamos aquí, ambos intentos fallaron
+            throw new Error('Credenciales incorrectas o servicio no disponible');
+
         } catch (error) {
             logout();
-            throw error;
+            // Mejoramos el mensaje de error para el usuario final
+            let errorMessage = 'Error al iniciar sesión';
+
+            if (error.message.includes('Credenciales')) {
+                errorMessage = 'Correo o contraseña incorrectos';
+            } else if (error.response) {
+                errorMessage = error.response.data?.msg ||
+                    `Error del servidor (${error.response.status})`;
+            }
+
+            throw new Error(errorMessage);
         } finally {
             setLoading(false);
         }
     };
-
     const logout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('rol');
@@ -162,18 +177,32 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        const rol = localStorage.getItem('rol');
+
         if (token) {
-            perfil(token).catch(() => logout());
+            perfil(token)
+                .then(() => {
+                    if (window.location.pathname === '/unauthorized') {
+                        navigate(rol === 'Administrador' ? '/dashboard' : '/users/dashboard');
+                    }
+                })
+                .catch(() => {
+                    logout();
+                })
+                .finally(() => {
+                    setAuthChecked(true);
+                });
         } else {
-            setLoading(false);
+            setAuthChecked(true);
         }
-    }, []);
+    }, [navigate]);
 
     return (
         <AuthContext.Provider
             value={{
                 auth,
                 loading,
+                authChecked, 
                 setAuth,
                 login,
                 logout,

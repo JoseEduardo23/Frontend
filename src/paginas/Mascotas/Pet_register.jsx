@@ -6,14 +6,15 @@ import { Outlet, useParams } from "react-router-dom"
 import Pet_table from "./Pet_tabla"
 import '../../Estilos/Pet_register.css'
 
-const Pet_register = () => {
+const Pet_register = ({ mascota }) => {
     const [form, setForm] = useState({
-        nombre: "",
-        raza: "",
-        edad: "",
-        actividad: "",
-        peso: ""
+        nombre: mascota?.nombre ?? "",
+        raza: mascota?.raza ?? "",
+        edad: mascota?.edad ?? "",
+        actividad: mascota?.actividad ?? "",
+        peso: mascota?.peso ?? "",
     })
+
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const [nombreError, setNombreError] = useState(null)
@@ -24,7 +25,7 @@ const Pet_register = () => {
     const [mensaje, setMensaje] = useState("")
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         // Validación para nombre
         if (name === "nombre") {
@@ -88,7 +89,13 @@ const Pet_register = () => {
         e.preventDefault()
         setError(null)
 
-        // Validación general antes de enviar
+        // Validar actividad
+        if (!form.actividad) {
+            setActividadError("Seleccione un nivel de actividad");
+        } else {
+            setActividadError(null);
+        }
+
         if (nombreError || razaError || edadError || pesoError || !form.actividad) {
             toast.error("Por favor corrija los errores en el formulario")
             return
@@ -96,24 +103,42 @@ const Pet_register = () => {
 
         setLoading(true)
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
-            const token = localStorage.getItem('token') // Asegúrate de que el token se guarda así
-            const respuesta = await axios.post(url, form, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            toast.success(respuesta.data.msg)
-            // Limpiar formulario después de éxito
-            setForm({
-                nombre: "",
-                raza: "",
-                edad: "",
-                actividad: "",
-                peso: ""
-            })
+            const token = localStorage.getItem('token')
+            if (!token) {
+                setError("No se encontró token de autenticación")
+                return;
+            }
+            const headers = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+
+            if (mascota?._id) {
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/actualizar/${mascota._id}`
+                const respuesta = await axios.put(url, form, { headers })
+                setError(null)
+                toast.success(respuesta.data.msg)
+            } else {
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
+                const respuesta = await axios.post(url, form, { headers })
+                setError(null)
+                toast.success(respuesta.data.msg)
+                // Limpiar formulario después de registro exitoso
+                setForm({
+                    nombre: "",
+                    raza: "",
+                    edad: "",
+                    actividad: "",
+                    peso: "",
+                })
+            }
         } catch (error) {
-            toast.error(error.response?.data?.msg || "Error al registrar la mascota")
+            if (error.response && error.response.data) {
+                setError(error.response.data.msg);
+                toast.error(error.response.data.msg);
+            } else {
+                setError("Error inesperado: " + error.message);
+            }
         } finally {
             setLoading(false)
         }
@@ -140,7 +165,6 @@ const Pet_register = () => {
                                 onChange={handleChange}
                                 placeholder="Nombre de la mascota"
                                 className="pet-input"
-                                
                             />
                             {nombreError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{nombreError}</p>}
                         </div>
@@ -154,7 +178,6 @@ const Pet_register = () => {
                                 onChange={handleChange}
                                 placeholder="Raza de la mascota"
                                 className="pet-input"
-                                
                             />
                             {razaError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{razaError}</p>}
                         </div>
@@ -168,7 +191,6 @@ const Pet_register = () => {
                                 onChange={handleChange}
                                 placeholder="Edad de la mascota"
                                 className="pet-input"
-                                
                                 min="0"
                                 max="20"
                             />
@@ -182,7 +204,6 @@ const Pet_register = () => {
                                 value={form.actividad}
                                 onChange={handleChange}
                                 className="pet-input"
-                                
                             >
                                 <option value=""> --- Seleccionar ---</option>
                                 <option value="Mucha">Mucha</option>
@@ -191,19 +212,18 @@ const Pet_register = () => {
                                 <option value="Baja">Baja</option>
                                 <option value="Nula">Nula</option>
                             </select>
-                            {!form.actividad && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>Seleccione un nivel de actividad</p>}
+                            {actividadError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{actividadError}</p>}
                         </div>
 
                         <div className="pet-div">
                             <label htmlFor="peso">Peso (Kg):</label>
-                            <input type="number" 
+                            <input type="number"
                                 id="peso"
                                 name="peso"
                                 value={form.peso}
                                 onChange={handleChange}
-                                placeholder = "Peso en Kg de la mascota"
+                                placeholder="Peso en Kg de la mascota"
                                 className="pet-input"
-                                
                                 min="0"
                                 max="115"
                             />
@@ -211,14 +231,18 @@ const Pet_register = () => {
                         </div>
 
                         <div className="pet-butt">
-                            <button type="submit" className="pet-btn" disabled={loading}>
-                                {loading ? 'Cargando...' : 'Registrar'}
+                            <button 
+                                type="submit" 
+                                className="pet-btn"
+                                disabled={loading}
+                            >
+                                {loading ? "Procesando..." : (mascota?._id ? "Actualizar" : "Registrar")}
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-            <Pet_table/>
+            <Pet_table />
         </>
     )
 }

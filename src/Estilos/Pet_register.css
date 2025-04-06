@@ -41,3 +41,18 @@
     color: black;
     font-weight: bold;
 }
+
+@media (max-width: 400px) {
+    .pet-formcontainer{
+        width: 300px;
+    }
+    .pet-formcontainer h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    .pet-btn{
+        width: 50%;
+        margin-left: 35px;
+    }
+}
+

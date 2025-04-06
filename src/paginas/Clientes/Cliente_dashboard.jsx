@@ -60,6 +60,7 @@ const Cliente_dashboard = () => {
                         />
                         <Link to="/users/dashboard/configuracion">
                             <img src={config}
+                                title="configuración"
                                 alt="configuracion"
                                 className="config"
                                 width={38}

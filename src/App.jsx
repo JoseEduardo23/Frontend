@@ -39,6 +39,8 @@ import Configuracion from './components/Configuracion';
 
 //Mascotas
 import Pet_register from './paginas/Mascotas/Pet_register';
+import Pet_visualizar from './paginas/Mascotas/Pet_visualizar';
+import Pet_actualizar from './paginas/Mascotas/Pet_actualizar';
 
 function App() {
   return (
@@ -93,6 +95,8 @@ function App() {
             <Route index element={<Cliente_perfil/>} />
             <Route path="registrar_mascota" element={<Pet_register />}/>
             <Route path="configuracion" element={<Configuracion />}/>
+            <Route path="visualizar/mascota/:id" element={<Pet_visualizar />}/>
+            <Route path="actualizar/mascota/:id" element={<Pet_actualizar />} />
 
           </Route>
 

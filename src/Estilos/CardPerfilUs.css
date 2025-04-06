@@ -7,6 +7,10 @@
     background-color: #012041;
     border-radius: 50%;
 }
+.card-user{
+    color: black;
+    font-weight: bold;
+}
 
 @media (max-width: 400px) {
     .card-usimg{

@@ -144,3 +144,38 @@
     font-size: 1.2rem;
     color: #777;
 }
+
+@media (max-width: 400px) {
+    .pet-container{
+        overflow-x: hidden;
+
+    }
+    .no-registros p{
+        color: black;
+        font-weight: bold;
+        width: 280px;
+        backdrop-filter: blur(8px);
+    }
+}
+
+@media(min-width:768px) and (max-width:1023px){
+    .pet-container{
+        overflow-x: hidden;
+    }
+    .no-registros p{
+        backdrop-filter: blur(8px);
+        color: black;
+        font-weight: bold;
+        width: 300px;
+        margin-left: 150px;
+    }
+}
+@media(min-width:1025px) and (max-width:1440px){
+    .no-registros p{
+        backdrop-filter: blur(8px);
+        color: black;
+        font-weight: bold;
+        width: 300px;
+        margin-left: 500px;
+    }
+}

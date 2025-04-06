@@ -68,10 +68,8 @@ const Pet_table = () => {
         <div className="pet-container">
             {mascotas.length === 0 ? (
                 <div className="no-registros">
-                    <p>No tienes mascotas registradas</p>
-                    <button onClick={() => navigate('/users/dashboard/registrar')}>
-                        ¡Registra tu primera mascota!
-                    </button>
+                    <p >No tienes mascotas registradas</p>
+                    <p>¡Registra tu primera mascota!</p>
                 </div>
             ) : (
                 <div className="pet-cards-container">
@@ -100,7 +98,7 @@ const Pet_table = () => {
                                 <div className="pet-card-actions">
                                     <button
                                         className="pet-action-btn pet-info"
-                                        onClick={() => navigate(`/users/dashboard/mascota/listar/${mascota._id}`)}
+                                        onClick={() => navigate(`/users/dashboard/visualizar/mascota/${mascota._id}`)}
                                         title="Ver detalles"
                                     >
                                         <MdInfo />
@@ -108,7 +106,7 @@ const Pet_table = () => {
 
                                     <button
                                         className="pet-action-btn pet-update"
-                                        onClick={() => navigate(`/users/dashboard/actualizar/${mascota._id}`)}
+                                        onClick={() => navigate(`/users/dashboard/actualizar/mascota/${mascota._id}`)}
                                         title="Editar"
                                     >
                                         <MdUpdate />
