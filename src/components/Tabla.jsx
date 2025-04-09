@@ -58,11 +58,9 @@ const Tabla = () => {
 
     return (
         <>
-            {
-                productos.length === 0
-                    ?
+            { productos.length === 0 ?(
                     <div className="loading"></div>
-                    : <table className='tabla-productos'>
+            ):( <table className='tabla-productos'>
                         <thead>
                             <tr>
                                 <th className='tabla-celda'>N°</th>
@@ -103,7 +101,7 @@ const Tabla = () => {
                             }
                         </tbody>
                     </table>
-            }
+            )}
         </>
     );
 };

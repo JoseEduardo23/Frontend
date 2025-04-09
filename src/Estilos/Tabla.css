@@ -217,7 +217,7 @@ thead th {
     .tabla-iconoI,
     .tabla-icono-eliminar {
       font-size: 1rem;
-      margin-top: 15px;
+      margin-top: 1px;
     }
 
     .loading{

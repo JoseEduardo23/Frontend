@@ -38,9 +38,11 @@ import Cliente_perfil from './paginas/Clientes/perfil_cli';
 import Configuracion from './components/Configuracion';
 
 //Mascotas
+import Mascotas from './paginas/Mascotas/Mascotas';
 import Pet_register from './paginas/Mascotas/Pet_register';
 import Pet_visualizar from './paginas/Mascotas/Pet_visualizar';
 import Pet_actualizar from './paginas/Mascotas/Pet_actualizar';
+import Pet_listar from './paginas/Mascotas/Pet_listar';
 
 function App() {
   return (
@@ -81,6 +83,10 @@ function App() {
             </Route>
             <Route path="clientes/*" element={<Clientes />}>
               <Route path="clientes_listar" element={<Cliente_listar />} />
+            </Route>
+
+            <Route path="mascotas/*" element={<Mascotas/>}>
+              <Route path="mascotas_listar" element={<Pet_listar/>}/>
             </Route>
           </Route>
 

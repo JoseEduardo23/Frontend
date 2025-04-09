@@ -81,7 +81,7 @@ const Cliente_tabla = () => {
                                 <td className='tabla-celda'>{usuario.telefono}</td>
                                 <td className='tabla-celda'>{usuario.email}</td>
                                 <td className='tabla-celda'>{usuario.estado}</td>
-                                <td className='tabla-celda'>
+                                <td className='tabla-celdaI'>
 
                                     <MdDelete
                                         className="tabla-icono-eliminar"

@@ -4,9 +4,11 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Estilos/Restablecer.css';
 import key from '../assets/key.png'
+import { Link } from 'react-router-dom';
+
 export default function Restablecer() {
     const { token } = useParams();
-    const [tokenback, setTokenback] = useState(false); 
+    const [tokenback, setTokenback] = useState(false);
     const [form, setform] = useState({
         password: "",
         confirmpassword: ""
@@ -35,7 +37,7 @@ export default function Restablecer() {
             const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/recuperar-password/${token}`;
             const respuesta = await axios.get(url);
             toast.success(respuesta.data.msg);
-            setTokenback(true); 
+            setTokenback(true);
         } catch (error) {
             toast.error(error.response?.data?.msg || "Token inválido o expirado");
         }
@@ -46,40 +48,76 @@ export default function Restablecer() {
     }, []);
 
     return (
-        <div className="restablecer-container">
-            <h1 className="restablecer-title">Restablecer Contraseña</h1>
-            <ToastContainer />
-            {tokenback ? (
-                <form onSubmit={handleSubmit} className="restablecer-form">
-                    <label htmlFor="password" className="form-label">Nueva Contraseña</label>
+        <>
+          <ToastContainer autoClose={5000} />
+      
+          <div className="rest-container">
+            <div className="rest-card">
+              <div className="rest-header">
+                <img src={key} className="rest-icon" alt="Key icon" />
+                <h1 className="rest-title">Restablecer Contraseña</h1>
+              </div>
+      
+              {tokenback ? (
+                <form onSubmit={handleSubmit} className="rest-form">
+                  <div className="rest-group">
+                    <label htmlFor="password" className="rest-label">
+                      Nueva Contraseña
+                    </label>
                     <input
-                        placeholder='Ingresa tu nueva contraseña'
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={form.password}
-                        onChange={handleChange}
-                        className="form-input"
-                        required
+                      type="password"
+                      id="password"
+                      name="password"
+                      value={form.password}
+                      onChange={handleChange}
+                      className="rest-input"
+                      placeholder="Ingresa tu nueva contraseña"
+                      required
                     />
-                    <label htmlFor="confirmpassword" className="form-label">Confirmar Contraseña</label>
+                    <div className="rest-strength"></div>
+                  </div>
+      
+                  <div className="rest-group">
+                    <label htmlFor="confirmpassword" className="rest-label">
+                      Confirmar Contraseña
+                    </label>
                     <input
-                        type="password"
-                        placeholder='Confirma tu contraseña'
-                        id="confirmpassword"
-                        name="confirmpassword"
-                        value={form.confirmpassword}
-                        onChange={handleChange}
-                        className="form-input"
-                        required
+                      type="password"
+                      id="confirmpassword"
+                      name="confirmpassword"
+                      value={form.confirmpassword}
+                      onChange={handleChange}
+                      className="rest-input"
+                      placeholder="Confirma tu contraseña"
+                      required
                     />
-                    <img src={key} className='key' alt="" />
-                    <input className='Res-button' type="submit" value="ENVIAR"/>
-                    
+                  </div>
+                  
+                  <div className='rest-botones'>
+                    <button type="submit" className="rest-button">
+                      <span>Actualizar Contraseña</span>
+                      <svg className="rest-arrow" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </button>
+                    <Link to="/login">
+                      <button type='button' className='rest-button'>
+                        <span>Iniciar Sesión</span>
+                        <svg className='rest-arrow' viewBox='0 0 24 24'>
+                          <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                      </button>
+                    </Link>
+                  </div>
                 </form>
-            ) : (
-                <p className="restablecer-message">Verificando token, por favor espera...</p>
-            )}
-        </div>
-    );
+              ) : (
+                <div className="rest-loading">
+                  <div className="rest-spinner"></div>
+                  <p className="rest-loading-text">Verificando token, por favor espera...</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      );
 }
