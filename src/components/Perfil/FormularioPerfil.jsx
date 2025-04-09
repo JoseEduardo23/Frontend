@@ -50,7 +50,6 @@ const FormularioPerfil = () => {
             const resultado = await actualizarPerfil(form);
             console.log(resultado);
 
-            // Verifica si la respuesta es exitosa
             if (resultado && resultado.data && resultado.data.msg) {
                 toast.success(resultado.data.msg);
             }

@@ -20,8 +20,6 @@ export const Register = () => {
 
     const [loading, setLoading] = useState(false);
 
-    /*Manejo de errores*/
-
     const [error, setError] = useState(null);
     const [nombreError, setNombreError] = useState(null);
     const [apellidoError, setApellidoError] = useState(null);
@@ -38,7 +36,6 @@ export const Register = () => {
     const handleChange = (e) => {
 
         const { name, value } = e.target;
-
 
         if (name === "nombre") {
 
