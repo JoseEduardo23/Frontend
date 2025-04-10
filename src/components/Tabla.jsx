@@ -84,14 +84,17 @@ const Tabla = () => {
                                         <td className='tabla-celda'>{producto.categoria}</td>
                                         <td className='tabla-celdaI'>
                                             <MdInfo
+                                                title="Ver detalles"
                                                 className="tabla-icono"
                                                 onClick={() => navigate(`/dashboard/productos/visualizar/${producto._id}`)}
                                             />
                                             <MdUpdate
+                                                title="Editar"
                                                 className="tabla-iconoI"
                                                 onClick={() => navigate(`/dashboard/productos/actualizar/${producto._id}`)}
                                             />
                                             <MdDelete
+                                                title="Eliminar"
                                                 className="tabla-icono-eliminar"
                                                 onClick={() => { handleDelete(producto._id) }}
                                             />

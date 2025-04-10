@@ -84,6 +84,7 @@ const Cliente_tabla = () => {
                                 <td className='tabla-celdaI'>
 
                                     <MdDelete
+                                    title="eliminar"
                                         className="tabla-icono-eliminar"
                                         onClick={() => handleDelete(usuario._id)}
                                     />

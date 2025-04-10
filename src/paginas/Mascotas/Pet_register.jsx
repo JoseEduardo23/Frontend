@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { toast, ToastContainer } from "react-toastify"
 import axios from "axios"
 import React from "react"
-import { Outlet, useParams } from "react-router-dom"
+import { Navigate, Outlet, useNavigate, useParams } from "react-router-dom"
 import Pet_table from "./Pet_tabla"
 import '../../Estilos/Pet_register.css'
 
 const Pet_register = ({ mascota }) => {
+    const navigate  = useNavigate();
     const [form, setForm] = useState({
         nombre: mascota?.nombre ?? "",
         raza: mascota?.raza ?? "",
@@ -27,7 +28,6 @@ const Pet_register = ({ mascota }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // Validación para nombre
         if (name === "nombre") {
             const charCount = value.length;
             if (charCount > 12) {
@@ -67,9 +67,7 @@ const Pet_register = ({ mascota }) => {
             }
         }
 
-        // Validación para peso
         if (name === "peso") {
-            const numberCount = value.length;
             if (parseInt(value) > 115) {
                 setPesoError("Peso máximo de 115 Kg")
             } else if (/[^0-9]/.test(value)) {
@@ -118,12 +116,13 @@ const Pet_register = ({ mascota }) => {
                 const respuesta = await axios.put(url, form, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
+                navigate("/users/dashboard/registrar_mascota");
+
             } else {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
                 const respuesta = await axios.post(url, form, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
-                // Limpiar formulario después de registro exitoso
                 setForm({
                     nombre: "",
                     raza: "",
@@ -231,8 +230,8 @@ const Pet_register = ({ mascota }) => {
                         </div>
 
                         <div className="pet-butt">
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 className="pet-btn"
                                 disabled={loading}
                             >
