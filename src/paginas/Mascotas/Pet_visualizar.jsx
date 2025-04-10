@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import '../../Estilos/Pet_visualizar.css'
 import axios from "axios";
-import iconPets from '../../assets/iconPets.jpg'
+import iconPets from '../../assets/IconPet.png'
 
 const Pet_visualizar = () => {
     const { id } = useParams()
