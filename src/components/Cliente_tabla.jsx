@@ -80,7 +80,14 @@ const Cliente_tabla = () => {
                                 <td className='tabla-celda'>{usuario.direccion}</td>
                                 <td className='tabla-celda'>{usuario.telefono}</td>
                                 <td className='tabla-celda'>{usuario.email}</td>
-                                <td className='tabla-celda'>{usuario.estado}</td>
+                                <td className='tabla-celda'>
+                                    <span style={{
+                                        color: usuario.estadp ? 'green' : 'red',
+                                        fontWeight:'bold'
+                                    }}>
+                                        {usuario.estado ? 'Activo' : 'Inactivo'}
+                                    </span>
+                                </td>
                                 <td className='tabla-celdaI'>
 
                                     <MdDelete
