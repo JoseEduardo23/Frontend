@@ -82,7 +82,7 @@ const Cliente_tabla = () => {
                                 <td className='tabla-celda'>{usuario.email}</td>
                                 <td className='tabla-celda'>
                                     <span style={{
-                                        color: usuario.estadp ? 'green' : 'red',
+                                        color: usuario.estado ? 'green' : 'red',
                                         fontWeight:'bold'
                                     }}>
                                         {usuario.estado ? 'Activo' : 'Inactivo'}
