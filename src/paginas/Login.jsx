@@ -133,8 +133,8 @@ const Login = () => {
                                     placeholder="Ingresa tu contraseña."
                                     className="input-field"
                                 />
-                                <span className='toggle-password' onClick={togglePasswordVisibility}>
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                <span className='toggler-password' onClick={togglePasswordVisibility}>
+                                    {showPassword ? <FaEyeSlash/> : <FaEye />}
                                 </span>
                             </div>
 

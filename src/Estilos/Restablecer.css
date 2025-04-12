@@ -140,7 +140,23 @@
   border-radius: var(--rest-radius);
   font-size: 1rem;
   font-weight: bold;
-  color: white;
+  color: black;
+  cursor: pointer;
+  transition: var(--rest-transition);
+}
+.resta-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--rest-primary), var(--rest-primary-dark));
+  border: 2px solid black;
+  border-radius: var(--rest-radius);
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
   cursor: pointer;
   transition: var(--rest-transition);
 }
@@ -148,6 +164,14 @@
 .rest-button:hover {
   background: linear-gradient(135deg, var(--rest-primary-dark), var(--rest-primary));
   transform: translateY(-2px);
+}
+
+.resta-button:hover {
+  background: linear-gradient(135deg, var(--rest-primary-dark), var(--rest-primary));
+  transform: translateY(-2px);
+}
+.resta-button:active {
+  transform: translateY(0);
 }
 
 .rest-button:active {
@@ -187,6 +211,45 @@
   font-size: 1rem;
 }
 
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus,
+.input-field:-webkit-autofill:active {
+    background: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 4px;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.input-field:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 1px #111827;
+}
+
+.input-field:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 1px #111827;
+}
+
+.toggleRe-password{
+  position: absolute;
+  right: 3px;
+  margin-top: 18px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: black;
+}
+
 /* Animaciones */
 @keyframes rest-float {
   0%, 100% { transform: translateY(0); }
@@ -214,6 +277,9 @@
   .rest-form {
     padding: 1.5rem;
   }
+  .resta-button{
+    width: 320px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -223,5 +289,8 @@
   
   .rest-button {
     width: 100%;
+  }
+  .resta-button{
+    width: 260px;
   }
 }
