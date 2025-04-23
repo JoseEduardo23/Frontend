@@ -236,7 +236,7 @@ export const Register = () => {
                                     placeholder='Ingrese su contraseña'
                                     className="input"
                                 />
-                                <span className="toggle-password" onClick={togglePasswordVisibility}>
+                                <span className="toggle-passwordr" onClick={togglePasswordVisibility}>
                                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </span>
                             </div>

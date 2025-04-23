@@ -38,8 +38,8 @@ export const Forgot = () => {
             <ToastContainer />
             <div className="forgot-container">
                 <div className="forgot-form-container">
-                    <h1 className="forgot-heading">Forgot your password!</h1>
-                    <small className="forgot-subheading">Don't worry, please enter your details</small>
+                    <h1 className="forgot-heading">Perdite tu contraseña!</h1>
+                    <small className="forgot-subheading">No te preocupes, ingresa tu correo electrónico</small>
 
                     <form onSubmit={handleSubmit}>
                         <div className="mb-1">
@@ -48,15 +48,15 @@ export const Forgot = () => {
                         </div>
 
                         <div className="mb-3">
-                            <button type="submit" className="forgot-button">Send email</button>
+                            <button type="submit" className="forgot-button">Envair email</button>
                         </div>
                     </form>
 
                     <div className="mt-5 text-xs border-b-2 py-4 "></div>
 
                     <div className="forgot-footer">
-                        <p className='msg'>You already remembered</p>
-                        <Link to="/login" className="forgot-login-link">Login</Link>
+                        <p className='msg'>¿Ya te has acrodado?</p>
+                        <Link to="/login" className="forgot-login-link">Iniciar sesión</Link>
                     </div>
                 </div>
             </div>
@@ -67,9 +67,9 @@ export const Forgot = () => {
             {isModalVisible && (
                 <div className="modal-overlay">
                     <div className="modal-container">
-                        <h2 className="modal-heading">Success!</h2>
+                        <h2 className="modal-heading">Éxito!</h2>
                         <p className="modal-message">El correo de ocnfirmación ha sido enviado a su correo electrónico revise.</p>
-                        <button onClick={closeModal} className="modal-close-button">Close</button>
+                        <button onClick={closeModal} className="modal-close-button">Cerrar</button>
                     </div>
                 </div>
             )}
