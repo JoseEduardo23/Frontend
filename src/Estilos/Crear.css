@@ -10,7 +10,7 @@
     border: 1px solid black;
 }
 
-@media (max-width: 400px) {  
+@media (max-width: 767px) {  
     .div-crear{
         margin-top: -300px;
         width: 350px;

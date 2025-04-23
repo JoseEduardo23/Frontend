@@ -1,12 +1,12 @@
 /* Responsive Design (if needed) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .card-container {
         padding: 15px;
         max-width: 90%;
     }
 }
 
-@media (max-width: 400px) {  
+@media (max-width: 768px) {  
     .card-container{
         padding: 0 1rem;
     }

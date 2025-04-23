@@ -42,7 +42,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 767px) {
     .pet-formcontainer{
         width: 300px;
     }

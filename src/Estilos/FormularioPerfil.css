@@ -124,7 +124,7 @@
   }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 767px) {
     .form-container {
         padding: 1rem; 
         max-height: none; 

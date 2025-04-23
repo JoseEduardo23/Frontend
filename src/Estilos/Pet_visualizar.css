@@ -106,7 +106,7 @@
 
 
 /* Responsive */
-@media (max-width: 843px) {
+@media (max-width: 767px) {
     .info-card{
         flex-direction: column;
         display: flex;

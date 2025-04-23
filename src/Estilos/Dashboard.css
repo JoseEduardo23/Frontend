@@ -202,7 +202,7 @@
 }
 
 /* Media Query para pantallas de 400px o menos */
-@media (max-width: 400px) {
+@media (max-width: 767px) {
   .sidebar {
     width: 160px; 
     left: -160px;

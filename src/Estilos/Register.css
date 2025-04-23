@@ -183,7 +183,7 @@
 }
 
 /* Tablets pequeñas */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width:1023px) {
     .container {
         padding: 2rem;
         height: auto;
@@ -239,7 +239,7 @@
 }
 
 /* Móviles */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
     .container {
         padding: 1.5rem;
     }

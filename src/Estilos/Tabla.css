@@ -128,7 +128,7 @@ thead th {
   overflow: hidden;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 767px) {
   .tabla-productos {
       display: block;
       overflow-x: auto;

@@ -144,7 +144,7 @@
     margin-top: auto;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 767px) {
     .barra-superior {
         padding: 0.8rem 1rem;
         flex-direction: column;
