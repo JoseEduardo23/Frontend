@@ -147,6 +147,7 @@ export const Register = () => {
 
                     <form className='register-form' onSubmit={handleSubmit}>
                         {error && <div className='error-message'>{error}</div>}
+                        
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold" htmlFor="nombre">Nombre:</label>
                             <input
