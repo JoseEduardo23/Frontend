@@ -8,7 +8,7 @@ const Mascotas = () => {
     return (
         <>
             <div className="Masc-container">
-                <h1>Gestion de Mascotas</h1>
+                <h1 style={{color:"black"}}>Gestion de Mascotas</h1>
                 <ul className="Mcon">
                     <li className={`${urlActual === '/dashboard/mascotas/mascotas¿_listar' ? 'active' : ''}`}>
                         <Link to="/dashboard/mascotas/mascotas_listar">Lista de Mascotas</Link>

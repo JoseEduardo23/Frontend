@@ -116,15 +116,14 @@ thead th {
 }
 
 .loading {
-  margin-top: 150px;
+  margin-top: 4rem;
   border: 5px solid #f3f3f3;
   border-top: 5px solid #3498db;
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  position: fixed;
   margin-left: 600px;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s linear infinite;
   overflow: hidden;
 }
 
@@ -158,8 +157,8 @@ thead th {
   }
 
   .loading {
-      margin-left: 17%;
-      margin-top: -0.1px;
+      margin-left: 4rem;
+      margin-top: -0rem;
       transform: translateX(-50%); 
   }
 }
@@ -221,8 +220,7 @@ thead th {
     }
 
     .loading{
-      margin-left: 35%;
-      transform: translateX(-50%); 
+      margin-left: 17rem;
     }
   }
   

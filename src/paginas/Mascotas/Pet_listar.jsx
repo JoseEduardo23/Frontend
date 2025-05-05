@@ -1,6 +1,5 @@
 import { useState } from "react";
 import '../../Estilos/Listar.css';
-import Pet_table from "./Pet_tabla";
 import MascotaTabla from "./Mascotas_tabla";
 
 const Pet_listar = ()=>{
@@ -13,7 +12,7 @@ const Pet_listar = ()=>{
     return(
         <>
         <div className="listar-container">
-            <h1 className="list-title">Listado de mascotas:</h1>
+            <h1 style={{color:"black"}} className="list-title" >Listado de mascotas:</h1>
             <hr className="my-4" />
 
             <div className="seccion-toggle" onClick={toggleTabla}>

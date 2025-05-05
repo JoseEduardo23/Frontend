@@ -59,7 +59,7 @@ const Tabla = () => {
     return (
         <>
             { productos.length === 0 ?(
-                    <div className="loading"></div>
+                    <div className="loading"> </div> 
             ):( <table className='tabla-productos'>
                         <thead>
                             <tr>

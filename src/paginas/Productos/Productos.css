@@ -9,6 +9,8 @@
 
 .Prod-container h1{
     font-size: 1.4rem;
+    color: black;
+    font-weight: 400;
 }
 
 .Pcon li {

@@ -7,7 +7,7 @@
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background-image: url("../assets/fondos/Fondotienda.webp");
+  background-color: rgb(234, 232, 232);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -72,8 +72,8 @@
   border-radius: 50%;
   margin: 0.8rem auto; 
   display: block;
-  border: 2px solid rgb(25, 239, 25);
-  background-color: #00b894;
+  background-color: rgb(71, 105, 192);
+  border: 2px solid #00b894;
   width: 40px; 
   height: 40px;
 }
@@ -139,7 +139,21 @@
 }
 
 .nav-list li {
+  width: 110%;
   margin-bottom: 0.8rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-list li img{
+  position: fixed;
+  margin-left: 1rem;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border: 3px solid rgb(64, 159, 172);
+  border-radius: 50%;
 }
 
 .nav-list a {
@@ -154,19 +168,19 @@
 }
 
 .nav-list a:hover {
-  background-color: #00b894;
+  background-color: rgb(71, 105, 192);
   color: #ffffff;
   margin-left: 10px;
 }
 
 .nav-list .active {
-  background-color: #10b981;
+  background-color: rgb(29, 65, 157);
   color: #ffffff;
   margin-left: 10px;
 }
 
 .nav-list .active:hover {
-  background-color: #1abc9c;
+  background-color: rgb(71, 105, 192);
   margin-left: 10px;
 }
 

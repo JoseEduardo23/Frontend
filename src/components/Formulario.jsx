@@ -135,7 +135,7 @@ export const Formulario = ({ producto }) => {
             <div className="form-group">
                 <label className="form-label">Nombre del producto:</label>
                 <input
-                    className="form-input"
+                    className="form-inputp"
                     id="nombre"
                     type="text"
                     placeholder="nombre del producto"
@@ -149,7 +149,7 @@ export const Formulario = ({ producto }) => {
             <div className="form-group">
                 <label className="form-label">Descripción del producto:</label>
                 <textarea
-                    className="form-textarea"
+                    className="form-textareap"
                     id="descripcion"
                     placeholder="Descripcion del producto"
                     name="descripcion"
@@ -162,7 +162,7 @@ export const Formulario = ({ producto }) => {
             <div className="form-group">
                 <label className="form-label">Precio del producto:</label>
                 <input
-                    className="form-input"
+                    className="form-inputp"
                     id="precio"
                     type="number"
                     placeholder="precio del producto"
@@ -176,7 +176,7 @@ export const Formulario = ({ producto }) => {
             <div className="form-group">
                 <label className="form-label">Stock:</label>
                 <input
-                    className="form-input"
+                    className="form-inputp"
                     id="stock"
                     type="number"
                     name="stock"
@@ -189,7 +189,7 @@ export const Formulario = ({ producto }) => {
             <div className="form-group">
                 <label className="form-label">Categoría del producto:</label>
                 <input
-                    className="form-input"
+                    className="form-inputp"
                     id="categoria"
                     type="text"
                     name="categoria"

@@ -4,6 +4,9 @@ import AuthContext from '../Context/AuthProvider';
 import '../Estilos/Dashboard.css';
 import userI from '../assets/iconU.png';
 import Admin from '../assets/Admin.png';
+import profile from '../assets/profile.png'
+import product from '../assets/product.png'
+import dog from '../assets/dog.png'
 
 const Dashboard = () => {
   const location = useLocation();
@@ -19,7 +22,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Barra lateral */}
       <div className={`sidebar ${menuAbierto ? 'mostrar' : ''}`}>
         <h2 className="sidebar-title">Tienda</h2>
         <img
@@ -36,6 +38,7 @@ const Dashboard = () => {
 
         <ul className={`nav-list ${menuAbierto ? 'mostrar' : ''}`}>
           <li>
+            <img src={profile} alt="" className='cat'/>
             <Link
               to="/dashboard"
               className={`${urlActual === '/dashboard' ? 'active' : ''}`}
@@ -44,17 +47,20 @@ const Dashboard = () => {
             </Link>
           </li>
           <li>
+            <img src={product} alt="" className='cat'/>
             <Link to='/dashboard/productos' className={`${urlActual === '/dashboard/productos' ? 'active' : ''}`}>
               Productos
             </Link>
           </li>
           <li>
+            <img src={profile} alt="" className='cat'/>
             <Link to='/dashboard/clientes ' className={`${urlActual === '/dashboard/clientes' ? 'active' : ''}`}>
               Clientes
             </Link>
           </li>
 
           <li>
+            <img src={dog} alt="" className='cat'/>
             <Link to='/dashboard/mascotas' className={`${urlActual === '/dashboard/mascotas' ? 'active' : ''}`}>
               Mascotas
             </Link>

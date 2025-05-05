@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import '../Productos/Productos.css'
+import '../../Estilos/Mascotas.css'
 const Clientes = () => {
     const location = useLocation();
     const urlActual = location.pathname;

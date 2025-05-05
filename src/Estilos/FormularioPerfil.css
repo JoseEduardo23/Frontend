@@ -44,8 +44,9 @@
   .input-form:focus,
   .textarea-form:focus {
     outline: none;
-    border-color: #0a855c;
-    box-shadow: 0 0 10px 5px rgba(16, 185, 129, 0.4);
+    border-color: rgb(71, 105, 192);
+    box-shadow: 0 0 10px 2px rgb(71, 105, 192);
+    border-radius: 8px;
   }
   
   .textarea-form {
@@ -68,7 +69,7 @@
   }
   
   .submit-b:hover {
-    background-color: #0a855c;
+    background-color: rgb(71, 105, 192);
     transform: scale(1.05);
   }
   

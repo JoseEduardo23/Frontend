@@ -31,25 +31,23 @@ h1 {
   font-weight: 600;
 }
 
-.form-input,
-.form-textarea {
+.form-inputp,
+.form-textareap {
   width: 100%;
-  background-color: transparent;
   padding: 0.75rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 2px solid #4b4b4b;
   color: black;
-  transition: border-color 0.3s ease;
+  background-color: #3c75b13e;
+  border-bottom: 2px solid black;
 }
 
-.form-input:focus,
-.form-textarea:focus {
+.form-inputp:focus,
+.form-textareap:focus {
   outline: none;
-  border-color: #10b981; /* Color verde */
 }
 
-.form-textarea {
+.form-textareap {
   height: 150px;
   resize: none;
 }
