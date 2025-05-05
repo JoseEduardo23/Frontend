@@ -46,10 +46,6 @@
     object-fit: cover;
 }
 
-.pet-card:hover .pet-card-image img {
-}
-
-/* Información principal */
 .pet-card-main-info {
     grid-column: 2;
     grid-row: 1;
@@ -148,13 +144,13 @@
 @media (max-width: 767px) {
     .pet-container{
         overflow-x: hidden;
-
     }
+
     .no-registros p{
         color: black;
         font-weight: bold;
         width: 280px;
-        backdrop-filter: blur(8px);
+        margin-left: -37px;
     }
 }
 

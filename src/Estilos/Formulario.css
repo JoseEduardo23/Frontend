@@ -3,7 +3,6 @@
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  width: 80%;
   max-width: 800px;
   margin: 3rem auto;
   transition: transform 0.3s ease-in-out;
@@ -70,7 +69,7 @@ h1 {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 2px solid;
+  border: 2px solid black;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   width: 30%;
@@ -87,11 +86,11 @@ h1 {
   outline: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .formulario {
     padding: 1.5rem;
-    width: 95%;
-    top: 0; 
+    width: 100%;
+    margin-left: -0px;
   }
   h1 {
     font-size: 1.8rem;
@@ -100,24 +99,14 @@ h1 {
   .form-group {
     margin-bottom: 1.3rem;
   }
-
-  .form-submit {
-    font-size: 1.1rem;
-  }
-}
-
-
-@media (max-width: 767px) {  
   .form-submit{
     position: relative;
     margin-left: -1px;
     width: 100%;
-  }
-  .formulario{
-    width: 100%;
-    margin-left: -25px;
+    font-size: 1.1rem;
   }
 }
+
 @media(min-width:768px) and (max-width:1023px){
   .form-submit{
     width: 60%;

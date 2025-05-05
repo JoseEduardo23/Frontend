@@ -14,7 +14,6 @@ const Listar = () => {
         <div className="listar-container">
             <h1 className='list-title'>Lista de productos:</h1>
             <hr className="my-4" />
-            
             <div className="seccion-toggle" onClick={toggleTabla}>
                 <h2 className="toggle-title">Mostrar/Ocultar Tabla</h2>
             </div>

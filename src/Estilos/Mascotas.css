@@ -50,14 +50,19 @@
 }
 
 @media (max-width: 767px) {  
+
+    .Masc-container{
+        border: 2px solid black;
+        max-width: 350px;
+        margin-left: -20px;
+    }
+    .Masc-container h1{
+        text-align: center;
+    }
     .Mcon li{
         text-align: center;
         width: 150px;
         height: 65px;
-        position: static;
-    }
-    .Mcon{
-        margin-left: -55px;
     }
 }
 
