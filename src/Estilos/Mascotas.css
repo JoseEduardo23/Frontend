@@ -52,7 +52,6 @@
 @media (max-width: 767px) {  
 
     .Masc-container{
-        border: 2px solid black;
         max-width: 350px;
         margin-left: -20px;
     }
