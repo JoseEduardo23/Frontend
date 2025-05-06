@@ -55,7 +55,6 @@
 @media (max-width: 767px) { 
     .Prod-container {
         max-width: 350px;
-        margin-left: -20px;
     } 
     .Prod-container h1{
         text-align: center;

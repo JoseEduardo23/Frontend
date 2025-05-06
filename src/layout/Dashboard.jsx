@@ -68,7 +68,6 @@ const Dashboard = () => {
         </ul>
       </div>
 
-      {/* Botón hamburguesa para abrir/cerrar menú */}
       <div className="hamburguesa" onClick={toggleMenu}>
         <span className="hamburguesa-bar"></span>
         <span className="hamburguesa-bar"></span>
@@ -102,7 +101,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Redirigir a login si no está autenticado */}
         <div className="overflow-y-scroll p-8">
           {Autenticado ? <Outlet /> : urlActual !== '/login' && <Navigate to="/login" />}
         </div>

@@ -1,6 +1,5 @@
 .perfil-container {
-    margin-bottom: 100px;
-    padding: 0 20px;
+    margin-bottom: 6.25rem;
     height: auto;
 }
 
@@ -11,15 +10,15 @@
 }
 
 .perfil-divider {
-    margin: 16px auto;
+    margin: 1rem auto;
     border: 0;
-    border-top: 2px solid #E2E8F0;
+    border-top: 0.13rem solid #E2E8F0;
 }
 
 .perfil-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -28,10 +27,10 @@
 .perfil-card {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.7);
-    margin-top: 20px;
+    margin-top: 1.25rem;
     height: auto;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
     box-shadow: 0 10px 12px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,40 +55,32 @@
 }
 
 @media (max-width: 767px) {
-    .perfil-container {
-        margin-bottom: 50px; 
-        padding: 0 10px; 
-    }
 
     .perfil-title {
         font-size: 1.2rem; 
-        margin-left: -50px;
     }
 
     .perfil-divider {
-        margin: 10px auto;
+        margin: 0.63rem auto;
         width: 100%; 
-        margin-left: -30px;
     }
 
     .perfil-content {
-        width: 100%; 
-        gap: 16px; 
+        align-content: center;
+        gap: 1rem; 
     }
 
     .perfil-form,
     .perfil-card {
-        padding: 15px; 
-        margin-top: 15px;
-        width: 280px;
+        width: 17.5rem;
     }
 }
 @media(min-width:1024px){
     .perfil-content {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 1.5rem;
         flex-wrap: wrap;
-        margin-left: 70px;
+        margin-left: 4.4rem;
     }
 }
