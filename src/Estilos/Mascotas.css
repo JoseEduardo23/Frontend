@@ -9,6 +9,8 @@
 
 .Masc-container h1{
     font-size: 1.4rem;
+    border: 2px solid black;
+    text-align: center;
 }
 
 .Mcon li {
@@ -53,7 +55,6 @@
 
     .Masc-container{
         max-width: 350px;
-        margin-left: -20px;
     }
     .Masc-container h1{
         text-align: center;
@@ -71,5 +72,7 @@
     }
     .Mcon{
         margin-top: -200px;
+    }
+    .Masc-container{
     }
 }
