@@ -102,9 +102,6 @@
         margin-top: 15px;
         width: 100%;
     }
-}
-
-@media (max-width: 767ypx) {
     .profile-data-card {
         padding: 15px;
     }

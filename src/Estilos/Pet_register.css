@@ -1,10 +1,18 @@
+.pet-container{
+    justify-content: center;
+}
+
 .pet-formcontainer{
     text-indent: 35px;
-    width: 400px;
-    margin-left: 24px;
+    width: 50%;
     border-radius: 10px;
     border: 2px solid black;
     backdrop-filter: blur(10px);
+    background-color: rgba(219, 219, 219, 0.203);
+}
+.pet-formcontainer h1{
+    text-align: center;
+    margin-left: -1rem;
 }
 .pet-form{
     border-radius: 10px;
@@ -37,22 +45,27 @@
 
 .pet-formcontainer h1{
     font-size: 1rem;
-    margin-bottom: 10px;
     color: black;
     font-weight: bold;
 }
 
 @media (max-width: 767px) {
     .pet-formcontainer{
-        width: 300px;
+        width: 100%;
     }
     .pet-formcontainer h1{
-        font-size: 20px;
         text-align: center;
+        margin-left: -1.5rem;
     }
     .pet-btn{
         width: 50%;
         margin-left: 35px;
+    }
+}
+
+@media (min-width:1024px){
+    .pet-formcontainer{
+        width: 400px;
     }
 }
 

@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+    box-shadow: 1px 2px 8px 2px black;
 }
 
 .header-section {
@@ -82,7 +83,6 @@
 }
 
 .image-frame {
-    position: relative;
     width: 340px;
     height: 250px;
     border-radius: 15px;
@@ -92,11 +92,9 @@
 .pet-profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .image-overlay {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -121,7 +119,28 @@
         margin-bottom: 2rem;
     }
     
-    .image-frame {
+    .pet-profile-image{
+        margin-left: 14rem;
+        margin-top: -42rem;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+    .image-overlay{
+        display: none;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .pet-profile-image{
+        margin-left: 41rem;
+        margin-top: -8.4rem;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+
+    .image-overlay{
         display: none;
     }
 }
