@@ -46,7 +46,6 @@ thead th {
   padding: 0.rem;
 }
 
-/* Iconos de acciones */
 .tabla-icono,
 .tabla-iconoI,
 .tabla-icono-eliminar {
@@ -56,15 +55,15 @@ thead th {
 }
 
 .tabla-icono {
-  color: #00b894; /* Verde claro para agregar */
+  color: #00b894; 
 }
 
 .tabla-iconoI {
-  color: #fdcb6e; /* Amarillo para actualizar */
+  color: #fdcb6e; 
 }
 
 .tabla-icono-eliminar {
-  color: #d63031; /* Rojo para eliminar */
+  color: #d63031;
 }
 
 .tabla-icono:hover {
@@ -77,12 +76,23 @@ thead th {
   color: #fdcb6e;
 }
 
+.volver-btn{
+  height: 2rem;
+  width: 11rem;
+  background-color: #16213E;
+  color: white;
+}
+
+.volver-btn:hover{
+  background-color: #75b1d8b5;
+  color: black;
+}
+
 .tabla-icono-eliminar:hover {
   transform: scale(1.2);
   color: #d63031;
 }
 
-/* Mensaje cuando no hay productos */
 .Inor {
   display: block;
   margin: 50px auto;
@@ -91,7 +101,6 @@ thead th {
   height: auto;
 }
 
-/* Estilo para los badges de estado */
 .estado-badge {
   display: inline-block;
   padding: 0.4rem 0.8rem;
@@ -126,6 +135,31 @@ thead th {
   animation: spin 1.2s linear infinite;
   overflow: hidden;
 }
+
+.categorias-container{
+  max-height: 16rem;
+  padding: 1rem;
+}
+
+
+.categoria-card{
+  background-color: #16213E;
+  margin-top: 10px;
+  max-width: 120px;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  box-shadow: 0 1px 7px 2px gray;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+.categoria-card:hover{
+  cursor: pointer;
+  background-color: #9c9ec2a7;
+  color: black;
+}
+
+
+
 
 @media (max-width: 767px) {
   .tabla-productos {
@@ -162,6 +196,19 @@ thead th {
       margin-top: -0rem;
       transform: translateX(-50%); 
   }
+  .volver-btn{
+    border: 2px solid black;
+    height: 2rem;
+    width: 8.5rem;
+    margin-left: -1.5rem;
+    font-size: small;
+    background-color: #16213E;
+  }
+  
+  .volver-btn:hover{
+    background-color: #8dbbd9c3;
+    color: White;
+  }
 }
 
 @keyframes spin {
@@ -170,7 +217,7 @@ thead th {
 }
 
 /* Responsive para pantallas medianas */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
     .table-wrapper {
       padding: 0.5rem;
     }
@@ -187,6 +234,9 @@ thead th {
     .tabla-iconoI,
     .tabla-icono-eliminar {
       font-size: 1.2rem;
+    }
+    .loading{
+      margin-left: 37rem;
     }
 
   }

@@ -1,17 +1,16 @@
 .container-visualizar {
-  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-  min-height: 100vh;
+  min-height: 70vh;
+  margin-bottom: 20px;
   padding: 2rem 1rem;
   color: #e5e7eb;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  background-image: url("../assets/fondos/Fondotienda.jpg");
   background-size: 90% auto; 
-  background-position: center center;
-  background-repeat: no-repeat;
-  margin-top: -250px;
+  margin-top: -300px;
+  box-shadow: 0 1px 4px 1px gray;
+
 }
 .title-v{
   font-size: 1.4rem;
@@ -35,7 +34,6 @@ h1 {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 2rem;
 }
 
 .card {
@@ -126,13 +124,4 @@ button:focus {
   }
 }
 @media (max-width: 767px) {  
-  .card{
-    margin-left: -60px;
-  }
-  .title-v{
-    margin-left: -50px;
-  }
-  .my-3{
-    margin-left: -50px;
-  }
 }

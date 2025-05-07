@@ -130,8 +130,6 @@
     }
 }
 
-/* Media Queries */
-/* Dispositivos pequeños (móviles, 576px y menos) */
 @media (max-width: 767px) {
     .unauthorized-container {
         padding: 1.5rem;
@@ -161,7 +159,6 @@
     }
 }
 
-/* Dispositivos medianos (tablets, 577px a 992px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     .unauthorized-container {
         padding: 2rem 3rem;
@@ -176,7 +173,6 @@
     }
 }
 
-/* Dispositivos grandes (desktops, 993px y más) */
 @media (min-width: 1024px) {
     .unauthorized-container {
         padding: 3rem;
@@ -200,7 +196,6 @@
     }
 }
 
-/* Modo landscape para móviles */
 @media (max-height: 767px) and (orientation: landscape) {
     .unauthorized-container {
         flex-direction: row;

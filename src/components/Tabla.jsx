@@ -4,11 +4,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../Estilos/Tabla.css';
 
-
 const Tabla = () => {
     const navigate = useNavigate();
-
     const [productos, setProductos] = useState([]);
+    const [categorias, setCategorias] = useState([]);
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
 
     const listarProductos = async () => {
         try {
@@ -23,6 +23,9 @@ const Tabla = () => {
             const respuesta = await axios.get(url, options);
             if (Array.isArray(respuesta.data)) {
                 setProductos(respuesta.data);
+                // Extraer categorías únicas
+                const categoriasUnicas = [...new Set(respuesta.data.map(producto => producto.categoria))];
+                setCategorias(categoriasUnicas);
             } else {
                 console.error("La respuesta no es un array:", respuesta.data);
             }
@@ -40,11 +43,9 @@ const Tabla = () => {
                 const headers = {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
-                    
                 };
                 const data = { salida: new Date().toString() };
                 await axios.delete(url, { headers, data });
-                
                 listarProductos();
             }
         } catch (error) {
@@ -52,15 +53,28 @@ const Tabla = () => {
         }
     };
 
+    const volverACategorias = () => {
+        setCategoriaSeleccionada(null);
+    };
+
     useEffect(() => {
         listarProductos();
     }, []);
 
-    return (
-        <>
-            { productos.length === 0 ?(
-                    <div className="loading"> </div> 
-            ):( <table className='tabla-productos'>
+    if (categoriaSeleccionada) {
+        const productosCategoria = productos.filter(p => p.categoria === categoriaSeleccionada);
+        
+        return (
+            <div className="productos-container">
+                <button onClick={volverACategorias} className="volver-btn">
+                    ← Volver a categorías
+                </button>
+                <h2 className="categoria-titulo">{categoriaSeleccionada}</h2>
+                
+                {productosCategoria.length === 0 ? (
+                    <p>No hay productos en esta categoría</p>
+                ) : (
+                    <table className='tabla-productos'>
                         <thead>
                             <tr>
                                 <th className='tabla-celda'>N°</th>
@@ -68,44 +82,69 @@ const Tabla = () => {
                                 <th className='tabla-celda'>Descripción</th>
                                 <th className='tabla-celda'>Precio</th>
                                 <th className='tabla-celda'>Stock</th>
-                                <th className='tabla-celda'>Categoría</th>
                                 <th className='tabla-celda'>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                productos.map((producto, index) => (
-                                    <tr className="tabla-fila" key={producto._id}>
-                                        <td className='tabla-celda'>{index + 1}</td>
-                                        <td className='tabla-celda'>{producto.nombre}</td>
-                                        <td className='tabla-celda'>{producto.descripcion}</td>
-                                        <td className='tabla-celda'>${producto.precio}</td>
-                                        <td className='tabla-celda'>{producto.stock}</td>
-                                        <td className='tabla-celda'>{producto.categoria}</td>
-                                        <td className='tabla-celdaI'>
-                                            <MdInfo
-                                                title="Ver detalles"
-                                                className="tabla-icono"
-                                                onClick={() => navigate(`/dashboard/productos/visualizar/${producto._id}`)}
-                                            />
-                                            <MdUpdate
-                                                title="Editar"
-                                                className="tabla-iconoI"
-                                                onClick={() => navigate(`/dashboard/productos/actualizar/${producto._id}`)}
-                                            />
-                                            <MdDelete
-                                                title="Eliminar"
-                                                className="tabla-icono-eliminar"
-                                                onClick={() => { handleDelete(producto._id) }}
-                                            />
-                                        </td>
-                                    </tr>
-                                ))
-                            }
+                            {productosCategoria.map((producto, index) => (
+                                <tr className="tabla-fila" key={producto._id}>
+                                    <td className='tabla-celda'>{index + 1}</td>
+                                    <td className='tabla-celda'>{producto.nombre}</td>
+                                    <td className='tabla-celda'>{producto.descripcion}</td>
+                                    <td className='tabla-celda'>${producto.precio}</td>
+                                    <td className='tabla-celda'>{producto.stock}</td>
+                                    <td className='tabla-celdaI'>
+                                        <MdInfo
+                                            title="Ver detalles"
+                                            className="tabla-icono"
+                                            onClick={() => navigate(`/dashboard/productos/visualizar/${producto._id}`)}
+                                        />
+                                        <MdUpdate
+                                            title="Editar"
+                                            className="tabla-iconoI"
+                                            onClick={() => navigate(`/dashboard/productos/actualizar/${producto._id}`)}
+                                        />
+                                        <MdDelete
+                                            title="Eliminar"
+                                            className="tabla-icono-eliminar"
+                                            onClick={() => { handleDelete(producto._id) }}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
+                )}
+            </div>
+        );
+    }
+
+    // Mostrar vista de categorías
+    return (
+        <div className="categorias-container">
+            <h1>Categorías de Productos</h1>
+            
+            {productos.length === 0 ? (
+                <div className="loading"></div>
+            ) : (
+                <div className="categorias-grid">
+                    {categorias.map(categoria => (
+                        <div 
+                            key={categoria} 
+                            className="categoria-card"
+                            onClick={() => setCategoriaSeleccionada(categoria)}
+                        >
+                            <div className="categoria-content">
+                                <h3>{categoria}</h3>
+                                <p style={{color:"white"}}>
+                                    {productos.filter(p => p.categoria === categoria).length} productos
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             )}
-        </>
+        </div>
     );
 };
 

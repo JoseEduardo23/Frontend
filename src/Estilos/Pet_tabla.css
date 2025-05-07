@@ -161,7 +161,7 @@
         margin-left: 150px;
     }
 }
-@media(min-width:1025px) and (max-width:1440px){
+@media(min-width:1024px) and (max-width:3840px){
     .no-registros p{
         backdrop-filter: blur(8px);
         color: black;

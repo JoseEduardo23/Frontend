@@ -402,7 +402,7 @@
 }
 
 /* Celulares (hasta 576px) */
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .main-container {
     max-width: 100%;
     overflow-x: hidden;
@@ -508,7 +508,7 @@
   }
 }
 
-@media (max-width: 400px) {  
+@media (max-width: 767px) {  
   .footer {
     flex-direction: column;
     padding: 0.8rem 8px;

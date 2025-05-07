@@ -3,10 +3,8 @@
     .card-container {
         padding: 15px;
         max-width: 90%;
-    }
-}
+    }4
 
-@media (max-width: 768px) {  
     .card-container{
         padding: 0 1rem;
     }

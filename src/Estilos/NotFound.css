@@ -62,7 +62,7 @@
     }
 }
 
-@media(min-width:768px){
+@media(min-width:768px)and(max-width:1023px){
     .notfound-text-container{
         padding: 1rem 1rem;
         width: 80%;
@@ -70,7 +70,7 @@
     }
 }
 
-@media(min-width:1200px){
+@media(min-width:1023px){
     .notfound-text-container{
         padding: 1rem 1rem;
         width: 40%;
