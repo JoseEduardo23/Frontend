@@ -5,7 +5,7 @@ import box from '../../assets/producto.png'
 import '../../Estilos/Visualizar.css'
 
 const Visualizar = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
     const [mensaje, setMensaje] = useState({});
@@ -39,11 +39,15 @@ const Visualizar = () => {
         }
     }, [id]);
 
-    if (!producto) {
-        return ;
+    if (mensaje.tipo === false) {
+        return <div className="error-message">{mensaje.respuesta}</div>;
     }
-    return (
 
+    if (!producto) {
+        return <div>Cargando...</div>; // Puedes mostrar un spinner o texto de "Cargando..." mientras se obtiene el producto
+    }
+
+    return (
         <div className="container-visualizar">
             <div>
                 <h1 className='title-v'>DATOS DEL PRODUCTO</h1>
@@ -54,7 +58,7 @@ const Visualizar = () => {
                 <div className="card">
                     <div className="card-image">
                         <img
-                            src={box}
+                            src={producto.imagen || box}  // Si no hay imagen en el producto, muestra la imagen por defecto (box)
                             alt="Imagen del producto"
                             className="h-80 w-80"
                         />
