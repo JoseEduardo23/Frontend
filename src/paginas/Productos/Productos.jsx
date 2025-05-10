@@ -10,7 +10,7 @@ const Productos = () => {
             <h1>Gestión de Productos</h1>
             <ul className='Pcon'>
                 <li className={`${urlActual === '/dashboard/productos/listar' ? 'active' : ''}`}>
-                    <Link  to="/dashboard/productos/listar">Lista de productos</Link>
+                    <Link  to="/dashboard/productos/listar">Categorias de productos</Link>
                 </li>
 
                 <li className={`${urlActual === '/dashboard/productos/crear' ? 'active' : ''}`}>

@@ -29,6 +29,10 @@
     margin-bottom: 2rem;
 }
 
+.my-4{
+    border: 1px solid black;
+}
+
 
 @media (max-width: 767px) {
     .listar-container h1{

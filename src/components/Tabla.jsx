@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever, MdNoteAdd, MdInfo, MdUpdate, MdDelete, MdUpload, MdElectricBike } from "react-icons/md";
+import { MdInfo, MdUpdate, MdDelete } from "react-icons/md";
+import { toast, ToastContainer } from "react-toastify";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../Estilos/Tabla.css';
 
 const Tabla = () => {
+    const categorias_fijas = ['Perros', 'Gatos', 'Peces', 'Aves', 'Otros'];
     const navigate = useNavigate();
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
@@ -23,33 +25,44 @@ const Tabla = () => {
             const respuesta = await axios.get(url, options);
             if (Array.isArray(respuesta.data)) {
                 setProductos(respuesta.data);
-                // Extraer categorías únicas
-                const categoriasUnicas = [...new Set(respuesta.data.map(producto => producto.categoria))];
+
+                // Combina categorías fijas con las de productos (sin duplicados)
+                const categoriasDeProductos = respuesta.data.map(p => p.categoria);
+                const categoriasUnicas = [...new Set([...CATEGORIAS_FIJAS, ...categoriasDeProductos])];
                 setCategorias(categoriasUnicas);
-            } else {
-                console.error("La respuesta no es un array:", respuesta.data);
             }
         } catch (error) {
-            console.log(error);
+            toast.error("Error al cargar productos");
         }
     };
 
     const handleDelete = async (id) => {
         try {
-            const confirmar = confirm("Vas a eliminar un producto, ¿Estás seguro de realizar esta acción?");
-            if (confirmar) {
-                const token = localStorage.getItem('token');
-                const url = `${import.meta.env.VITE_BACKEND_URL}api/eliminar/producto/${id}`;
-                const headers = {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                };
-                const data = { salida: new Date().toString() };
-                await axios.delete(url, { headers, data });
-                listarProductos();
-            }
+            const confirmar = window.confirm("¿Eliminar este producto?");
+            if (!confirmar) return;
+
+            const token = localStorage.getItem('token');
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/eliminar/producto/${id}`;
+            const headers = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            };
+
+            await axios.delete(url, { headers });
+            toast.success("Producto eliminado correctamente");
+
+            // Actualizar el estado localmente sin volver a cargar toda la lista
+            setProductos(prevProductos => prevProductos.filter(producto => producto._id !== id));
+
+            // Si estás filtrando por categoría, también actualiza las categorías disponibles
+            setCategorias(prevCategorias => {
+                const productosRestantes = productos.filter(producto => producto._id !== id);
+                return [...new Set(productosRestantes.map(p => p.categoria))];
+            });
+
         } catch (error) {
-            console.log(error);
+            toast.error(error.response?.data?.msg || "Error al eliminar");
+            console.error(error);
         }
     };
 
@@ -63,14 +76,16 @@ const Tabla = () => {
 
     if (categoriaSeleccionada) {
         const productosCategoria = productos.filter(p => p.categoria === categoriaSeleccionada);
-        
+
         return (
+
             <div className="productos-container">
+                <ToastContainer position="top-right" autoClose={3000} />
                 <button onClick={volverACategorias} className="volver-btn">
                     ← Volver a categorías
                 </button>
                 <h2 className="categoria-titulo">{categoriaSeleccionada}</h2>
-                
+
                 {productosCategoria.length === 0 ? (
                     <p>No hay productos en esta categoría</p>
                 ) : (
@@ -119,31 +134,25 @@ const Tabla = () => {
         );
     }
 
-    // Mostrar vista de categorías
     return (
         <div className="categorias-container">
             <h1>Categorías de Productos</h1>
-            
-            {productos.length === 0 ? (
-                <div className="loading"></div>
-            ) : (
                 <div className="categorias-grid">
-                    {categorias.map(categoria => (
-                        <div 
-                            key={categoria} 
+                    {categorias_fijas.map(categoria => (
+                        <div
+                            key={categoria}
                             className="categoria-card"
                             onClick={() => setCategoriaSeleccionada(categoria)}
                         >
                             <div className="categoria-content">
                                 <h3>{categoria}</h3>
-                                <p style={{color:"white"}}>
+                                <p>
                                     {productos.filter(p => p.categoria === categoria).length} productos
                                 </p>
                             </div>
                         </div>
                     ))}
                 </div>
-            )}
         </div>
     );
 };

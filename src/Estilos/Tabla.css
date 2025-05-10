@@ -137,25 +137,45 @@ thead th {
 }
 
 .categorias-container{
-  max-height: 16rem;
-  padding: 1rem;
+  padding: 0 5rem;
 }
 
+.categorias-container h1{
+  margin-bottom: 40px;
+}
+
+.categorias-grid{
+  max-height: 14rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 6rem;
+  justify-content: center;
+  
+}
+
+.categoria-content h3{
+  color: black;
+  font-size: 2rem;
+}
 
 .categoria-card{
-  background-color: #16213E;
   margin-top: 10px;
-  max-width: 120px;
+  width: 22rem;
+  height: 7rem;
   border-radius: 5px;
   padding: 0 0.5rem;
   box-shadow: 0 1px 7px 2px gray;
   color: white;
   transition: 0.3s ease-in-out;
+  background-image: url(../assets/fondos/categorias.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid black;
 }
 .categoria-card:hover{
   cursor: pointer;
   background-color: #9c9ec2a7;
-  color: black;
+  color: rgb(224, 213, 213);
 }
 
 
@@ -209,6 +229,18 @@ thead th {
     background-color: #8dbbd9c3;
     color: White;
   }
+
+  .categorias-container{
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .categorias-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.5rem;
+}
 }
 
 @keyframes spin {

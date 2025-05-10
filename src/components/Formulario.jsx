@@ -12,6 +12,7 @@ export const Formulario = ({ producto }) => {
         precio: producto?.precio ?? "",
         stock: producto?.stock ?? "",
         categoria: producto?.categoria ?? "",
+        imagen: null,
     });
     const [error, setError] = useState(null);
     const [nombreError, setNombreError] = useState(null);
@@ -86,62 +87,65 @@ export const Formulario = ({ producto }) => {
         }));
     };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError(null);
 
-    if (Object.values(form).includes("") || nombreError || descripcionError || precioError || stockError || categoriaError) {
-        setError("Por favor, corrige los errores antes de enviar el formulario.");
-        return;
-    }
-
-    try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-            setError("No se encontró el token dentro del almacenamiento local");
+        if (
+            Object.values(form).includes("") ||
+            nombreError ||
+            descripcionError ||
+            precioError ||
+            stockError ||
+            categoriaError
+        ) {
+            setError("Por favor, corrige los errores antes de enviar el formulario.");
             return;
         }
 
-        const headers = {
-            "Content-Type": "multipart/form-data",  // Cambiar el tipo de contenido a multipart/form-data
-            Authorization: `Bearer ${token}`,
-        };
+        try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                setError("No se encontró el token dentro del almacenamiento local");
+                return;
+            }
 
-        // Crear un FormData
-        const formData = new FormData();
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            };
 
-        // Agregar los campos del formulario
-        Object.keys(form).forEach((key) => {
-            formData.append(key, form[key]);
-        });
+            const formData = new FormData();
+            formData.append("nombre", form.nombre);
+            formData.append("descripcion", form.descripcion);
+            formData.append("precio", String(form.precio));
+            formData.append("stock", String(form.stock));
+            formData.append("categoria", form.categoria);
 
-        // Agregar la imagen al FormData si se seleccionó
-        if (e.target.imagen.files[0]) {
-            formData.append("imagen", e.target.imagen.files[0]);
+            if (form.imagen) {
+                formData.append("imagen", form.imagen);
+            }
+
+            if (producto?._id) {
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar/producto/${producto._id}`;
+                await axios.put(url, formData, { headers }); // Si también necesitas actualizar imagen
+                toast.success("Producto actualizado correctamente");
+            } else {
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/crear/producto`;
+                await axios.post(url, formData, { headers });
+                toast.success("Producto creado correctamente");
+            }
+
+            navigate("/dashboard/productos/listar");
+        } catch (error) {
+            if (error.response && error.response.data) {
+                console.log(error.response.data);
+                setError(error.response.data.msg);
+                toast.error(error.response.data.msg);
+            } else {
+                setError("Error inesperado: " + error.message);
+            }
         }
-
-        let url;
-        if (producto?._id) {
-            url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar/producto/${producto._id}`;
-            await axios.put(url, formData, { headers });
-            toast.success("Producto actualizado correctamente");
-        } else {
-            url = `${import.meta.env.VITE_BACKEND_URL}api/crear/producto`;
-            await axios.post(url, formData, { headers });
-            toast.success("Producto creado correctamente");
-        }
-
-        navigate("/dashboard/productos/listar");
-    } catch (error) {
-        if (error.response && error.response.data) {
-            setError(error.response.data.msg);
-            toast.error(error.response.data.msg);
-        } else {
-            setError("Error inesperado: " + error.message);
-        }
-    }
-};
-
+    };
     return (
         <form onSubmit={handleSubmit} className="formulario">
             <ToastContainer />
@@ -152,7 +156,7 @@ const handleSubmit = async (e) => {
                     className="form-inputp"
                     id="nombre"
                     type="text"
-                    placeholder="nombre del producto"
+                    placeholder=""
                     name="nombre"
                     onChange={handleChange}
                     value={form.nombre || ""}
@@ -165,7 +169,7 @@ const handleSubmit = async (e) => {
                 <textarea
                     className="form-textareap"
                     id="descripcion"
-                    placeholder="Descripcion del producto"
+                    placeholder="Ingresa una pequeña descripción"
                     name="descripcion"
                     onChange={handleChange}
                     value={form.descripcion || ""}
@@ -179,7 +183,7 @@ const handleSubmit = async (e) => {
                     className="form-inputp"
                     id="precio"
                     type="number"
-                    placeholder="precio del producto"
+                    placeholder="$"
                     name="precio"
                     onChange={handleChange}
                     value={form.precio || ""}
@@ -215,15 +219,22 @@ const handleSubmit = async (e) => {
             </div>
 
             <div className="form-group">
-                <label className="form-label">Imagen del producto:</label>
+                <label htmlFor="" className="form-label">Imagen del producto:</label>
                 <input
-                    className="form-inputp"
-                    id="imagen"
                     type="file"
+                    className="form-input"
+                    id="imagen"
+                    accept="image/*"
                     name="imagen"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                        setForm(prev => ({
+                            ...prev, imagen: e.target.files[0]
+                        }))
+                    }}
                 />
             </div>
+
+
 
             <input
                 className="form-submit"

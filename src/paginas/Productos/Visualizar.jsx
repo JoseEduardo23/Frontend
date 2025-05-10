@@ -10,12 +10,6 @@ const Visualizar = () => {
     const [producto, setProducto] = useState(null);
     const [mensaje, setMensaje] = useState({});
 
-    const formatearFecha = (fecha) => {
-        const nuevaFecha = new Date(fecha);
-        nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset());
-        return new Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(nuevaFecha);
-    };
-
     useEffect(() => {
         const consultarProducto = async () => {
             try {
@@ -58,9 +52,9 @@ const Visualizar = () => {
                 <div className="card">
                     <div className="card-image">
                         <img
-                            src={producto.imagen || box}  // Si no hay imagen en el producto, muestra la imagen por defecto (box)
-                            alt="Imagen del producto"
-                            className="h-80 w-80"
+                            src={producto.imagen}
+                            alt={producto.nombre}
+                            className="product-image" 
                         />
                     </div>
                     <div className="card-details">
