@@ -1,12 +1,11 @@
-.card-cont{
-    width: 100%;
-    height: 100%;
-}
+
 .card-usimg{
-    width: 150px;
-    height: 150px;
+    width: 9.2rem;
+    height: 9.2rem;
     background-color: #012041;
     border-radius: 50%;
+    border: 2px solid black;
+
 }
 .card-user{
     color: black;

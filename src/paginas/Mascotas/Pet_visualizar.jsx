@@ -72,7 +72,7 @@ const Pet_visualizar = () => {
                     <div className="pet-image-column">
                         <div className="image-frame">
                             <img
-                                src={iconPets}
+                                src={mascota.imagen || iconPets}
                                 alt={`Foto de ${mascota.nombre}`}
                                 className="pet-profile-image"
                             />

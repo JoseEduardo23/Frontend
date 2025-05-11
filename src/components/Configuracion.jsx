@@ -3,8 +3,12 @@ import AuthContext from '../Context/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../Estilos/Configuracion.css'
+import React, { useRef } from "react";
+
 const Configuracion = () => {
     const { auth, actualizarPerfil } = useContext(AuthContext);
+    const fileInputRef = useRef(null);
+    const [previewImage, setPreviewImage] = useState(auth.imagen?.url || null);
 
     const [form, setForm] = useState({
         id: auth._id,
@@ -12,7 +16,8 @@ const Configuracion = () => {
         apellido: auth.apellido || "",
         direccion: auth.direccion || "",
         telefono: auth.telefono || "",
-        detalles: auth.detalles || ""
+        detalles: auth.detalles || "",
+        imagen: null
     });
 
     useEffect(() => {
@@ -23,8 +28,10 @@ const Configuracion = () => {
                 apellido: auth.apellido || "",
                 direccion: auth.direccion || "",
                 telefono: auth.telefono || "",
-                detalles: auth.detalles || ""
+                detalles: auth.detalles || "",
+                imagen: null
             });
+            setPreviewImage(auth.imagen?.url || null)
         }
     }, [auth]);
 
@@ -35,7 +42,26 @@ const Configuracion = () => {
     const [telefonoError, setTelefonoError] = useState(null);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, files } = e.target;
+
+        if (type === 'file') {
+            const file = files[0];
+            if (file) {
+                // Crear vista previa
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    setPreviewImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+
+                // Actualizar estado
+                setForm(prev => ({
+                    ...prev,
+                    imagen: file
+                }));
+            }
+            return;
+        }
 
         if (name === "nombre") {
             const charCount = value.length;
@@ -95,14 +121,22 @@ const Configuracion = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (Object.values(form).includes("") || !form.id) {
-            toast.error("Por favor, complete todos los campos.");
+        if (!auth._id || typeof auth._id !== 'string' || auth._id.length !== 24) {
+            toast.error("ID de usuario inválido");
             return;
         }
+        setLoading(true);
 
         try {
-            const { respuesta, tipo } = await actualizarPerfil(form);
+            const formData = new FormData();
+            formData.append('id', auth._id);
+            for (const key in form) {
+                if (form[key] !== null) {
+                    formData.append(key, form[key]);
+                }
+            }
+
+            const { respuesta, tipo } = await actualizarPerfil(formData);
 
             if (tipo) {
                 toast.success(respuesta);
@@ -111,6 +145,8 @@ const Configuracion = () => {
             }
         } catch (error) {
             toast.error("Hubo un error al actualizar el perfil. Inténtalo nuevamente.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -119,6 +155,34 @@ const Configuracion = () => {
             <ToastContainer />
             <div className="settings-container">
                 <form onSubmit={handleSubmit} className="profile-form">
+                    <div className="form-group">
+                        <label htmlFor="imagen" className="form-label">
+                            Imagen de perfil:
+                        </label>
+                        <div className="image-upload-container">
+                            <div className="image-preview-container">
+                                {previewImage && (
+                                    <img
+                                        src={previewImage}
+                                        alt="Vista previa"
+                                        className="profile-image-preview"
+                                    />
+                                )}
+                            </div>
+                            <input
+                                type="file"
+                                id="imagen"
+                                name="imagen"
+                                ref={fileInputRef}
+                                onChange={handleChange}
+                                accept="image/*"
+                                className="image-upload-input"
+                            />
+                            <label htmlFor="imagen" className="image-upload-label">
+                                {previewImage ? 'Cambiar imagen' : 'Seleccionar imagen'}
+                            </label>
+                        </div>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="firstName" className="form-label">
                             Nombre:

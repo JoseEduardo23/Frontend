@@ -36,28 +36,26 @@ const FormularioPerfil = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        console.log('ID del formulario:', form.id);
+    if (Object.values(form).includes("") || !form.id) {
+        toast.error("Por favor, complete todos los campos.");
+        return;
+    }
 
-        if (Object.values(form).includes("") || !form.id) {
-            toast.error("Por favor, complete todos los campos.");
-            return;
+    try {
+        const resultado = await actualizarPerfil(form);
+        
+        if (resultado?.tipo) {
+            toast.success("Perfil actualizado exitosamente", {
+                onClose: () => window.location.reload()
+            });
         }
-
-        try {
-            const resultado = await actualizarPerfil(form);
-            console.log(resultado);
-
-            if (resultado && resultado.data && resultado.data.msg) {
-                toast.success(resultado.data.msg);
-            }
-        } catch (error) {
-            toast.error("Hubo un error al actualizar el perfil. Inténtalo nuevamente.");
-        }
-    };
-
+    } catch (error) {
+        toast.error("Hubo un error al actualizar el perfil.");
+    }
+};
     return (
         <div>
             <form onSubmit={handleSubmit} className="form-container">

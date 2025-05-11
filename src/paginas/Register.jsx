@@ -15,7 +15,8 @@ export const Register = () => {
         direccion: "",
         telefono: "",
         email: "",
-        password: ""
+        password: "",
+        imagen: null
     });
 
     const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export const Register = () => {
     const [telefonoError, setTelefonoError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
     const [showPassword, setShowPassword] = useState(false)
-    
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
@@ -108,7 +109,7 @@ export const Register = () => {
         e.preventDefault();
         setError(null);
 
-        if (Object.values(form).includes("") || nombreError || apellidoError || direccionError || telefonoError) {
+        if (Object.values(form).filter(v => v !== null).includes("") || nombreError || apellidoError || direccionError || telefonoError) {
             setError("Por favor, corrige los errores antes de enviar el formulario de registro.");
             return;
         }
@@ -117,13 +118,26 @@ export const Register = () => {
 
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/registro`;
-            const respuesta = await axios.post(url, form);
-            toast.success(respuesta.data.msg)
+
+            const formData = new FormData();
+            for (const key in form) {
+                if (form[key] !== null) {
+                    formData.append(key, form[key]);
+                }
+            }
+
+            const respuesta = await axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            toast.success(respuesta.data.msg);
             console.log(respuesta);
         } catch (error) {
             console.log(error);
-            toast.error(error.response?.data?.msg || 'Ha ocurrido un error, intentelo de nuevo')
-        } finally{
+            toast.error(error.response?.data?.msg || 'Ha ocurrido un error, intentelo de nuevo');
+        } finally {
             setLoading(false);
         }
     };
@@ -147,7 +161,7 @@ export const Register = () => {
 
                     <form className='register-form' onSubmit={handleSubmit}>
                         {error && <div className='error-message'>{error}</div>}
-                        
+
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold" htmlFor="nombre">Nombre:</label>
                             <input
@@ -242,6 +256,33 @@ export const Register = () => {
                                 </span>
                             </div>
                             {passwordError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{passwordError}</p>}
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="mb-2 block text-sm font-semibold" htmlFor="imagen">Foto de perfil (opcional):</label>
+                            <input
+                                type="file"
+                                id="imagen"
+                                name="imagen"
+                                ref={fileInputRef}
+                                onChange={handleChange}
+                                accept="image/*"
+                                className="input"
+                            />
+                            {previewImage && (
+                                <div className="image-preview mt-2">
+                                    <img
+                                        src={previewImage}
+                                        alt="Vista previa"
+                                        style={{
+                                            width: '100px',
+                                            height: '100px',
+                                            objectFit: 'cover',
+                                            borderRadius: '50%'
+                                        }}
+                                    />
+                                </div>
+                            )}
                         </div>
 
                         <div className="butt-cont">

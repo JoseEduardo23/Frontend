@@ -7,13 +7,14 @@ import Pet_table from "./Pet_tabla"
 import '../../Estilos/Pet_register.css'
 
 const Pet_register = ({ mascota }) => {
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         nombre: mascota?.nombre ?? "",
         raza: mascota?.raza ?? "",
         edad: mascota?.edad ?? "",
         actividad: mascota?.actividad ?? "",
         peso: mascota?.peso ?? "",
+        imagen: null
     })
 
     const [loading, setLoading] = useState(false)
@@ -107,20 +108,32 @@ const Pet_register = ({ mascota }) => {
                 return;
             }
             const headers = {
-                'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
             }
 
+            const formData = new FormData()
+
+            formData.append("nombre", form.nombre);
+            formData.append("raza", form.raza);
+            formData.append("edad", form.edad);
+            formData.append("actividad", form.actividad);
+            formData.append("peso", form.peso);
+
+            if (form.imagen) {
+                formData.append("imagen", form.imagen)
+            }
+
+
             if (mascota?._id) {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/actualizar/${mascota._id}`
-                const respuesta = await axios.put(url, form, { headers })
+                const respuesta = await axios.put(url, formData, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
                 navigate("/users/dashboard/registrar_mascota");
 
             } else {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
-                const respuesta = await axios.post(url, form, { headers })
+                const respuesta = await axios.post(url, formData, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
                 setForm({
@@ -227,6 +240,21 @@ const Pet_register = ({ mascota }) => {
                                 max="115"
                             />
                             {pesoError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{pesoError}</p>}
+                        </div>
+
+                        <div className="pet-div">
+                            <label htmlFor="imagen">Imagen de la mascota:</label>
+                            <input type="file"
+                                id="imagen"
+                                name="imagen"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setForm(prev => ({
+                                        ...prev, imagen: e.target.files[0]
+                                    }))
+                                }}
+                                className="pet-input"
+                            />
                         </div>
 
                         <div className="pet-butt">

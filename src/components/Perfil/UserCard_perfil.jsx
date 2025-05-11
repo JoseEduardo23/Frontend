@@ -5,14 +5,20 @@ import AuthContext from '../../Context/AuthProvider';
 
 export const UserCard_perfil = () => {
     const { auth } = useContext(AuthContext);
+    console.log("URL de la imagen:", auth.imagen?.url); // ¿Muestra la ruta correcta?
 
     return (
         <div className="card-cont">
             <div className="card-section">
-                <img 
-                    src={user} 
-                    alt="img-client" 
-                    className="card-usimg" 
+                <img
+                    src={
+                        auth.imagen?.url
+                            ? `${auth.imagen.url.startsWith('http') ? '' : import.meta.env.VITE_BACKEND_URL}${auth.imagen.url}?upd=${Date.now()}`
+                            : user
+                    }
+                    alt="Perfil"
+                    className="card-usimg"
+                    onError={(e) => (e.target.src = user)}
                 />
             </div>
             <div className="card-info">

@@ -77,7 +77,7 @@ const Pet_table = () => {
                         <div className="pet-card" key={mascota._id}>
                             <div className="pet-card-image">
                                 <img
-                                    src={petImg}
+                                    src={mascota.imagen || petImg}
                                 />
                             </div>
 

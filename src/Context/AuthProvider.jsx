@@ -12,10 +12,9 @@ const AuthProvider = ({ children }) => {
 
     const perfil = async (token) => {
         try {
-            // Verificamos primero si el token es de admin o usuario
             const isAdmin = localStorage.getItem('rol') === 'Administrador';
             const url = isAdmin
-                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`
+                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`  // Admin sigue igual
                 : `${import.meta.env.VITE_BACKEND_URL}api/usuario/perfil`;
 
             const options = {
@@ -28,11 +27,29 @@ const AuthProvider = ({ children }) => {
             const respuesta = await axios.get(url, options);
             const rol = respuesta.data.rol || (isAdmin ? 'Administrador' : 'Usuario');
 
+            // Extracción de imagen MEJORADA (solo para usuarios)
+            let imagenUrl = null;
+            if (!isAdmin) {
+                imagenUrl = respuesta.data.imagen?.url ||
+                    respuesta.data.avatar ||
+                    respuesta.data.profilePicture ||
+                    null;
+            }
+
+            // Conversión a URL absoluta (solo aplica si es usuario)
+            const fullImagenUrl = !isAdmin && imagenUrl && !imagenUrl.startsWith('http')
+                ? `${import.meta.env.VITE_BACKEND_URL}${imagenUrl.replace(/^\//, '')}`
+                : imagenUrl;
+
             localStorage.setItem('rol', rol);
             setAuth({
                 ...respuesta.data,
                 token,
                 rol,
+                imagen: isAdmin ? undefined : {  // Solo usuarios tendrán campo 'imagen'
+                    url: fullImagenUrl,
+                    ...respuesta.data.imagen
+                }
             });
 
             return respuesta.data;
@@ -48,28 +65,27 @@ const AuthProvider = ({ children }) => {
     const actualizarPerfil = async (datos) => {
         const token = localStorage.getItem('token');
         try {
+            // Verifica que el ID exista en los datos
+            const id = datos.get?.('id') || datos.id;
+            if (!id) {
+                throw new Error("ID no proporcionado");
+            }
+
             const url = auth.rol === 'Administrador'
-                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil/${datos.id}`
-                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-perfil/${datos.id}`;
+                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil/${id}`
+                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-perfil/${id}`;
 
             const options = {
                 headers: {
-                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
+                    ...(datos instanceof FormData ? {} : { 'Content-Type': 'application/json' })
                 }
             };
 
-            const { id, ...datosParaEnviar } = datos;
-
-            const respuesta = await axios.put(url, datosParaEnviar, options);
-            await perfil(token);
-
-            return {
-                respuesta: respuesta.data.msg || "Perfil actualizado correctamente",
-                tipo: true
-            };
+            const respuesta = await axios.put(url, datos, options);
+            return { respuesta: respuesta.data.msg, tipo: true };
         } catch (error) {
-            console.error('Error al actualizar perfil:', error);
+            console.error('Error detallado:', error.response?.data);
             return {
                 respuesta: error.response?.data?.msg || "Error al actualizar el perfil",
                 tipo: false
@@ -202,7 +218,7 @@ const AuthProvider = ({ children }) => {
             value={{
                 auth,
                 loading,
-                authChecked, 
+                authChecked,
                 setAuth,
                 login,
                 logout,
