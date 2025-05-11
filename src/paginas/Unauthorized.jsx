@@ -19,13 +19,13 @@ const Unauthorized = () => {
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!containerRef.current || !eyeRef.current) return;
-            
+
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
-            
+
             document.documentElement.style.setProperty('--mouse-x', x);
             document.documentElement.style.setProperty('--mouse-y', y);
-            
+
             const cx = 115 + 30 * x;
             const cy = 50 + 30 * y;
             eyeRef.current.setAttribute('cx', cx);
@@ -34,10 +34,10 @@ const Unauthorized = () => {
 
         const handleTouchMove = (e) => {
             if (!containerRef.current || !eyeRef.current) return;
-            
+
             const x = e.touches[0].clientX / window.innerWidth;
             const y = e.touches[0].clientY / window.innerHeight;
-            
+
             document.documentElement.style.setProperty('--mouse-x', x);
             document.documentElement.style.setProperty('--mouse-y', y);
         };
@@ -59,7 +59,7 @@ const Unauthorized = () => {
                     <clipPath id="white-clip">
                         <circle id="white-eye" fill="#cacaca" cx="130" cy="65" r="20" />
                     </clipPath>
-                    <text id="text-s" className="error-text" y="106" style={{fontFamily: 'Bungee'}}>403</text>
+                    <text id="text-s" className="error-text" y="106" style={{ fontFamily: 'Bungee' }}>403</text>
                 </defs>
                 <path className="alarm" fill="#e62326" d="M120.9 19.6V9.1c0-5 4.1-9.1 9.1-9.1h0c5 0 9.1 4.1 9.1 9.1v10.6" />
                 <use href="#text-s" x="-0.5px" y="-1px" fill="black" />
@@ -89,17 +89,21 @@ const Unauthorized = () => {
                 </g>
             </svg>
 
-            <h1 style={{fontFamily: 'Arial, sans-serif'}}>403 - Acceso No Autorizado</h1>
-            <p style={{fontFamily: 'Arial, sans-serif'}}>No tienes permiso para acceder a esta página.</p>
-            
-            <div className="actions" style={{fontFamily: 'Arial, sans-serif'}}>
-                <Link to="/" className="btn btn-primary" style={{fontFamily: 'Arial, sans-serif'}}>
+            <h1 style={{ fontFamily: 'Arial, sans-serif' }}>403 - Acceso No Autorizado</h1>
+            <p style={{ fontFamily: 'Arial, sans-serif' }}>No tienes permiso para acceder a esta página.</p>
+
+            <div className="actions" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <Link to="/" className="btn btn-primary" style={{ fontFamily: 'Arial, sans-serif' }}
+
+                    onClick={() => {
+                        localStorage.removeItem('token');
+                    }}>
                     Ir al Inicio
                 </Link>
-                <button 
-                onClick={handleGoBack}
-                className="btn btn-secondary" 
-                style={{fontFamily: 'Arial, sans-serif'}}>
+                <button
+                    onClick={handleGoBack}
+                    className="btn btn-secondary"
+                    style={{ fontFamily: 'Arial, sans-serif' }}>
                     Regresar
                 </button>
             </div>

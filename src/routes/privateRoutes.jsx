@@ -3,11 +3,6 @@ import { Navigate } from "react-router-dom";
 export const PrivateRoute = ({ children, allowedRoles = [] }) => {
     const token = localStorage.getItem("token");
     const userRole = localStorage.getItem("rol");
-    
-    console.log('Autenticación - Token:', !!token);
-    console.log('Rol del usuario:', userRole);
-    console.log('Roles permitidos:', allowedRoles);
-
     if (!token) {
         return <Navigate to="/login" replace />;
     }
