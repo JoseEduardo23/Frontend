@@ -38,36 +38,30 @@ const Visualizar = () => {
     }
 
     if (!producto) {
-        return <div>Cargando...</div>; // Puedes mostrar un spinner o texto de "Cargando..." mientras se obtiene el producto
+        return <div>Cargando...</div>;
     }
 
-    return (
-        <div className="container-visualizar">
-            <div>
-                <h1 className='title-v'>DATOS DEL PRODUCTO</h1>
-                <hr className='my-3' />
-            </div>
+return (
+  <div className="visualizar-wrapper">
+    <div className="visualizar-header">
+      <h1 className="visualizar-title">Detalles del Producto</h1>
+      <div className="divider" />
+    </div>
 
-            <div className="card-container">
-                <div className="card">
-                    <div className="card-image">
-                        <img
-                            src={producto.imagen}
-                            alt={producto.nombre}
-                            className="product-image" 
-                        />
-                    </div>
-                    <div className="card-details">
-                        <h2>{producto.nombre}</h2>
-                        <p><strong>Descripción:</strong> {producto.descripcion}</p>
-                        <p><strong>Precio:</strong> ${producto.precio}</p>
-                        <p><strong>Stock:</strong> {producto.stock}</p>
-                        <p><strong>Categoría:</strong> {producto.categoria}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    <div className="visualizar-card">
+      <div className="visualizar-image">
+        <img src={producto.imagen} alt={producto.nombre} />
+      </div>
+      <div className="visualizar-info">
+        <h2 className="nombre-producto">{producto.nombre}</h2>
+        <p><span>Descripción:</span> {producto.descripcion}</p>
+        <p><span>Precio:</span> ${producto.precio}</p>
+        <p><span>Stock:</span> {producto.stock}</p>
+        <p><span>Categoría:</span> {producto.categoria}</p>
+      </div>
+    </div>
+  </div>
+);
 };
 
 export default Visualizar;

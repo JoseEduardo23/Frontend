@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
         try {
             const isAdmin = localStorage.getItem('rol') === 'Administrador';
             const url = isAdmin
-                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`  // Admin sigue igual
+                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`  
                 : `${import.meta.env.VITE_BACKEND_URL}api/usuario/perfil`;
 
             const options = {
@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
             const respuesta = await axios.get(url, options);
             const rol = respuesta.data.rol || (isAdmin ? 'Administrador' : 'Usuario');
 
-            // Extracción de imagen MEJORADA (solo para usuarios)
             let imagenUrl = null;
             if (!isAdmin) {
                 imagenUrl = respuesta.data.imagen?.url ||
@@ -36,7 +35,6 @@ const AuthProvider = ({ children }) => {
                     null;
             }
 
-            // Conversión a URL absoluta (solo aplica si es usuario)
             const fullImagenUrl = !isAdmin && imagenUrl && !imagenUrl.startsWith('http')
                 ? `${import.meta.env.VITE_BACKEND_URL}${imagenUrl.replace(/^\//, '')}`
                 : imagenUrl;
@@ -46,7 +44,7 @@ const AuthProvider = ({ children }) => {
                 ...respuesta.data,
                 token,
                 rol,
-                imagen: isAdmin ? undefined : {  // Solo usuarios tendrán campo 'imagen'
+                imagen: isAdmin ? undefined : {  
                     url: fullImagenUrl,
                     ...respuesta.data.imagen
                 }
@@ -65,7 +63,6 @@ const AuthProvider = ({ children }) => {
     const actualizarPerfil = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            // Verifica que el ID exista en los datos
             const id = datos.get?.('id') || datos.id;
             if (!id) {
                 throw new Error("ID no proporcionado");
@@ -95,10 +92,9 @@ const AuthProvider = ({ children }) => {
     const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            // Determinamos la URL basada en el rol
             const url = auth.rol === 'Administrador'
                 ? `${import.meta.env.VITE_BACKEND_URL}api/actualizar-password`
-                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password`;
+                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password/${id}`;
 
             const options = {
                 headers: {
@@ -117,7 +113,6 @@ const AuthProvider = ({ children }) => {
         try {
             setLoading(true);
 
-            // Intento como administrador
             try {
                 const urlAdmin = `${import.meta.env.VITE_BACKEND_URL}api/login`;
                 const respuestaAdmin = await axios.post(urlAdmin, credenciales);
@@ -141,7 +136,6 @@ const AuthProvider = ({ children }) => {
                 console.log("Intento como admin falló, probando como usuario...");
             }
 
-            // Intento como usuario normal
             try {
                 const urlUsuario = `${import.meta.env.VITE_BACKEND_URL}api/usuario/login`;
                 const respuestaUsuario = await axios.post(urlUsuario, credenciales);
@@ -165,12 +159,10 @@ const AuthProvider = ({ children }) => {
                 console.error("Error en login usuario:", userError);
             }
 
-            // Si llegamos aquí, ambos intentos fallaron
             throw new Error('Credenciales incorrectas o servicio no disponible');
 
         } catch (error) {
             logout();
-            // Mejoramos el mensaje de error para el usuario final
             let errorMessage = 'Error al iniciar sesión';
 
             if (error.message.includes('Credenciales')) {

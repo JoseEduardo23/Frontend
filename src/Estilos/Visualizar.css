@@ -1,121 +1,95 @@
-.container-visualizar {
-  min-height: 70vh;
-  margin-bottom: 20px;
-  padding: 2rem 1rem;
-  color: #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  background-size: 90% auto; 
-  margin-top: -300px;
-  box-shadow: 0 1px 4px 1px gray;
+.visualizar-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #a1a1b0, #fcfcfc);
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  color: #f1f5f9;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: -17rem;
+}
 
-}
-.title-v{
-  font-size: 1.4rem;
-}
-h1 {
-  color: #ffffff;
-  font-size: 2rem; 
-  font-weight: 700;
-  margin-bottom: 1rem;
+.visualizar-header {
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 2rem;
 }
 
-.my-3 {
-  border-top: 2px solid black;
-  margin: 1.5rem 0;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.card {
-  border-radius: 12px;
-  padding: 2rem; 
-  width: 300px; 
-  box-shadow: 0 6px 12px rgb(0, 0, 0);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  margin-top: 7px;
-  background: linear-gradient(135deg, #010101, #292929); 
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-.card-image {
-  width: 100%;
-  height: 180px; 
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-details {
-  margin-top: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.card-details h2 {
+.visualizar-title {
+  font-size: 2.2rem;
   color: #10b981;
-  font-size: 1.2rem; 
-  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.divider {
+  height: 4px;
+  background-color: #000000;
+  margin: 0.5rem auto;
+  border-radius: 4px;
+}
+
+.visualizar-card {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  background: #d8dadf2e;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.visualizar-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid #000000;
+}
+
+.visualizar-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.nombre-producto {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #030303;
   margin-bottom: 1rem;
 }
 
-.card-details p {
-  font-size: 0.95rem; 
-  color: #e5e7eb;
-  margin-bottom: 0.5rem; 
-  text-align: left;
+.visualizar-info p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  color: black;
 }
 
-.card-details strong {
-  font-weight: 700;
-  color: #ffffff;
-}
-
-button {
-  background-color: #10b981;
-  color: #ffffff;
-  padding: 0.75rem 1.25rem; 
-  border-radius: 0.375rem;
-  border: none;
-  font-size: 1rem; 
-  cursor: pointer;
-  margin-top: 1.5rem; 
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  text-transform: uppercase;
+.visualizar-info span {
   font-weight: 600;
+  color: black;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #1abc9c;
-  transform: scale(1.05);
-}
+@media (max-width: 768px) {
+  .visualizar-card {
+    flex-direction: column;
+    align-items: center;
+  }
 
-button:focus {
-  outline: none;
+  .visualizar-image img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .visualizar-info {
+    text-align: center;
+  }
 }
 
 @media(min-width:768px) and (max-width:1023px){

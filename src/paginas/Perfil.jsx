@@ -18,6 +18,7 @@ const Perfil = () => {
                 <div className="perfil-form">
                     <FormularioPerfil />
                 </div>
+
             </div>
         </div>
     );

@@ -26,13 +26,12 @@ const Tabla = () => {
             if (Array.isArray(respuesta.data)) {
                 setProductos(respuesta.data);
 
-                // Combina categorías fijas con las de productos (sin duplicados)
                 const categoriasDeProductos = respuesta.data.map(p => p.categoria);
                 const categoriasUnicas = [...new Set([...CATEGORIAS_FIJAS, ...categoriasDeProductos])];
                 setCategorias(categoriasUnicas);
             }
         } catch (error) {
-            toast.error("Error al cargar productos");
+            toast.error();
         }
     };
 
@@ -51,17 +50,15 @@ const Tabla = () => {
             await axios.delete(url, { headers });
             toast.success("Producto eliminado correctamente");
 
-            // Actualizar el estado localmente sin volver a cargar toda la lista
             setProductos(prevProductos => prevProductos.filter(producto => producto._id !== id));
 
-            // Si estás filtrando por categoría, también actualiza las categorías disponibles
             setCategorias(prevCategorias => {
                 const productosRestantes = productos.filter(producto => producto._id !== id);
                 return [...new Set(productosRestantes.map(p => p.categoria))];
             });
 
         } catch (error) {
-            toast.error(error.response?.data?.msg || "Error al eliminar");
+            toast.error(error.response.data.msg);
             console.error(error);
         }
     };

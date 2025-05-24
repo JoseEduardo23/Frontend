@@ -7,20 +7,20 @@ export const CardPerfil = () => {
     const { auth } = useContext(AuthContext);
 
     return (
-        <div className="card-container">
-            <div className="card-header">
+        <div className="card-admin">
+            <div className="card-add">
                 <img 
                     src={user} 
-                    alt="img-client" 
-                    className="card-image" 
+                    alt="img-ad" 
+                    className="card-ad" 
                 />
             </div>
             <div className="card-info">
-                <p className="card-info-item">Nombre: {auth.nombre}</p>
-                <p className="card-info-item">Apellido: {auth.apellido}</p>
-                <p className="card-info-item">Correo: {auth.email}</p>
-                <p className="card-info-item">Teléfono: {auth.telefono}</p>
-                <p className="card-info-item">Dirección: {auth.direccion}</p>
+                <p className="card-info-ad">Nombre: {auth.nombre}</p>
+                <p className="card-info-ad">Apellido: {auth.apellido}</p>
+                <p className="card-info-ad">Correo: {auth.email}</p>
+                <p className="card-info-ad">Teléfono: {auth.telefono}</p>
+                <p className="card-info-ad">Dirección: {auth.direccion}</p>
             </div>
         </div>
     );

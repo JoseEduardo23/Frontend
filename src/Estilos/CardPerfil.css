@@ -1,9 +1,22 @@
 /* Responsive Design (if needed) */
+
+.card-admin{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+}
+.card-ad{
+    width: 11rem;
+}
+
+
 @media (max-width: 767px) {
     .card-container {
         padding: 15px;
         max-width: 90%;
-    }4
+    }
 
     .card-container{
         padding: 0 1rem;

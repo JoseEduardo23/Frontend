@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserCard_perfil } from '../../components/Perfil/UserCard_perfil';
+import Password from '../../components/Perfil/Password'
 import '../../Estilos/PerfilUs.css'
 
 const usuario_Perfil = () => {

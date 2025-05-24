@@ -5,7 +5,6 @@ import AuthContext from '../../Context/AuthProvider';
 
 export const UserCard_perfil = () => {
     const { auth } = useContext(AuthContext);
-    console.log("URL de la imagen:", auth.imagen?.url); // ¿Muestra la ruta correcta?
 
     return (
         <div className="card-cont">

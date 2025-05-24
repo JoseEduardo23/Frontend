@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import engranaje from '../assets/engranaje.png'
 import '../Estilos/Register.css'
-import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -16,7 +15,6 @@ export const Register = () => {
         telefono: "",
         email: "",
         password: "",
-        imagen: null
     });
 
     const [loading, setLoading] = useState(false);
@@ -256,33 +254,6 @@ export const Register = () => {
                                 </span>
                             </div>
                             {passwordError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{passwordError}</p>}
-                        </div>
-
-                        <div className="mb-3">
-                            <label className="mb-2 block text-sm font-semibold" htmlFor="imagen">Foto de perfil (opcional):</label>
-                            <input
-                                type="file"
-                                id="imagen"
-                                name="imagen"
-                                ref={fileInputRef}
-                                onChange={handleChange}
-                                accept="image/*"
-                                className="input"
-                            />
-                            {previewImage && (
-                                <div className="image-preview mt-2">
-                                    <img
-                                        src={previewImage}
-                                        alt="Vista previa"
-                                        style={{
-                                            width: '100px',
-                                            height: '100px',
-                                            objectFit: 'cover',
-                                            borderRadius: '50%'
-                                        }}
-                                    />
-                                </div>
-                            )}
                         </div>
 
                         <div className="butt-cont">
