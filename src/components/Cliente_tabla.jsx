@@ -6,7 +6,10 @@ import { toast, ToastContainer } from "react-toastify";
 
 const ClienteTabla = () => {
     const [usuarios, setUsuarios] = useState([]);
-    const [estadoSeleccionado, setEstadoSeleccionado] = useState(null); // 'activo' o 'inactivo'
+    const [estadoSeleccionado, setEstadoSeleccionado] = useState(null);
+
+    const [modalEliminarVisible, setModalEliminarVisible] = useState(false)
+    const [clienteEliminar, setClienteEliminar] = useState(false)
 
     const listarClientes = async () => {
         try {
@@ -56,13 +59,42 @@ const ClienteTabla = () => {
 
     const usuariosFiltrados = usuarios.filter(usuario =>
         estadoSeleccionado === "Activo" ? usuario.estado === true :
-        estadoSeleccionado === "Inactivo" ? usuario.estado === false :
-        true
+            estadoSeleccionado === "Inactivo" ? usuario.estado === false :
+                true
     );
 
     return (
         <div className="estado-container">
             <ToastContainer position="top-right" autoClose={3000} />
+            {modalEliminarVisible && (
+                <div className="modal-overlay">
+                    <div className="modal-container">
+                        <h2 className="modal-heading">¿Eliminar registro?</h2>
+                        <p className="modal-message">¿Estás seguro de que deseas eliminar este registro?</p>
+                        <div className="modal-buttons">
+                            <button
+                                className="modal-confirm-button"
+                                onClick={() => {
+                                    handleDelete(clienteEliminar);
+                                    setModalEliminarVisible(false);
+                                    setProductoEliminar(null);
+                                }}
+                            >
+                                Sí, eliminar
+                            </button>
+                            <button
+                                className="modal-close-button"
+                                onClick={() => {
+                                    setModalEliminarVisible(false);
+                                    setProductoEliminar(null);
+                                }}
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             {!estadoSeleccionado ? (
                 <>
                     <h1>Filtrar Clientes por Estado</h1>
@@ -76,9 +108,9 @@ const ClienteTabla = () => {
                                 <div className="categoria-content">
                                     <h3>{estado}</h3>
                                     <p>
-                                        {usuarios.filter(u => 
-                                            estado === "Activo" ? u.estado === true : 
-                                            u.estado === false
+                                        {usuarios.filter(u =>
+                                            estado === "Activo" ? u.estado === true :
+                                                u.estado === false
                                         ).length} usuarios
                                     </p>
                                 </div>
@@ -129,7 +161,10 @@ const ClienteTabla = () => {
                                             <MdDelete
                                                 title="Eliminar"
                                                 className="tabla-icono-eliminar"
-                                                onClick={() => handleDelete(usuario._id)}
+                                                onClick={() => {
+                                                    setClienteEliminar(usuario._id)
+                                                    setModalEliminarVisible(true)
+                                                }}
                                             />
                                         </td>
                                     </tr>

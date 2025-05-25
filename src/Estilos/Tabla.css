@@ -124,6 +124,29 @@ thead th {
   margin-top: 15px;
 }
 
+.modal-close-button{
+  width: 55%;
+  margin-top: 0.5rem;
+  transition: 0.1s ease-in-out;
+}
+
+.modal-confirm-button{
+  background-color: red;
+  height: 2.2rem;
+  width: 55%;
+  color: white;
+  border-radius: 8px;
+  transition: 0.1s ease-in-out;
+}
+
+.modal-close-button:hover{
+  transform: scale(1.05);
+}
+
+.modal-confirm-button:hover{
+  transform: scale(1.05);
+}
+
 .loading {
   margin-top: 4rem;
   border: 5px solid #f3f3f3;

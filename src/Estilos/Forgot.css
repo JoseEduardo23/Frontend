@@ -4,6 +4,7 @@
     align-items: center;
     width: 50%;
     position: relative;
+    box-shadow: 1px 1px 10px 4px black; 
     background-color: #1f2937;
 }
 
@@ -89,8 +90,7 @@
 
 .forgot-image-container {
     width: 50%;
-    height: 96.4vh;
-    background-image: url('../assets/fondos/fondoT.jpg');
+    background-image: url('../assets/fondos/3312513.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

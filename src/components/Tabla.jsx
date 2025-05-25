@@ -11,6 +11,8 @@ const Tabla = () => {
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+    const [modalEliminarVisible, setModalEliminarVisible] = useState(false)
+    const [productoEliminar, setProductoEliminar] = useState(false)
 
     const listarProductos = async () => {
         try {
@@ -78,6 +80,35 @@ const Tabla = () => {
 
             <div className="productos-container">
                 <ToastContainer position="top-right" autoClose={3000} />
+                {modalEliminarVisible && (
+                    <div className="modal-overlay">
+                        <div className="modal-container">
+                            <h2 className="modal-heading">¿Eliminar producto?</h2>
+                            <p className="modal-message">¿Estás seguro de que deseas eliminar este producto?</p>
+                            <div className="modal-buttons">
+                                <button
+                                    className="modal-confirm-button"
+                                    onClick={() => {
+                                        handleDelete(productoEliminar);
+                                        setModalEliminarVisible(false);
+                                        setProductoEliminar(null);
+                                    }}
+                                >
+                                    Sí, eliminar
+                                </button>
+                                <button
+                                    className="modal-close-button"
+                                    onClick={() => {
+                                        setModalEliminarVisible(false);
+                                        setProductoEliminar(null);
+                                    }}
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <button onClick={volverACategorias} className="volver-btn">
                     ← Volver a categorías
                 </button>
@@ -119,7 +150,10 @@ const Tabla = () => {
                                         <MdDelete
                                             title="Eliminar"
                                             className="tabla-icono-eliminar"
-                                            onClick={() => { handleDelete(producto._id) }}
+                                            onClick={() => {
+                                                setProductoEliminar(producto._id)
+                                                setModalEliminarVisible(true)
+                                            }}
                                         />
                                     </td>
                                 </tr>
@@ -129,27 +163,28 @@ const Tabla = () => {
                 )}
             </div>
         );
+
     }
 
     return (
         <div className="categorias-container">
             <h1>Categorías de Productos</h1>
-                <div className="categorias-grid">
-                    {categorias_fijas.map(categoria => (
-                        <div
-                            key={categoria}
-                            className="categoria-card"
-                            onClick={() => setCategoriaSeleccionada(categoria)}
-                        >
-                            <div className="categoria-content">
-                                <h3>{categoria}</h3>
-                                <p>
-                                    {productos.filter(p => p.categoria === categoria).length} productos
-                                </p>
-                            </div>
+            <div className="categorias-grid">
+                {categorias_fijas.map(categoria => (
+                    <div
+                        key={categoria}
+                        className="categoria-card"
+                        onClick={() => setCategoriaSeleccionada(categoria)}
+                    >
+                        <div className="categoria-content">
+                            <h3>{categoria}</h3>
+                            <p>
+                                {productos.filter(p => p.categoria === categoria).length} productos
+                            </p>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
