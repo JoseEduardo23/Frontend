@@ -42,7 +42,6 @@ const Pet_register = ({ mascota }) => {
             }
         }
 
-        // Validación para raza
         if (name === "raza") {
             const charCount = value.length;
             if (charCount > 15) {
@@ -56,7 +55,6 @@ const Pet_register = ({ mascota }) => {
             }
         }
 
-        // Validación para edad
         if (name === "edad") {
             const numberCount = value.length;
             if (numberCount > 2 || parseInt(value) > 20) {
@@ -88,7 +86,6 @@ const Pet_register = ({ mascota }) => {
         e.preventDefault()
         setError(null)
 
-        // Validar actividad
         if (!form.actividad) {
             setActividadError("Seleccione un nivel de actividad");
         } else {
@@ -129,8 +126,9 @@ const Pet_register = ({ mascota }) => {
                 const respuesta = await axios.put(url, formData, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
-                navigate("/users/dashboard/registrar_mascota");
-
+                setTimeout(() => {
+                    navigate("/users/dashboard/registrar_mascota");
+                }, 2000);
             } else {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
                 const respuesta = await axios.post(url, formData, { headers })

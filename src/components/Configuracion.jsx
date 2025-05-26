@@ -47,14 +47,12 @@ const Configuracion = () => {
         if (type === 'file') {
             const file = files[0];
             if (file) {
-                // Crear vista previa
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     setPreviewImage(reader.result);
                 };
                 reader.readAsDataURL(file);
 
-                // Actualizar estado
                 setForm(prev => ({
                     ...prev,
                     imagen: file

@@ -3,8 +3,8 @@
     margin-bottom: 100px;
     padding: 0 20px;
     height: auto;
-    
 }
+
 
 .profile-header-section {
     margin-bottom: 30px;
@@ -29,28 +29,19 @@
 }
 
 .profile-data-card {
-    flex: 1;
-    margin-top: 20px;
-    backdrop-filter: blur(5px);
-    width: 300px;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 @media (min-width: 1024px) {
-    .profile-main-content {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
     .profile-main-title{
         font-weight: bold;
-        color: black;
-        backdrop-filter: blur(8px);
-        width: 90px;
-        margin-left: 570px;
     }
+    .profile-data-card {
+    margin-left: 2rem;
+    padding: 25px;
+    border-radius: 12px;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

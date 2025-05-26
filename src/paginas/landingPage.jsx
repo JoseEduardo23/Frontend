@@ -23,7 +23,7 @@ export const LandingPage = () => {
       <main className="main-container">
 
         <div className="navbar">
-          <h1>TIENDANIMAL</h1>
+          <h1 className='title-page'>TIENDANIMAL</h1>
           <ul>
             <li>
               <Link to="/">Inicio</Link>

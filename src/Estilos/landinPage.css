@@ -5,6 +5,10 @@
   max-height: 1000vh;
 }
 
+.title-page{
+  color: white;
+}
+
 .navbar{
   background-color: #021024;
   height: 50px;
@@ -335,6 +339,11 @@
 }
 
 /*Estilos modo oscuro*/
+
+.title-page{
+  color: white;
+}
+
 .dark hr{
   background-color: #2c3e50;
 }

@@ -47,7 +47,7 @@ export const Forgot = () => {
                         </div>
 
                         <div className="mb-3">
-                            <button type="submit" className="forgot-button" style={{color:"white"}}>Envair solicitud</button>
+                            <button type="submit" className="forgot-button">Envair solicitud</button>
                         </div>
                     </form>
 
