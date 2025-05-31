@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
         try {
             const isAdmin = localStorage.getItem('rol') === 'Administrador';
             const url = isAdmin
-                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`  
+                ? `${import.meta.env.VITE_BACKEND_URL}api/perfil`
                 : `${import.meta.env.VITE_BACKEND_URL}api/usuario/perfil`;
 
             const options = {
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
                 ...respuesta.data,
                 token,
                 rol,
-                imagen: isAdmin ? undefined : {  
+                imagen: isAdmin ? undefined : {
                     url: fullImagenUrl,
                     ...respuesta.data.imagen
                 }
@@ -89,12 +89,31 @@ const AuthProvider = ({ children }) => {
             };
         }
     };
-    const actualizarPassword = async (datos) => {
+   const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token');
         try {
-            const url = auth.rol === 'Administrador'
-                ? `${import.meta.env.VITE_BACKEND_URL}api/actualizar-password`
-                : `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password/${id}`;
+            if (!auth.token || (!auth.email && !auth._id)) {
+                throw new Error("Sesión inválida. Vuelve a iniciar sesión");
+            }
+
+            if (!datos.passwordactual || !datos.passwordnuevo) {
+                throw new Error("Debes ingresar ambas contraseñas");
+            }
+
+            let url;
+            if (auth.rol === 'Administrador') {
+                url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar-password`;
+            } else {
+                url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password`;
+            }
+
+            const payload = {
+                email: auth.email,
+                passwordactual: datos.passwordactual,
+                passwordnuevo: datos.passwordnuevo
+            };
+
+            console.log(`[${auth.rol}] Enviando a:`, url, "Datos:", payload);
 
             const options = {
                 headers: {
@@ -102,10 +121,21 @@ const AuthProvider = ({ children }) => {
                     Authorization: `Bearer ${token}`
                 }
             };
-            const respuesta = await axios.put(url, datos, options);
+
+            const respuesta = await axios.put(url, payload, options);
             return { respuesta: respuesta.data.msg, tipo: true };
+
         } catch (error) {
-            return { respuesta: error.response?.data?.msg || error.message, tipo: false };
+            console.error(`Error [${auth.rol}]:`, {
+                status: error.response?.status,
+                data: error.response?.data,
+                message: error.message
+            });
+
+            return {
+                respuesta: error.response?.data?.msg || "Error al actualizar contraseña",
+                tipo: false
+            };
         }
     };
 

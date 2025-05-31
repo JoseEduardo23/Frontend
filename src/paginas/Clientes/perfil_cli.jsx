@@ -15,6 +15,9 @@ const usuario_Perfil = () => {
                 <div className="profile-data-card">
                     <UserCard_perfil />
                 </div>
+                <div>
+                    <Password/>
+                </div>
             </div>
         </div>
     );
