@@ -104,7 +104,7 @@ const AuthProvider = ({ children }) => {
             if (auth.rol === 'Administrador') {
                 url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar-password`;
             } else {
-                url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password`;
+                url = `${import.meta.env.VITE_BACKEND_URL}api/usuario/actualizar-password/${auth._id}`;
             }
 
             const payload = {

@@ -1,0 +1,258 @@
+.tienda-container {
+  padding: 2rem;
+  max-width: 100vw;
+  margin: 0 auto;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dark .tienda-container {
+  height: 100vh;
+
+  background-color: #060c13;
+  color: #f5f5f5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;    
+  background-color: #021024;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .navbar {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar h1 {
+  margin: 0;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #f39c12;
+}
+
+.filtros-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 2rem 0;
+}
+
+.filtros-categorias button {
+  padding: 0.6rem 1.2rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dark .filtros-categorias button {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+}
+
+.filtros-categorias button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.dark .filtros-categorias button:hover {
+  background-color: #333333;
+}
+
+.filtros-categorias button.active {
+  background-color: #021024;
+  color: white;
+}
+
+/* Grid de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* Tarjetas de producto */
+.producto-card {
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+
+.dark .producto-card {
+  border-color: #333333;
+  background-color: #1e1e1e;
+}
+
+.producto-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark .producto-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #e1e1e1;
+}
+.producto-imagen{
+  width: 110px;
+    margin-left: 100px;
+}
+
+.dark .producto-card img {
+  border-bottom-color: #333333;
+}
+
+.producto-info {
+  padding: 1.2rem;
+}
+
+.producto-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.producto-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.producto-precio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.stock {
+  color: #4CAF50;
+  font-size: 0.9rem;
+}
+
+.agotado {
+  color: #f44336;
+  font-size: 0.9rem;
+}
+
+.btn-dark{
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.btn-dark:hover {
+  transform: scale(1.1);
+}
+
+.btn-login {
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-login:hover {
+  transform: translateY(-1px);
+}
+
+/* Estilos para el botón de favoritos */
+.btn-favorito {
+  position: absolute;
+  margin-left: 140px;
+  margin-top: -200px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-favorito.activo {
+  background-color: rgba(255, 59, 59, 0.9);
+}
+
+.btn-favorito .heart-icon {
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.btn-favorito .heart-icon {
+  color: #555;
+}
+
+.btn-favorito.activo .heart-icon {
+  color: white;
+}
+
+.btn-favorito:hover .heart-icon {
+  color: #ff3b3b;
+}
+
+.btn-favorito.activo:hover .heart-icon {
+  color: white;
+}
+
+.btn-favoritos-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-favoritos-nav.active {
+  box-shadow: 0 2px 10px rgba(255, 56, 56, 0.4);
+}
+
+.btn-favoritos-nav svg {
+  font-size: 16px;
+}

@@ -56,6 +56,11 @@ function App() {
           <Route path="/tienda" element={<Tienda />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
 
+          <Route path='productos' element={<Productos/>}>
+            <Route path='visualizar/:id' element={<Visualizar/>}/>
+          </Route>
+
+
           {/* Rutas de autenticación */}
           <Route path="/" element={<Auth />}>
             <Route path="login" element={<Login />} />

@@ -1,15 +1,26 @@
 import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../Context/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import '../../Estilos/Password.css'
 import 'react-toastify/dist/ReactToastify.css';
 
 const Password = () => {
     const { actualizarPassword, auth } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword2, setShowPassword2] = useState(false)
     const [form, setForm] = useState({
         passwordactual: "",
         passwordnuevo: ""
     });
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword)
+    }
+    const togglePasswordVisibility2 = ()=>{
+        setShowPassword2(!showPassword2)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,10 +66,10 @@ const Password = () => {
 
     return (
         <>
-            <ToastContainer/>
+            <ToastContainer />
 
             <div className='mt-5'>
-                <h1 className='font-black text-4xl text-gray-500'>Password</h1>
+                <h1 className='font-black text-4xl text-gray-500'>Actualiza tu contraseña</h1>
                 <hr className='my-4' />
                 <p className='mb-2'>Este módulo te permite actualizar tu contraseña</p>
             </div>
@@ -70,7 +81,7 @@ const Password = () => {
                     </label>
                     <input
                         id='passwordactual'
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                         placeholder='**************'
                         name='passwordactual'
@@ -78,7 +89,11 @@ const Password = () => {
                         onChange={handleChange}
                         disabled={loading}
                     />
+                    <span className="toggle-pass-pass" onClick={togglePasswordVisibility}>
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </span>
                 </div>
+
 
                 <div>
                     <label htmlFor='passwordnuevo' className='text-gray-700 uppercase font-bold text-sm'>
@@ -86,7 +101,7 @@ const Password = () => {
                     </label>
                     <input
                         id='passwordnuevo'
-                        type="password"
+                        type={showPassword2 ? "text" : "password"}
                         className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                         placeholder='**************'
                         name='passwordnuevo'
@@ -94,6 +109,9 @@ const Password = () => {
                         onChange={handleChange}
                         disabled={loading}
                     />
+                    <span className="toggle-pass-pass" onClick={togglePasswordVisibility2}>
+                        {showPassword2 ? <FaEyeSlash /> : <FaEye />}
+                    </span>
                 </div>
 
                 <input
