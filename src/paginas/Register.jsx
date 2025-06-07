@@ -81,6 +81,8 @@ export const Register = () => {
                 return;
             } else if (/[^0-9]/.test(value)) {
                 setTelefonoError("Solo debe contener números.");
+            }else{
+                setTelefonoError(null)
             }
 
         }

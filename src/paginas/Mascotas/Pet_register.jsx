@@ -145,7 +145,6 @@ const Pet_register = ({ mascota }) => {
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.msg);
-                toast.error(error.response.data.msg);
             } else {
                 setError("Error inesperado: " + error.message);
             }

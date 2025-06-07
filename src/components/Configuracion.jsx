@@ -3,9 +3,11 @@ import AuthContext from '../Context/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../Estilos/Configuracion.css'
+import { useNavigate } from "react-router-dom";
 import React, { useRef } from "react";
 
 const Configuracion = () => {
+    const navigate = useNavigate();
     const { auth, actualizarPerfil } = useContext(AuthContext);
     const fileInputRef = useRef(null);
     const [previewImage, setPreviewImage] = useState(auth.imagen?.url || null);
@@ -138,6 +140,9 @@ const Configuracion = () => {
 
             if (tipo) {
                 toast.success(respuesta);
+                setTimeout(() => {
+                    navigate("/users/dashboard");
+                }, 2000);
             } else {
                 toast.error(respuesta);
             }
