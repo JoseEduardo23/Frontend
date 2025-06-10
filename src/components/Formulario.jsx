@@ -56,11 +56,11 @@ export const Formulario = ({ producto }) => {
         }
 
         if (name === "stock") {
-            const stock = parseFloat(value)
-            if (isNaN(stock) || stock <= 0 || stock > 400) {
-                setStockError("Ingrese un valor válido")
+            const stock = parseFloat(value);
+            if (isNaN(stock) || stock < 0 || stock > 70) {
+                setStockError("Ingrese un valor entre 0 y 70");
             } else {
-                setStockError(null)
+                setStockError(null);
             }
         }
 
@@ -127,15 +127,22 @@ export const Formulario = ({ producto }) => {
 
             if (producto?._id) {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar/producto/${producto._id}`;
-                await axios.put(url, formData, { headers }); // Si también necesitas actualizar imagen
+                await axios.put(url, formData, { headers });
                 toast.success("Producto actualizado correctamente");
+                navigate("/dashboard/productos/listar");
             } else {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/crear/producto`;
                 await axios.post(url, formData, { headers });
                 toast.success("Producto creado correctamente");
+                setForm({
+                    nombre: "",
+                    descripcion: "",
+                    precio: "",
+                    stock: "",
+                    categoria: "",
+                    imagen: null,
+                });
             }
-
-            navigate("/dashboard/productos/listar");
         } catch (error) {
             if (error.response && error.response.data) {
                 console.log(error.response.data);

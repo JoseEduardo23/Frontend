@@ -119,14 +119,10 @@
 }
 
 .producto-card img {
+  object-fit: contain;
   width: 100%;
   height: 220px;
-  object-fit: cover;
   border-bottom: 1px solid #e1e1e1;
-}
-.producto-imagen{
-  width: 110px;
-    margin-left: 100px;
 }
 
 .dark .producto-card img {
@@ -191,7 +187,7 @@
 /* Estilos para el botón de favoritos */
 .btn-favorito {
   position: absolute;
-  margin-left: 140px;
+  margin-left: 270px;
   margin-top: -200px;
   width: 36px;
   height: 36px;
