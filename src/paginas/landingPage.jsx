@@ -181,9 +181,9 @@ export const LandingPage = () => {
             <div class="footer-links">
               <p class="footer-title">Enlaces</p>
               <ul class="footer-list">
-                <li class="footer-list-item">Conócenos</li>
-                <li class="footer-list-item">Planes alimenticios</li>
-                <li class="footer-list-item">Contactos</li>
+                <li class="footer-list-item"><Link to="/sobre">Sobre Nosotros</Link></li>
+                <li class="footer-list-item"><Link to="/tienda">Productos</Link></li>
+                <li class="footer-list-item"><Link to="/contactos">Contactos</Link></li>
               </ul>
             </div>
 
@@ -194,13 +194,6 @@ export const LandingPage = () => {
                 <img src={img8} alt="facebook" class="social-icon" />
                 <img src={img7} alt="twitter" class="social-icon" />
               </div>
-            </div>
-
-            <div class="newsletter">
-              <p class="footer-titlef">Envíanos un comentario:</p>
-              <textarea name="" id="" className='footer-input' placeholder='Comentario'></textarea>
-              <input type="email" required class="footer-input" placeholder="Correo electrónico" />
-              <button class="footer-btn">Enviar</button>
             </div>
           </div>
         </footer>

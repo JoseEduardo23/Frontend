@@ -147,7 +147,7 @@ const ClienteTabla = () => {
                                         <td className='tabla-celda'>{usuario.nombre}</td>
                                         <td className='tabla-celda'>{usuario.apellido}</td>
                                         <td className='tabla-celda'>{usuario.direccion}</td>
-                                        <td className='tabla-celda'>{usuario.telefono}</td>
+                                        <td className='tabla-celda'>{usuario.telefono}</td> 
                                         <td className='tabla-celda'>{usuario.email}</td>
                                         <td className='tabla-celda'>
                                             <span style={{

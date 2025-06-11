@@ -58,13 +58,6 @@ const Dashboard = () => {
               Clientes
             </Link>
           </li>
-
-          <li>
-            <img src={dog} alt="" className='cat'/>
-            <Link to='/dashboard/mascotas' className={`${urlActual === '/dashboard/mascotas' ? 'active' : ''}`}>
-              Mascotas
-            </Link>
-          </li>
         </ul>
       </div>
 
