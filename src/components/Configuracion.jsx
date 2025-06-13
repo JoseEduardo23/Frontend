@@ -172,6 +172,7 @@ const Configuracion = () => {
                                     />
                                 )}
                             </div>
+
                             <input
                                 type="file"
                                 id="imagen"
@@ -179,9 +180,13 @@ const Configuracion = () => {
                                 ref={fileInputRef}
                                 onChange={handleChange}
                                 accept="image/*"
-                                className="image-upload-input"
+                                className="hidden"
                             />
-                            <label htmlFor="imagen" className="image-upload-label">
+
+                            <label
+                                htmlFor="imagen"
+                                className="image-upload-label bg-blue-500 text-white px-4 py-2 rounded cursor-pointer inline-block hover:bg-blue-600"
+                            >
                                 {previewImage ? 'Cambiar imagen' : 'Seleccionar imagen'}
                             </label>
                         </div>

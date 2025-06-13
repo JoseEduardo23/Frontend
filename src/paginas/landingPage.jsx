@@ -157,42 +157,42 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        <footer class="footer">
-          <div class="footer-container">
-            <div class="contact-info">
-              <p class="footer-title">Contactos</p>
-              <img src={img9} alt="robot" class="footer-img" />
-              <div class="contact-details">
-                <div class="contact-item">
-                  <img src={img10} alt="phone" class="footer-icon" />
+        <footer className="footer">
+          <div className="footer-container">
+            <div className="contact-info">
+              <p className="footer-title">Contactos</p>
+              <img src={img9} alt="robot" className="footer-img" />
+              <div className="contact-details">
+                <div className="contact-item">
+                  <img src={img10} alt="phone" className="footer-icon" />
                   <span>09837991163</span>
                 </div>
-                <div class="contact-item">
-                  <img src={img11} alt="email" class="footer-icon" />
+                <div className="contact-item">
+                  <img src={img11} alt="email" className="footer-icon" />
                   <span>je20042316@gmail.com</span>
                 </div>
-                <div class="contact-item">
-                  <img src={img12} alt="address" class="footer-icon" />
+                <div className="contact-item">
+                  <img src={img12} alt="address" className="footer-icon" />
                   <span>Av-lorem</span>
                 </div>
               </div>
             </div>
 
-            <div class="footer-links">
-              <p class="footer-title">Enlaces</p>
-              <ul class="footer-list">
-                <li class="footer-list-item"><Link to="/sobre">Sobre Nosotros</Link></li>
-                <li class="footer-list-item"><Link to="/tienda">Productos</Link></li>
-                <li class="footer-list-item"><Link to="/contactos">Contactos</Link></li>
+            <div className="footer-links">
+              <p className="footer-title">Enlaces</p>
+              <ul className="footer-list">
+                <li className="footer-list-item"><Link to="/sobre">Sobre Nosotros</Link></li>
+                <li className="footer-list-item"><Link to="/tienda">Productos</Link></li>
+                <li className="footer-list-item"><Link to="/contactos">Contactos</Link></li>
               </ul>
             </div>
 
-            <div class="social-media">
-              <p class="footer-title">Visítanos en:</p>
-              <div class="social-icons">
-                <img src={img6} alt="github" class="social-icon" />
-                <img src={img8} alt="facebook" class="social-icon" />
-                <img src={img7} alt="twitter" class="social-icon" />
+            <div className="social-media">
+              <p className="footer-title">Visítanos en:</p>
+              <div className="social-icons">
+                <img src={img6} alt="github" className="social-icon" />
+                <img src={img8} alt="facebook" className="social-icon" />
+                <img src={img7} alt="twitter" className="social-icon" />
               </div>
             </div>
           </div>

@@ -168,7 +168,7 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 843px) {
+@media (max-width: 767px) {
     .submit-button{
         background-color: #6366f1;
         margin-left: 20px;
@@ -183,6 +183,13 @@
     .form-label{
         color: black;
         font-weight: 600;
+    }
+    .image-preview-container{
+    margin-left: -7rem;
+    }
+    .image-upload-label{
+    margin-left: 3.5rem;
+    margin-top: 1rem;
     }
 }
 
