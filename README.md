@@ -1,75 +1,79 @@
--- DESARROLLO DEL PROYECTO FRONTEND --
+# 📁 Desarrollo de sistema de gestión de productos para tiendas de mascotas con recomendación de dietas saludables mediante inteligencia artificial.
 
--- SPRINT 0 Configuración del ambiente de desarrollo --
+## 👤 Responsable del desarrollo.
+- José Eduardo Lincango Flores
 
-- Delimitación de los requisitos a cumplir
+# Instalación y ejecución del frontend. 🚀
+> [!IMPORTANT]
+> El desarrollo de este componente se basa en el frontend o parte visual funcional desarrollado con React, para configurar el proyecto hay que clonar e instalar las dependencias del proyecto mediante los siguientes pasos además de tener en cuenta estos requisitos previos:
+>
+> 1️⃣ Instalar dependencias:
+> ```bash
+> npm install
+> ```
+>
+> 2️⃣ Verificar versiones:
+> 
+> Node.js (versión recomendada: 16.x o superior)
+> 
+> npm (como gestor de paquetes)
+> Verificar versiones:
+> ```bash
+> Node --version
+> npm --version
+> ```
+> 
+> 3️⃣ Clonar el repositorio:
+> ```bash
+> git clone https://github.com/JoseEduardo23/Frontend.git
+> ```
+>
+> 4️⃣ Configurar las variables de entorno:
+> 
+> Dentro del archivo .env debe colocar las credenciales necesarias para lograr una conexión
+> exitosa con el backend.
+> 
+> 5️⃣ Ejecución:
+> ```bash
+> npm run dev
+> ```
+> Esto abrirá la proyecto en un entorno local.
 
-- Estructura general de las carpetas del proyecto
+> [!CAUTION]
+> Errores comúnes al clonar el repositorio:
+>
+> El instalar las dependecias pueden no ser compatibles o el archivo node_modules está corrupto.
+>
+> - Borra node_modules y package-lock.json:
+>   
+> ```bash
+> rm -rf node_modules
+> rm -rf package-lock.json
+> ```
+>
+> - Reinstala las dependecias:
+> ```bash
+> npm install
+> ```
+>
+> - Asegúrate de tener instalado Node.js y npm
+> ```bash
+> npm install
+> ```
+>
+> - Verifica las versiones, posiblemente no puedan ser compatibles.
+>
+> Normalmente se usa una versión de Node.js incompatible con Vite o React.
+> ```bash
+> node -v
+> ```
 
-- Asignación de roles para cada usuario
+# 🔅 Documentación del proyecto
 
-
--- SPRINT 1 -- 
-
-•	Consumo de endpoint para el registro.
-
-![alt text](image.png)
-
-•	Consumo de endpoint para el envío y verificación de email.
-
-![alt text](image-1.png)
-
-•	Consumo de endpoints para el restablecimiento de contraseña.
-
-![alt text](image-2.png)
-
-•	Consumo de endpoints para el inicio de sesión.
-
-![alt text](image-3.png)
-
-
--- SPRINT 2 -- 
-
-•	Consumo de endpoint para registrar productos.
-
-
-![image](https://github.com/user-attachments/assets/809571fe-cb50-432c-9f09-52264caf7952)
-
-
-•	Consumo de endpoint para listar productos.
-
-![image](https://github.com/user-attachments/assets/68395720-f8ae-4adf-aa97-6ad08294f426)
-
-
-•	Consumo de endpoint para visualizar el detalle de un producto.
-
-![image](https://github.com/user-attachments/assets/522205bf-4e52-4328-9014-467838ac198d)
+- Tesis del proyecto =>
+- Video de la funcionalidad =>
+- Formulario 233 =>
+- Formulario 234 =>
 
 
-•	Consumo de endpoint para actualizar un producto.
-
-![image](https://github.com/user-attachments/assets/0de07bd9-919f-447c-a091-f088fac90a8e)
-
-
-•	Consumo de endpoint para eliminar un producto.
-
-
-![image](https://github.com/user-attachments/assets/e0e8fb6b-8119-466b-a15c-d6df61ac5311)
-
-
--- SPRINT 3 --
-
-•	Pruebas unitarias.
-
-![image](https://github.com/user-attachments/assets/5e7556b0-e9db-4c94-8a4b-b1128dd29221)
-
-
-•	Pruebas de carga.
-
-![image](https://github.com/user-attachments/assets/d46d6570-d7a8-4506-9216-22a5258e35e6)
-
-
--- SPRINT 4 --
-
-![image](https://github.com/user-attachments/assets/346f2b66-af43-45b3-9c04-4d833fb558c6)
 
