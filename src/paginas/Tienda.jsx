@@ -170,7 +170,6 @@ export const Tienda = () => {
                         <li><Link to="/">Inicio</Link></li>
                         <li><Link to="/sobre">Sobre Nosotros</Link></li>
                         <li><Link to="/tienda">Productos</Link></li>
-                        <li><Link to="/contactos">Contactos</Link></li>
                         <li>
                             <button
                                 className="btn-dark"

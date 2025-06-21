@@ -272,7 +272,7 @@ const Configuracion = () => {
 
                     <button
                         type="submit"
-                        className="submit-button"
+                        className="submit-button-p"
                     >
                         Guardar Cambios
                     </button>

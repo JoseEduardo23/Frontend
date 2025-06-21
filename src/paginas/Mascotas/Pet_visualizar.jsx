@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import '../../Estilos/Pet_visualizar.css'
 import axios from "axios";
 import iconPets from '../../assets/IconPet.png'
+import Dietas from '../Mascotas/Dietas.jsx'
 
 const Pet_visualizar = () => {
     const { id } = useParams()
@@ -63,6 +64,10 @@ const Pet_visualizar = () => {
                                 <span className="info-value">{mascota.actividad}</span>
                             </div>
                             <div className="info-group">
+                                <span className="info-label">Enfermedad</span>
+                                <span className="info-value">{mascota.enfermedades}</span>
+                            </div>
+                            <div className="info-group">
                                 <span className="info-label">Peso</span>
                                 <span className="info-value">{mascota.peso} kg</span>
                             </div>
@@ -80,6 +85,11 @@ const Pet_visualizar = () => {
                         </div>
                     </div>
                 </div>
+                <section>
+                    <div>
+                        <Dietas idMascota={id} />
+                    </div>
+                </section>
             </div>
         </>
     )

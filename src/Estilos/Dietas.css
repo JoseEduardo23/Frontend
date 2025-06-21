@@ -1,0 +1,93 @@
+.dieta-container {
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 1.2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.form-dieta {
+  margin-bottom: 1.5rem;
+}
+
+.form-dieta label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-dieta select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+}
+
+.form-dieta select:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.2);
+}
+
+.dieta-container button {
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%;
+  background-color: #d2d2d2;
+}
+
+.dieta-resultado {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.dieta-resultado h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+}
+
+.dieta-resultado p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 430px) {
+  .dieta-container {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .form-dieta {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-dieta select {
+    padding: 0.5rem;
+  }
+  
+  .dieta-container button {
+    padding: 0.6rem;
+  }
+  
+  .dieta-resultado {
+    margin-top: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  .dieta-resultado h3 {
+    font-size: 1rem;
+  }
+  
+  .dieta-resultado p {
+    font-size: 0.85rem;
+  }
+}

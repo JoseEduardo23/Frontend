@@ -87,7 +87,7 @@
     border-radius: 5px;
   }
   
-  @media(min-width:768px) and (max-width:1023px){
+  @media(min-width:431px) and (max-width:1023px){
     .form-container {
       padding: 1rem; 
       max-height: none; 
@@ -125,7 +125,7 @@
   }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 430px) {
     .form-container {
         padding: 1rem; 
         max-height: none; 

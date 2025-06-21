@@ -12,6 +12,7 @@ const Pet_register = ({ mascota }) => {
         nombre: mascota?.nombre ?? "",
         raza: mascota?.raza ?? "",
         edad: mascota?.edad ?? "",
+        enfermedades: mascota?.enfermedades ?? "",
         actividad: mascota?.actividad ?? "",
         peso: mascota?.peso ?? "",
         imagen: null
@@ -113,6 +114,7 @@ const Pet_register = ({ mascota }) => {
             formData.append("nombre", form.nombre);
             formData.append("raza", form.raza);
             formData.append("edad", form.edad);
+            formData.append("enfermedades", form.enfermedades);
             formData.append("actividad", form.actividad);
             formData.append("peso", form.peso);
 
@@ -134,10 +136,14 @@ const Pet_register = ({ mascota }) => {
                 const respuesta = await axios.post(url, formData, { headers })
                 setError(null)
                 toast.success(respuesta.data.msg)
+                setTimeout(() => {
+                    navigate("/users/dashboard/registrar_mascota");
+                }, 2000);
                 setForm({
                     nombre: "",
                     raza: "",
                     edad: "",
+                    enfermedades: "",
                     actividad: "",
                     peso: "",
                 })
@@ -155,7 +161,17 @@ const Pet_register = ({ mascota }) => {
 
     return (
         <>
-            <ToastContainer />
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="pet-container">
                 {Object.keys(mensaje).length > 0 && (
                     <div className={`message ${mensaje.tipo}`}>
@@ -237,6 +253,18 @@ const Pet_register = ({ mascota }) => {
                                 max="115"
                             />
                             {pesoError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{pesoError}</p>}
+                        </div>
+
+                        <div className="pet-div">
+                            <label htmlFor="peso">Enfermedades:</label>
+                            <input type="text"
+                                id="enfermedades"
+                                name="enfermedades"
+                                value={form.enfermedades}
+                                onChange={handleChange}
+                                placeholder="Tiene enfermedades"
+                                className="pet-input"
+                            />
                         </div>
 
                         <div className="pet-div">

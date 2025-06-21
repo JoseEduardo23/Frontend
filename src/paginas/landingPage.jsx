@@ -9,9 +9,7 @@ import img5 from '../assets/thing.png'
 import img6 from '../assets/github.png'
 import img7 from '../assets/facebook.png'
 import img8 from '../assets/twitter.png'
-import img9 from '../assets/robot.png'
-import img10 from '../assets/phone.png'
-import img11 from '../assets/mail.png'
+import img9 from '../assets/mapa.png'
 import img12 from '../assets/ubi.png'
 import img13 from '../assets/fondo2.jpg'
 import img14 from '../assets/fondo3.jpg'
@@ -30,17 +28,13 @@ export const LandingPage = () => {
             </li>
 
             <li>
-              <Link to="/sobre">Sobre Nosotros</Link>  
+              <Link to="/sobre">Sobre Nosotros</Link>
             </li>
 
             <li>
               <Link to="/tienda">Productos</Link>
             </li>
 
-            <li>
-              <Link to="/contactos">Contactos</Link>
-            </li>
-            
             <li>
               <img
                 className='btn-dark'
@@ -159,23 +153,21 @@ export const LandingPage = () => {
 
         <footer className="footer">
           <div className="footer-container">
+
             <div className="contact-info">
               <p className="footer-title">Contactos</p>
               <img src={img9} alt="robot" className="footer-img" />
               <div className="contact-details">
                 <div className="contact-item">
-                  <img src={img10} alt="phone" className="footer-icon" />
-                  <span>09837991163</span>
-                </div>
-                <div className="contact-item">
-                  <img src={img11} alt="email" className="footer-icon" />
-                  <span>je20042316@gmail.com</span>
-                </div>
-                <div className="contact-item">
                   <img src={img12} alt="address" className="footer-icon" />
-                  <span>Av-lorem</span>
+                  <span>Quitus N1-77 y 9 de Agosto</span>
                 </div>
               </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.5721985525656!2d-78.42485298122872!3d-0.10071660173644326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d58ee4b2cd2929%3A0x52c6346c297079e7!2s9%20de%20Agosto%20%26%20Quitus%2C%20170202%20Quito!5e1!3m2!1ses!2sec!4v1750184809208!5m2!1ses!2sec"
+                className='map-position'
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
 
             <div className="footer-links">
@@ -183,7 +175,30 @@ export const LandingPage = () => {
               <ul className="footer-list">
                 <li className="footer-list-item"><Link to="/sobre">Sobre Nosotros</Link></li>
                 <li className="footer-list-item"><Link to="/tienda">Productos</Link></li>
-                <li className="footer-list-item"><Link to="/contactos">Contactos</Link></li>
+                <li className='footer-list-item' >
+                  <Link
+                    to="/login"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open('/login', '_blank');
+                    }}
+                  >
+                    Iniciar Sesión
+                  </Link>
+                </li>
+
+                <li className='footer-list-item'>
+                  <Link
+                    to="/registro"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open('/registro', '_blank')
+                    }}
+                  >
+                    Registro
+                  </Link>
+                </li>
+
               </ul>
             </div>
 
@@ -195,6 +210,7 @@ export const LandingPage = () => {
                 <img src={img7} alt="twitter" className="social-icon" />
               </div>
             </div>
+
           </div>
         </footer>
 

@@ -74,7 +74,7 @@ const Password = () => {
                 <p className='mb-2'>Este módulo te permite actualizar tu contraseña</p>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form-passr">
                 <div>
                     <label htmlFor='passwordactual' className='text-gray-700 uppercase font-bold text-sm'>
                         Contraseña actual:

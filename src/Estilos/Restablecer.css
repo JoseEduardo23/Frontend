@@ -260,8 +260,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* Media Queries */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 431px) and (max-width: 1023px) {
   .rest-container {
     padding: 1rem;
   }
@@ -282,7 +281,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
   .rest-botones {
     margin-left: 0;
   }

@@ -51,7 +51,8 @@
 .info-card {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-left: -5.5rem;
 }
 
 .info-group {
@@ -103,27 +104,23 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
     .info-card{
         flex-direction: column;
         display: flex;
         width: 200px;
         height: 500px;
-    }
-    .pet-profile-container {
-        flex-direction: column;
-    }
-    
+    }    
     .pet-image-column {
         margin-bottom: 2rem;
     }
     
     .pet-profile-image{
         border: 4px solid black;
-        margin-left: 13.5rem;
-        margin-top: -42rem;
-        width: 115px;
-        height: 110px;
+        margin-left: 22.5rem;
+        margin-top: -10rem;
+        width: 130px;
+        height: 130px;
         position: absolute;
         border-radius: 50%;
         background-size: cover;
@@ -135,13 +132,13 @@
     }
 }
 
-@media (min-width:768px) and (max-width:1023px){
+@media (min-width:431px) and (max-width:1023px){
     .pet-profile-image{
         border: 4px solid black;
-        margin-left: 41rem;
+        margin-left: 40rem;
         margin-top: -8.2rem;
-        width: 115px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         position: absolute;
         object-fit: cover;

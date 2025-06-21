@@ -26,10 +26,6 @@ export const Sobre = () => {
                         </li>
 
                         <li>
-                            <Link to="/contactos">Contactos</Link>
-                        </li>
-
-                        <li>
                             <img
                                 className='btn-dark'
                                 onClick={() => setdarkMode(!darkMode)}

@@ -218,8 +218,7 @@
   background-color: #00b894;
 }
 
-/* Media Query para pantallas de 400px o menos */
-@media (max-width: 767px) {
+@media (max-width: 430px) {
   .sidebar {
     width: 10.2rem; 
     left: -10.2rem;
@@ -283,9 +282,9 @@
   }
 
 }
-@media(min-width:768px) and (max-width:1023px){
+@media(min-width:431px) and (max-width:1023px){
   .header{
-    width: 100%;
+    width: 103.2%;
   }
   .user-avatar{
     margin-left: -3.2rem;

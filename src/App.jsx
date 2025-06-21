@@ -7,7 +7,6 @@ import Auth from './layout/Auth';
 // Páginas públicas
 import { LandingPage } from './paginas/landingPage';
 import { Sobre } from './paginas/Sobre';
-import { Contactos } from './paginas/Contactos';
 import { Tienda } from './paginas/Tienda';
 import { NotFound } from './paginas/NotFound';
 import Unauthorized from './paginas/Unauthorized';
@@ -52,14 +51,12 @@ function App() {
           {/* Rutas públicas */}
           <Route index element={<LandingPage />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contactos" element={<Contactos />} />
           <Route path="/tienda" element={<Tienda />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
 
-          <Route path='productos' element={<Productos/>}>
-            <Route path='visualizar/:id' element={<Visualizar/>}/>
+          <Route path='productos' element={<Productos />}>
+            <Route path='visualizar/:id' element={<Visualizar />} />
           </Route>
-
 
           {/* Rutas de autenticación */}
           <Route path="/" element={<Auth />}>
@@ -71,8 +68,8 @@ function App() {
           </Route>
 
           {/* Rutas del dashboard - Solo para Administradores */}
-          <Route 
-            path="dashboard/*" 
+          <Route
+            path="dashboard/*"
             element={
               <PrivateRoute allowedRoles={["Administrador"]}>
                 <Dashboard />
@@ -90,23 +87,25 @@ function App() {
               <Route path="clientes_listar" element={<Cliente_listar />} />
             </Route>
 
-            <Route path="mascotas/*" element={<Mascotas/>}>
-              <Route path="mascotas_listar" element={<Pet_listar/>}/>
+            <Route path="mascotas/*" element={<Mascotas />}>
+              <Route path="mascotas_listar" element={<Pet_listar />} />
             </Route>
           </Route>
 
-          <Route 
-            path="/users/dashboard" 
+          {/* Rutas del dashboard - Solo para Clientes */}
+
+          <Route
+            path="/users/dashboard"
             element={
               <PrivateRoute allowedRoles={["Usuario"]}>
-                <Cliente_dashboard/>
+                <Cliente_dashboard />
               </PrivateRoute>
-            } 
+            }
           >
-            <Route index element={<Cliente_perfil/>} />
-            <Route path="registrar_mascota" element={<Pet_register />}/>
-            <Route path="configuracion" element={<Configuracion />}/>
-            <Route path="visualizar/mascota/:id" element={<Pet_visualizar />}/>
+            <Route index element={<Cliente_perfil />} />
+            <Route path="registrar_mascota" element={<Pet_register />} />
+            <Route path="configuracion" element={<Configuracion />} />
+            <Route path="visualizar/mascota/:id" element={<Pet_visualizar />} />
             <Route path="actualizar/mascota/:id" element={<Pet_actualizar />} />
 
           </Route>

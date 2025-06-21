@@ -55,14 +55,14 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-@media(max-width:767px){
+@media(max-width:430px){
     .notfound-text-container{
         padding: 1rem 1rem;
         width: 80%;
     }
 }
 
-@media(min-width:768px)and(max-width:1023px){
+@media(min-width:431px)and(max-width:1023px){
     .notfound-text-container{
         padding: 1rem 1rem;
         width: 80%;

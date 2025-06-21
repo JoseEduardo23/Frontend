@@ -44,7 +44,7 @@
 }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 431px) and (max-width: 1023px) {
     .profile-main-content {
         width: 100%;
         flex-direction: column;
@@ -64,7 +64,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
     .user-profile-container {
         padding: 0 15px;
         margin-top: 50px;

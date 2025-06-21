@@ -41,7 +41,7 @@
     }
 }
 
-@media(min-width:768px) and (max-width:1023px) {
+@media(min-width:431px) and (max-width:1023px) {
     .perfil-content {
         width: 100%;
         flex-direction: column;
@@ -54,7 +54,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
 
     .perfil-title {
         font-size: 1.2rem;
@@ -68,11 +68,6 @@
     .perfil-content {
         align-items: center;
         gap: 1rem;
-    }
-
-    .perfil-form,
-    .perfil-card {
-        width: 17.5rem;
     }
 }
 

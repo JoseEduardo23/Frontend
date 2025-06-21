@@ -223,7 +223,7 @@
 }
 
 .footer-img {
-  max-width: 50%;
+  max-width: 25%;
   height: auto;
   margin-bottom: 15px; 
 }
@@ -338,6 +338,16 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.map-position{
+  margin-top: -5rem;
+  margin-left: 50rem;
+  width: 30rem;
+  height: 17rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 1.5px white;
+}
+
+
 /*Estilos modo oscuro*/
 
 .title-page{
@@ -411,7 +421,7 @@
 }
 
 /* Celulares (hasta 576px) */
-@media (max-width: 767px) {
+@media (max-width: 430px) {
   .main-container {
     max-width: 100%;
     overflow-x: hidden;
@@ -517,7 +527,7 @@
   }
 }
 
-@media (max-width: 767px) {  
+@media (max-width: 430px) {  
   .footer {
     flex-direction: column;
     padding: 0.8rem 8px;
@@ -558,7 +568,7 @@
 }
 
 /* Tablets (de 577px a 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) { 
+@media (min-width: 431px) and (max-width: 1024px) { 
   
   .navbar {
     height: 45px; 

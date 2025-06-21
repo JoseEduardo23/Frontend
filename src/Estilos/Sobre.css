@@ -35,3 +35,31 @@
     opacity: 0.6;
     z-index: -1;
 }
+
+@media (max-width: 430px) {
+    .content-sobre {
+        padding: 1.5rem;
+        max-width: 95%;
+        margin: 4rem auto 0 auto; 
+    }
+
+    .content-sobre h1 {
+        font-size: 1.8rem; 
+        margin-bottom: 1rem;
+    }
+
+    .info-sobre {
+        font-size: 1rem; 
+        line-height: 1.6;
+        padding: 0 1rem; 
+        text-align: left; 
+    }
+
+    .img-huella-s {
+        width: 15rem;
+        height: 15rem;
+        top: 1rem;
+        right: -3rem; 
+        opacity: 0.4; 
+    }
+}

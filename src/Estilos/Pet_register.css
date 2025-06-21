@@ -28,7 +28,6 @@
     border-right: 2px solid black;
 }
 .pet-btn{
-    margin-left: 85px;
     height: 35px;
     border: 2px solid black;
     width: 40%;
@@ -49,23 +48,31 @@
     font-weight: bold;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
     .pet-formcontainer{
         width: 100%;
     }
     .pet-formcontainer h1{
         text-align: center;
-        margin-left: -1.5rem;
     }
     .pet-btn{
         width: 50%;
-        margin-left: 35px;
+        margin-left: 50px;
+    }
+}
+
+@media (min-width: 431px) and (max-width:1023px){
+    .pet-btn{
+        margin-left: 60px;
     }
 }
 
 @media (min-width:1024px){
     .pet-formcontainer{
         width: 400px;
+    }
+    .pet-btn{
+        margin-left: 80px;
     }
 }
 

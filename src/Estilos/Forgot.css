@@ -99,8 +99,7 @@
     display: block;
 }
 
-/* Responsive para tablets (768px-1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 431px) and (max-width: 1024px) {
     .forgot-container {
         width: 60%;
     }
@@ -133,7 +132,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
     .forgot-container {
         width: 100%;
         height: 100vh;
