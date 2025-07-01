@@ -70,7 +70,7 @@ const Dashboard = () => {
       <div className="content-area">
         <div className="header">
           <div className="user-info">
-            Usuario - {auth?.nombre || 'Usuario'}
+            Usuario - {auth?.rol || 'Usuario'}
           </div>
           <div>
             <img
