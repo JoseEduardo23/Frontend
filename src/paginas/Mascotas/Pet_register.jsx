@@ -84,8 +84,8 @@ const Pet_register = ({ mascota }) => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setError(null)
+        e.preventDefault();
+        setError(null);
 
         if (!form.actividad) {
             setActividadError("Seleccione un nivel de actividad");
@@ -94,8 +94,12 @@ const Pet_register = ({ mascota }) => {
         }
 
         if (nombreError || razaError || edadError || pesoError || !form.actividad) {
-            toast.error("Por favor corrija los errores en el formulario")
-            return
+            toast.dismiss();
+            toast.error("Por favor corrija los errores en el formulario", {
+                toastId: "form-error",
+                autoClose: 3000, 
+            });
+            return;
         }
 
         setLoading(true)

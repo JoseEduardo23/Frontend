@@ -17,7 +17,7 @@ const Tabla = () => {
     const listarProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/listar/productos`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/productos/listar`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const Tabla = () => {
             if (!confirmar) return;
 
             const token = localStorage.getItem('token');
-            const url = `${import.meta.env.VITE_BACKEND_URL}api/eliminar/producto/${id}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}api/producto/eliminar/${id}`;
             const headers = {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

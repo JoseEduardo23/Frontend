@@ -99,9 +99,9 @@ const Dietas = () => {
                     disabled={loading}
                 >
                     <option value="">Seleccione</option>
-                    <option value="bajo">Bajo</option>
-                    <option value="medio">Medio</option>
-                    <option value="alto">Alto</option>
+                    <option value="Bajo">Bajo</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Alto">Alto</option>
                 </select>
             </div>
 

@@ -14,11 +14,13 @@ const Password = () => {
         passwordactual: "",
         passwordnuevo: ""
     });
+    const [passwordError, setPasswordError] = useState(null);
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
-    const togglePasswordVisibility2 = ()=>{
+    const togglePasswordVisibility2 = () => {
         setShowPassword2(!showPassword2)
     }
 
@@ -32,11 +34,6 @@ const Password = () => {
 
         if (!form.passwordactual || !form.passwordnuevo) {
             toast.error("Todos los campos son obligatorios");
-            return;
-        }
-
-        if (form.passwordnuevo.length < 6) {
-            toast.error("La contraseña debe tener mínimo 6 caracteres");
             return;
         }
 
@@ -58,12 +55,26 @@ const Password = () => {
     };
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+
         setForm({
             ...form,
-            [e.target.name]: e.target.value
+            [name]: value
         });
-    };
 
+        if (name === "passwordnuevo") {
+            if (!/(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}/.test(value)) {
+                setPasswordError(
+                    <p>
+                        Debe contener una mayúscula,<br />
+                        un número y un carácter especial
+                    </p>
+                );
+            } else {
+                setPasswordError(null);
+            }
+        }
+    };
     return (
         <>
             <ToastContainer />
@@ -112,6 +123,8 @@ const Password = () => {
                     <span className="toggle-pass-pass" onClick={togglePasswordVisibility2}>
                         {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                     </span>
+                    {passwordError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{passwordError}</p>}
+
                 </div>
 
                 <input

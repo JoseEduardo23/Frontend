@@ -126,12 +126,12 @@ export const Formulario = ({ producto }) => {
             }
 
             if (producto?._id) {
-                const url = `${import.meta.env.VITE_BACKEND_URL}api/actualizar/producto/${producto._id}`;
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/producto/actualizar/${producto._id}`;
                 await axios.put(url, formData, { headers });
                 toast.success("Producto actualizado correctamente");
                 navigate("/dashboard/productos/listar");
             } else {
-                const url = `${import.meta.env.VITE_BACKEND_URL}api/crear/producto`;
+                const url = `${import.meta.env.VITE_BACKEND_URL}api/producto/crear`;
                 await axios.post(url, formData, { headers });
                 toast.success("Producto creado correctamente");
                 setForm({
@@ -213,16 +213,21 @@ export const Formulario = ({ producto }) => {
 
             <div className="form-group">
                 <label className="form-label">Categoría del producto:</label>
-                <input
+                <select
                     className="form-inputp"
                     id="categoria"
-                    type="text"
                     name="categoria"
                     onChange={handleChange}
                     value={form.categoria || ""}
-                />
-                {categoriaError && <p style={{ color: "red", fontSize: "14" }}>{categoriaError}</p>}
-
+                >
+                    <option value="">Seleccione una categoría</option>
+                    <option value="Perros">Perros</option>
+                    <option value="Gatos">Gatos</option>
+                    <option value="Aves">Aves</option>
+                    <option value="Peces">Peces</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                {categoriaError && <p style={{ color: "red", fontSize: "14px" }}>{categoriaError}</p>}
             </div>
 
             <div className="form-group">

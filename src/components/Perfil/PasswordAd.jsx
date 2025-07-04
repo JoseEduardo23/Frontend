@@ -35,8 +35,8 @@ const PasswordAd = () => {
             return;
         }
 
-        if (form.passwordnuevo.length < 6) {
-            toast.error("La contraseña debe tener mínimo 6 caracteres");
+        if (form.passwordnuevo.length < 8) {
+            toast.error("La contraseña debe tener mínimo 8 caracteres");
             return;
         }
 
