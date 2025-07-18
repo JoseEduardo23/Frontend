@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../Estilos/Configuracion.css'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import React, { useRef } from "react";
 
 const Configuracion = () => {
@@ -119,6 +120,38 @@ const Configuracion = () => {
         });
     };
 
+    const handle_Delete = async () => {
+        try {
+            const confirmar = confirm("¿Estás seguro de eliminar tu cuenta?");
+            if (!confirmar) return;
+
+            const token = localStorage.getItem('token');
+            const userId = auth?._id;
+
+            if (!userId || typeof userId !== 'string' || userId.length !== 24) {
+                toast.error("ID de usuario inválido");
+                return;
+            }
+
+            const url = `https://tesis-agutierrez-jlincango-aviteri.onrender.com/api/usuario/eliminar/${userId}`;
+            const headers = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            };
+
+            const response = await axios.delete(url, { headers });
+
+            toast.success(response.data.msg || "Tu cuenta ha sido eliminada correctamente");
+
+            localStorage.removeItem('token');
+
+            navigate('/Login');
+        } catch (error) {
+            console.error("Error al eliminar cuenta:", error.response?.data || error.message);
+            toast.error(error.response?.data?.msg || "Error al eliminar tu cuenta");
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!auth._id || typeof auth._id !== 'string' || auth._id.length !== 24) {
@@ -156,6 +189,7 @@ const Configuracion = () => {
     return (
         <>
             <ToastContainer />
+
             <div className="settings-container">
                 <form onSubmit={handleSubmit} className="profile-form">
                     <div className="form-group">
@@ -277,6 +311,11 @@ const Configuracion = () => {
                         Guardar Cambios
                     </button>
                 </form>
+            </div>
+            <div>
+                <button onClick={handle_Delete} className="btn-eliminar-cuenta">
+                    Eliminar cuenta
+                </button>
             </div>
         </>
     );
