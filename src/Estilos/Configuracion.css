@@ -123,12 +123,22 @@
         display: block;
         text-align: center;
     }
+
+    .btn-eliminar-cuenta {
+        margin-left: -1px;
+        width: 100%;
+    }
 }
 
 @media (min-width: 431px) and (max-width: 1023px) {
     .settings-container {
         max-width: 90%;
         padding: 1.5rem;
+    }
+
+    .btn-eliminar-cuenta {
+        margin-left: -1px;
+        width: 100%;
     }
 
 }
