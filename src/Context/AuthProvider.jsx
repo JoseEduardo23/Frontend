@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
@@ -8,7 +8,39 @@ const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState({});
     const [loading, setLoading] = useState(true);
     const [authChecked, setAuthChecked] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const timeoutRef = useRef(null);
+    const INACTIVITY_LIMIT = 15 * 60 * 1000;
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('rol');
+        setAuth({});
+    };
+
+    const resetTimer = useCallback(() => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => {
+            alert('Sesión cerrada por inactividad');
+            logout();
+            navigate('/login');
+        }, INACTIVITY_LIMIT);
+    }, [logout, navigate]);
+
+    useEffect(() => {
+        if (!auth?.token) return;
+
+        const activityEvents = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'];
+        activityEvents.forEach(event => window.addEventListener(event, resetTimer));
+
+        resetTimer(); // iniciar temporizador
+
+        return () => {
+            activityEvents.forEach(event => window.removeEventListener(event, resetTimer));
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        };
+    }, [auth?.token, resetTimer]);
 
     const perfil = async (token) => {
         try {
@@ -89,7 +121,8 @@ const AuthProvider = ({ children }) => {
             };
         }
     };
-   const actualizarPassword = async (datos) => {
+
+    const actualizarPassword = async (datos) => {
         const token = localStorage.getItem('token');
         try {
             if (!auth.token || (!auth.email && !auth._id)) {
@@ -112,8 +145,6 @@ const AuthProvider = ({ children }) => {
                 passwordactual: datos.passwordactual,
                 passwordnuevo: datos.passwordnuevo
             };
-
-            console.log(`[${auth.rol}] Enviando a:`, url, "Datos:", payload);
 
             const options = {
                 headers: {
@@ -206,11 +237,6 @@ const AuthProvider = ({ children }) => {
         } finally {
             setLoading(false);
         }
-    };
-    const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('rol');
-        setAuth({});
     };
 
     useEffect(() => {
