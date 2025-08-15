@@ -65,13 +65,11 @@
 .info-group:hover{
     transform: translateY(-10px);
     border-bottom:  1px solid red ;
-    background-color: #9c59b629;
+    background-color: #00000029;
 }
 
 .info-label {
     font-size: 0.9rem;
-    color: black;
-    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.3rem;
@@ -79,8 +77,7 @@
 
 .info-value {
     font-size: 1.2rem;
-    color: #000000;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .image-frame {

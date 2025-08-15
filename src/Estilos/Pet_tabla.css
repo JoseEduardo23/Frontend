@@ -54,14 +54,14 @@
 
 .pet-card-main-info h3 {
     margin-top: 0;
-    color: #333;
+    color: #000000;
     font-size: 1.3rem;
     font-weight: 900;
 }
 
 .pet-card-main-info p {
     margin: 5px 0;
-    color: #555;
+    color: #000000;
     font-size: 0.9rem;
     font-weight: 900;
 }
@@ -79,7 +79,7 @@
 
 .pet-card-secondary-info p {
     margin: 5px 0;
-    color: #666;
+    color: #000000;
     font-size: 0.9rem;
     font-weight: 900;
 

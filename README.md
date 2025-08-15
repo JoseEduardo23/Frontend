@@ -70,10 +70,10 @@
 
 # 🔅 Documentación del proyecto
 
-- Tesis del proyecto =>
-- Video de la funcionalidad =>
-- Formulario 233 =>
-- Formulario 234 =>
+- Tesis del proyecto => 
+- Video de la funcionalidad => 
+- Formulario 233 => 
+- Formulario 234 => 
 
 
 

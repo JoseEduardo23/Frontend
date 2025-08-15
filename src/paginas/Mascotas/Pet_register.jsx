@@ -97,7 +97,7 @@ const Pet_register = ({ mascota }) => {
             toast.dismiss();
             toast.error("Por favor corrija los errores en el formulario", {
                 toastId: "form-error",
-                autoClose: 3000, 
+                autoClose: 3000,
             });
             return;
         }
@@ -139,7 +139,7 @@ const Pet_register = ({ mascota }) => {
                 const url = `${import.meta.env.VITE_BACKEND_URL}api/mascota/registro`
                 const respuesta = await axios.post(url, formData, { headers })
                 setError(null)
-                toast.success(respuesta.data.msg)
+                toast.success(respuesta.data.msg +' refresque la pantalla')
                 setTimeout(() => {
                     navigate("/users/dashboard/registrar_mascota");
                 }, 2000);
@@ -200,14 +200,33 @@ const Pet_register = ({ mascota }) => {
 
                         <div className="pet-div">
                             <label htmlFor="raza">Raza:</label>
-                            <input type="text"
+                            <select name="raza"
                                 id="raza"
-                                name="raza"
                                 value={form.raza}
                                 onChange={handleChange}
-                                placeholder="Raza de la mascota"
                                 className="pet-input"
-                            />
+                                placeholder="Raza de la mascota"
+                            >
+                                <option value=""> --- Seleccionar ---</option>
+                                <option value="Mestizo">Mestizo (Ninguna)</option>
+                                <option value="Doberman">Doberman</option>
+                                <option value="Labrador Retriver">Labrador Retriver</option>
+                                <option value="Pastor Aleman">Pastor Alemán</option>
+                                <option value="Golden Retriver">Golden Retriver</option>
+                                <option value="Buldog">Buldog</option>
+                                <option value="Beagle">Beagle</option>
+                                <option value="Poodle">Poodle</option>
+                                <option value="Chihuahua">Chihuahua</option>
+                                <option value="Rottweiler">Rottweiler</option>
+                                <option value="Boxer">Boxer</option>
+                                <option value="Husky">Husky</option>
+                                <option value="Salchicha">Salchicha</option>
+                                <option value="Border Collie">Border Collie</option>
+                                <option value="Pug">Pug</option>
+                                <option value="Maltes">Maltés</option>
+                                <option value="Pastor Australiano">Pastor Australiano</option>
+                                <option value="Akita">Akita</option>
+                            </select>
                             {razaError && <p className='error-m' style={{ color: "red", fontSize: "12px" }}>{razaError}</p>}
                         </div>
 
@@ -260,15 +279,25 @@ const Pet_register = ({ mascota }) => {
                         </div>
 
                         <div className="pet-div">
-                            <label htmlFor="peso">Enfermedades:</label>
-                            <input type="text"
+                            <label htmlFor="enfermedades">Enfermedades:</label>
+                            <select name="enfermedades"
                                 id="enfermedades"
-                                name="enfermedades"
                                 value={form.enfermedades}
                                 onChange={handleChange}
-                                placeholder="Tiene enfermedades"
                                 className="pet-input"
-                            />
+                            >
+                                <option value=""> --- Seleccionar ---</option>
+                                <option value="Parvovirus">Parvovirus canino</option>
+                                <option value="Moquillo">Moquillo canino (Distemper)</option>
+                                <option value="Leptospirosis">Leptospirosis</option>
+                                <option value="Rabia">Rabia</option>
+                                <option value="Gastroenteritis">Gastritis / Gastroenteritis</option>
+                                <option value="Otitis">Otitis</option>
+                                <option value="Dermatitis">Dermatitis alérgica</option>
+                                <option value="Artritis">Artritis</option>
+                                <option value="Obesidad">Obesidad</option>
+                                <option value="Insuficiencia Renal">Insuficiencia renal</option>
+                            </select>
                         </div>
 
                         <div className="pet-div">

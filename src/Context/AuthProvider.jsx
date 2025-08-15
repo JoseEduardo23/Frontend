@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
         const activityEvents = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'];
         activityEvents.forEach(event => window.addEventListener(event, resetTimer));
 
-        resetTimer(); // iniciar temporizador
+        resetTimer(); 
 
         return () => {
             activityEvents.forEach(event => window.removeEventListener(event, resetTimer));

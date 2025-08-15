@@ -133,7 +133,6 @@ const ClienteTabla = () => {
                                     <th className='tabla-celda'>N°</th>
                                     <th className='tabla-celda'>Nombre</th>
                                     <th className='tabla-celda'>Apellido</th>
-                                    <th className='tabla-celda'>Dirección</th>
                                     <th className='tabla-celda'>Teléfono</th>
                                     <th className='tabla-celda'>Email</th>
                                     <th className='tabla-celda'>Estado</th>
@@ -146,7 +145,6 @@ const ClienteTabla = () => {
                                         <td className='tabla-celda'>{index + 1}</td>
                                         <td className='tabla-celda'>{usuario.nombre}</td>
                                         <td className='tabla-celda'>{usuario.apellido}</td>
-                                        <td className='tabla-celda'>{usuario.direccion}</td>
                                         <td className='tabla-celda'>{usuario.telefono}</td> 
                                         <td className='tabla-celda'>{usuario.email}</td>
                                         <td className='tabla-celda'>
